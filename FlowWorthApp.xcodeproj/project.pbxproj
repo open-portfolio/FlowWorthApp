@@ -1,0 +1,1396 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4004DAF12715D0B8003D0425 /* GeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4004DAF02715D0B8003D0425 /* GeneralView.swift */; };
+		4004DAF22715D0B8003D0425 /* GeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4004DAF02715D0B8003D0425 /* GeneralView.swift */; };
+		4010657026FE29A00039F2C8 /* BuilderHoldingsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4010656F26FE29A00039F2C8 /* BuilderHoldingsTable.swift */; };
+		4010657126FE29A00039F2C8 /* BuilderHoldingsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4010656F26FE29A00039F2C8 /* BuilderHoldingsTable.swift */; };
+		4010657626FE2D660039F2C8 /* BuilderTxnTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4010657526FE2D660039F2C8 /* BuilderTxnTable.swift */; };
+		4010657726FE2D660039F2C8 /* BuilderTxnTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4010657526FE2D660039F2C8 /* BuilderTxnTable.swift */; };
+		4010657B26FE67410039F2C8 /* BuilderPositionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4010657A26FE67410039F2C8 /* BuilderPositionsView.swift */; };
+		4010657C26FE67410039F2C8 /* BuilderPositionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4010657A26FE67410039F2C8 /* BuilderPositionsView.swift */; };
+		40178827288D76D300ACA723 /* FlowUI in Frameworks */ = {isa = PBXBuildFile; productRef = 40178826288D76D300ACA723 /* FlowUI */; };
+		401CBC492710CF7700942CE2 /* WorthDocument+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401CBC482710CF7700942CE2 /* WorthDocument+Equatable.swift */; };
+		401CBC4A2710CF7700942CE2 /* WorthDocument+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401CBC482710CF7700942CE2 /* WorthDocument+Equatable.swift */; };
+		402BD732277A305A00DF0292 /* StrategySummaryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402BD731277A305A00DF0292 /* StrategySummaryTable.swift */; };
+		402BD733277A305A00DF0292 /* StrategySummaryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402BD731277A305A00DF0292 /* StrategySummaryTable.swift */; };
+		402BD737277A36CE00DF0292 /* StrategyDietzSummaryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402BD734277A309C00DF0292 /* StrategyDietzSummaryTable.swift */; };
+		402BD738277A36CF00DF0292 /* StrategyDietzSummaryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402BD734277A309C00DF0292 /* StrategyDietzSummaryTable.swift */; };
+		402BD739277A36D300DF0292 /* StrategyDeltaSummaryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402BD735277A30AC00DF0292 /* StrategyDeltaSummaryTable.swift */; };
+		402BD73A277A36D400DF0292 /* StrategyDeltaSummaryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402BD735277A30AC00DF0292 /* StrategyDeltaSummaryTable.swift */; };
+		402BD73B277A36D900DF0292 /* StrategyBasisSummaryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402BD736277A30C100DF0292 /* StrategyBasisSummaryTable.swift */; };
+		402BD73C277A36D900DF0292 /* StrategyBasisSummaryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402BD736277A30C100DF0292 /* StrategyBasisSummaryTable.swift */; };
+		402DB75626E8729D00596831 /* ReturnsFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402DB75526E8729D00596831 /* ReturnsFooter.swift */; };
+		402DB75726E8729D00596831 /* ReturnsFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402DB75526E8729D00596831 /* ReturnsFooter.swift */; };
+		402EDA152765726700E89393 /* LegendBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402EDA142765726700E89393 /* LegendBar.swift */; };
+		402EDA162765726700E89393 /* LegendBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402EDA142765726700E89393 /* LegendBar.swift */; };
+		40323D8926F1B6170029F7B7 /* ForecastResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40323D8826F1B6170029F7B7 /* ForecastResult.swift */; };
+		40323D8A26F1B6170029F7B7 /* ForecastResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40323D8826F1B6170029F7B7 /* ForecastResult.swift */; };
+		40323D8C26F23EA40029F7B7 /* ForecastChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40323D8B26F23EA40029F7B7 /* ForecastChart.swift */; };
+		40323D8D26F23EA40029F7B7 /* ForecastChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40323D8B26F23EA40029F7B7 /* ForecastChart.swift */; };
+		40323D8F26F2439A0029F7B7 /* SnapshotChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40323D8E26F2439A0029F7B7 /* SnapshotChart.swift */; };
+		40323D9026F2439A0029F7B7 /* SnapshotChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40323D8E26F2439A0029F7B7 /* SnapshotChart.swift */; };
+		40323D9826F4F0B50029F7B7 /* ForecastSecondary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40323D9726F4F0B50029F7B7 /* ForecastSecondary.swift */; };
+		40323D9926F4F0B50029F7B7 /* ForecastSecondary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40323D9726F4F0B50029F7B7 /* ForecastSecondary.swift */; };
+		40323D9B26F4FA140029F7B7 /* ForecastTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40323D9A26F4FA140029F7B7 /* ForecastTable.swift */; };
+		40323D9C26F4FA140029F7B7 /* ForecastTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40323D9A26F4FA140029F7B7 /* ForecastTable.swift */; };
+		40323D9E26F55A830029F7B7 /* DietzSecondary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40323D9D26F55A830029F7B7 /* DietzSecondary.swift */; };
+		40323D9F26F55A830029F7B7 /* DietzSecondary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40323D9D26F55A830029F7B7 /* DietzSecondary.swift */; };
+		40323DA126F55B170029F7B7 /* DeltaSecondary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40323DA026F55B170029F7B7 /* DeltaSecondary.swift */; };
+		40323DA226F55B170029F7B7 /* DeltaSecondary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40323DA026F55B170029F7B7 /* DeltaSecondary.swift */; };
+		4032B57026DAEDCF00B1FCA6 /* BuilderCashflowTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032B56F26DAEDCF00B1FCA6 /* BuilderCashflowTable.swift */; };
+		4032B57126DAEDCF00B1FCA6 /* BuilderCashflowTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032B56F26DAEDCF00B1FCA6 /* BuilderCashflowTable.swift */; };
+		4032B57626DB06DC00B1FCA6 /* BuilderPositionsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032B57526DB06DC00B1FCA6 /* BuilderPositionsTable.swift */; };
+		4032B57726DB06DC00B1FCA6 /* BuilderPositionsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032B57526DB06DC00B1FCA6 /* BuilderPositionsTable.swift */; };
+		4037883E273EDA3F0033D830 /* ReturnsExtentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4037883D273EDA3F0033D830 /* ReturnsExtentPicker.swift */; };
+		4037883F273EDA3F0033D830 /* ReturnsExtentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4037883D273EDA3F0033D830 /* ReturnsExtentPicker.swift */; };
+		403CBFCC26FAFB9200FDDE0D /* BuilderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403CBFCB26FAFB9200FDDE0D /* BuilderFooter.swift */; };
+		403CBFCD26FAFB9200FDDE0D /* BuilderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403CBFCB26FAFB9200FDDE0D /* BuilderFooter.swift */; };
+		403CBFD226FB05B500FDDE0D /* Notification-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403CBFD126FB05B500FDDE0D /* Notification-extension.swift */; };
+		403CBFD326FB05B500FDDE0D /* Notification-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403CBFD126FB05B500FDDE0D /* Notification-extension.swift */; };
+		4045C0ED26EDB1460084933D /* BaseReturnsSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4045C0EC26EDB1460084933D /* BaseReturnsSummary.swift */; };
+		4045C0EE26EDB1460084933D /* BaseReturnsSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4045C0EC26EDB1460084933D /* BaseReturnsSummary.swift */; };
+		404F0C46288DF0C900ACBE94 /* FlowWorthLib in Frameworks */ = {isa = PBXBuildFile; productRef = 404F0C45288DF0C900ACBE94 /* FlowWorthLib */; };
+		4055B17A2715E5DE00E6705B /* WorthDocument+KeyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4055B1792715E5DE00E6705B /* WorthDocument+KeyWindow.swift */; };
+		4055B17B2715E5DE00E6705B /* WorthDocument+KeyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4055B1792715E5DE00E6705B /* WorthDocument+KeyWindow.swift */; };
+		405A199D26BC6DFB00FB5265 /* FlowWorthLib in Frameworks */ = {isa = PBXBuildFile; productRef = 405A199C26BC6DFB00FB5265 /* FlowWorthLib */; };
+		405A19B526BD004300FB5265 /* ImportCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405A19B226BD004300FB5265 /* ImportCommand.swift */; };
+		405A19B626BD004300FB5265 /* ImportCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405A19B226BD004300FB5265 /* ImportCommand.swift */; };
+		405B29E726DC13B700A99303 /* PrimaryReturns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B29E626DC13B700A99303 /* PrimaryReturns.swift */; };
+		405B29E826DC13B700A99303 /* PrimaryReturns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B29E626DC13B700A99303 /* PrimaryReturns.swift */; };
+		4068F75226BBA5B4001E5D2C /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4068F75126BBA5B4001E5D2C /* Tests_iOS.swift */; };
+		4068F75D26BBA5B4001E5D2C /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4068F75C26BBA5B4001E5D2C /* Tests_macOS.swift */; };
+		4068F75F26BBA5B4001E5D2C /* WorthApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4068F73526BBA5B3001E5D2C /* WorthApp.swift */; };
+		4068F76026BBA5B4001E5D2C /* WorthApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4068F73526BBA5B3001E5D2C /* WorthApp.swift */; };
+		4068F76126BBA5B4001E5D2C /* WorthDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4068F73626BBA5B3001E5D2C /* WorthDocument.swift */; };
+		4068F76226BBA5B4001E5D2C /* WorthDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4068F73626BBA5B3001E5D2C /* WorthDocument.swift */; };
+		4068F76326BBA5B4001E5D2C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4068F73726BBA5B3001E5D2C /* ContentView.swift */; };
+		4068F76426BBA5B4001E5D2C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4068F73726BBA5B3001E5D2C /* ContentView.swift */; };
+		4068F76526BBA5B4001E5D2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4068F73826BBA5B4001E5D2C /* Assets.xcassets */; };
+		406DE51E2700E8A100D60F5E /* BuilderCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406DE51D2700E8A100D60F5E /* BuilderCommand.swift */; };
+		406DE51F2700E8A100D60F5E /* BuilderCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406DE51D2700E8A100D60F5E /* BuilderCommand.swift */; };
+		407463972753631E00D6D0DB /* WorthDocument+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407463962753631E00D6D0DB /* WorthDocument+Colors.swift */; };
+		407463982753631E00D6D0DB /* WorthDocument+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407463962753631E00D6D0DB /* WorthDocument+Colors.swift */; };
+		4074639D27541C3F00D6D0DB /* ReturnsColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074639C27541C3F00D6D0DB /* ReturnsColorPicker.swift */; };
+		4074639E27541C3F00D6D0DB /* ReturnsColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074639C27541C3F00D6D0DB /* ReturnsColorPicker.swift */; };
+		4077C87E272142AB008732A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4068F73826BBA5B4001E5D2C /* Assets.xcassets */; };
+		4077C880272142FB008732A8 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 4077C87F272142FB008732A8 /* Credits.rtf */; };
+		40938CD926F5786000D815BA /* DeltaSnapshotTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40938CD826F5786000D815BA /* DeltaSnapshotTable.swift */; };
+		40938CDA26F5786000D815BA /* DeltaSnapshotTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40938CD826F5786000D815BA /* DeltaSnapshotTable.swift */; };
+		40938CDC26F6455800D815BA /* DietzSnapshotTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40938CDB26F6455800D815BA /* DietzSnapshotTable.swift */; };
+		40938CDD26F6455800D815BA /* DietzSnapshotTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40938CDB26F6455800D815BA /* DietzSnapshotTable.swift */; };
+		409A0F0026EEC34300E2EE51 /* ForecastChartBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409A0EFF26EEC34300E2EE51 /* ForecastChartBody.swift */; };
+		409A0F0126EEC34300E2EE51 /* ForecastChartBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409A0EFF26EEC34300E2EE51 /* ForecastChartBody.swift */; };
+		409FC32F2700C4DA00C7C7BD /* AccountCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409FC32E2700C4DA00C7C7BD /* AccountCommand.swift */; };
+		409FC3302700C4DA00C7C7BD /* AccountCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409FC32E2700C4DA00C7C7BD /* AccountCommand.swift */; };
+		409FC3322700C51800C7C7BD /* SettingsMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409FC3312700C51800C7C7BD /* SettingsMenuItem.swift */; };
+		409FC3332700C51800C7C7BD /* SettingsMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409FC3312700C51800C7C7BD /* SettingsMenuItem.swift */; };
+		409FC3352700C60900C7C7BD /* StrategyCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409FC3342700C60900C7C7BD /* StrategyCommand.swift */; };
+		409FC3362700C60900C7C7BD /* StrategyCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409FC3342700C60900C7C7BD /* StrategyCommand.swift */; };
+		409FC3382700C6DC00C7C7BD /* ViewCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409FC3372700C6DC00C7C7BD /* ViewCommand.swift */; };
+		409FC3392700C6DC00C7C7BD /* ViewCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409FC3372700C6DC00C7C7BD /* ViewCommand.swift */; };
+		409FC33B2700C7D900C7C7BD /* WorthDocument+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409FC33A2700C7D900C7C7BD /* WorthDocument+Helpers.swift */; };
+		409FC33C2700C7D900C7C7BD /* WorthDocument+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409FC33A2700C7D900C7C7BD /* WorthDocument+Helpers.swift */; };
+		409FC33E2700D51800C7C7BD /* ReturnsCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409FC33D2700D51800C7C7BD /* ReturnsCommand.swift */; };
+		409FC33F2700D51800C7C7BD /* ReturnsCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409FC33D2700D51800C7C7BD /* ReturnsCommand.swift */; };
+		40AB8D7026C5816B003FF1A9 /* GettingStarted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AB8D6F26C5816B003FF1A9 /* GettingStarted.swift */; };
+		40AB8D7226C58260003FF1A9 /* GettingStarted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AB8D6F26C5816B003FF1A9 /* GettingStarted.swift */; };
+		40AB8D7526C5C191003FF1A9 /* AccountSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AB8D7426C5C191003FF1A9 /* AccountSummary.swift */; };
+		40AB8D7626C5C191003FF1A9 /* AccountSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AB8D7426C5C191003FF1A9 /* AccountSummary.swift */; };
+		40AB8D8526C62BE1003FF1A9 /* WorthSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AB8D8426C62BE1003FF1A9 /* WorthSidebar.swift */; };
+		40AB8D8626C62BE1003FF1A9 /* WorthSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AB8D8426C62BE1003FF1A9 /* WorthSidebar.swift */; };
+		40ABC638271DD155000708F8 /* PeriodSummarySelectionPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABC637271DD155000708F8 /* PeriodSummarySelectionPicker.swift */; };
+		40ABC639271DD155000708F8 /* PeriodSummarySelectionPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABC637271DD155000708F8 /* PeriodSummarySelectionPicker.swift */; };
+		40ABC63B271E1D0E000708F8 /* AccountBasisSummaryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABC63A271E1D0E000708F8 /* AccountBasisSummaryTable.swift */; };
+		40ABC63C271E1D0E000708F8 /* AccountBasisSummaryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABC63A271E1D0E000708F8 /* AccountBasisSummaryTable.swift */; };
+		40ABC63E271E23E0000708F8 /* AssetBasisSummaryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABC63D271E23E0000708F8 /* AssetBasisSummaryTable.swift */; };
+		40ABC63F271E23E0000708F8 /* AssetBasisSummaryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABC63D271E23E0000708F8 /* AssetBasisSummaryTable.swift */; };
+		40ABC641271E2AB9000708F8 /* AssetSummaryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABC640271E2AB9000708F8 /* AssetSummaryTable.swift */; };
+		40ABC642271E2AB9000708F8 /* AssetSummaryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABC640271E2AB9000708F8 /* AssetSummaryTable.swift */; };
+		40ABC644271E2AC1000708F8 /* AccountSummaryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABC643271E2AC1000708F8 /* AccountSummaryTable.swift */; };
+		40ABC645271E2AC1000708F8 /* AccountSummaryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABC643271E2AC1000708F8 /* AccountSummaryTable.swift */; };
+		40ABC648271E473F000708F8 /* BuilderSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABC647271E473F000708F8 /* BuilderSummaryView.swift */; };
+		40ABC649271E473F000708F8 /* BuilderSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABC647271E473F000708F8 /* BuilderSummaryView.swift */; };
+		40ABC64B271E4A0C000708F8 /* BaseBuilderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABC64A271E4A0C000708F8 /* BaseBuilderView.swift */; };
+		40ABC64C271E4A0C000708F8 /* BaseBuilderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABC64A271E4A0C000708F8 /* BaseBuilderView.swift */; };
+		40ABC64E271E5293000708F8 /* WorthDocument+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABC64D271E5293000708F8 /* WorthDocument+Constants.swift */; };
+		40ABC64F271E5293000708F8 /* WorthDocument+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABC64D271E5293000708F8 /* WorthDocument+Constants.swift */; };
+		40ABC651271EA103000708F8 /* BuilderSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABC650271EA103000708F8 /* BuilderSection.swift */; };
+		40ABC652271EA103000708F8 /* BuilderSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABC650271EA103000708F8 /* BuilderSection.swift */; };
+		40ABC654271EA20B000708F8 /* BirdsEyeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABC653271EA20B000708F8 /* BirdsEyeSection.swift */; };
+		40ABC655271EA20B000708F8 /* BirdsEyeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABC653271EA20B000708F8 /* BirdsEyeSection.swift */; };
+		40ABC658271EA347000708F8 /* SnapshotsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABC657271EA347000708F8 /* SnapshotsSection.swift */; };
+		40ABC659271EA347000708F8 /* SnapshotsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABC657271EA347000708F8 /* SnapshotsSection.swift */; };
+		40C2762326C04D6A0055B1C0 /* WorthDocument+Refresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2762226C04D6A0055B1C0 /* WorthDocument+Refresh.swift */; };
+		40C2762426C04D6A0055B1C0 /* WorthDocument+Refresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2762226C04D6A0055B1C0 /* WorthDocument+Refresh.swift */; };
+		40C462E526E4707000BC68F0 /* SecondaryReturns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C462E426E4707000BC68F0 /* SecondaryReturns.swift */; };
+		40C462E626E4707000BC68F0 /* SecondaryReturns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C462E426E4707000BC68F0 /* SecondaryReturns.swift */; };
+		40C462E826E5186500BC68F0 /* ReturnsChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C462E726E5186500BC68F0 /* ReturnsChart.swift */; };
+		40C462E926E5186500BC68F0 /* ReturnsChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C462E726E5186500BC68F0 /* ReturnsChart.swift */; };
+		40C462F126E6CB6B00BC68F0 /* MatrixResult+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C462F026E6CB6B00BC68F0 /* MatrixResult+Utils.swift */; };
+		40C462F226E6CB6B00BC68F0 /* MatrixResult+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C462F026E6CB6B00BC68F0 /* MatrixResult+Utils.swift */; };
+		40C462F726E6F48300BC68F0 /* AssetsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C462F626E6F48300BC68F0 /* AssetsList.swift */; };
+		40C462F826E6F48300BC68F0 /* AssetsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C462F626E6F48300BC68F0 /* AssetsList.swift */; };
+		40C462FA26E6F48D00BC68F0 /* AccountsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C462F926E6F48D00BC68F0 /* AccountsList.swift */; };
+		40C462FB26E6F48D00BC68F0 /* AccountsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C462F926E6F48D00BC68F0 /* AccountsList.swift */; };
+		40CC63502713A7E700C92B53 /* BuilderCashflowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC634F2713A7E700C92B53 /* BuilderCashflowView.swift */; };
+		40CC63512713A7E700C92B53 /* BuilderCashflowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC634F2713A7E700C92B53 /* BuilderCashflowView.swift */; };
+		40D20E9826DDE26000B4D6BF /* SnapshotNavPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D20E9726DDE26000B4D6BF /* SnapshotNavPicker.swift */; };
+		40D20E9926DDE26000B4D6BF /* SnapshotNavPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D20E9726DDE26000B4D6BF /* SnapshotNavPicker.swift */; };
+		40D3C95427A44670005D6662 /* ValuationPositionTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3C95127A44670005D6662 /* ValuationPositionTable.swift */; };
+		40D3C95527A44670005D6662 /* ValuationPositionTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3C95127A44670005D6662 /* ValuationPositionTable.swift */; };
+		40D3C95627A44670005D6662 /* ValuationCashflowTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3C95227A44670005D6662 /* ValuationCashflowTable.swift */; };
+		40D3C95727A44670005D6662 /* ValuationCashflowTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3C95227A44670005D6662 /* ValuationCashflowTable.swift */; };
+		40D3C95827A44670005D6662 /* ValuationSnapshotTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3C95327A44670005D6662 /* ValuationSnapshotTable.swift */; };
+		40D3C95927A44670005D6662 /* ValuationSnapshotTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3C95327A44670005D6662 /* ValuationSnapshotTable.swift */; };
+		40D99741288DF5E20075CD6C /* FlowUI in Frameworks */ = {isa = PBXBuildFile; productRef = 40D99740288DF5E20075CD6C /* FlowUI */; };
+		40D99743288DF5F60075CD6C /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 40D99742288DF5F60075CD6C /* Charts */; };
+		40E52DBA2741B3C100322EA7 /* PeriodSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E52DB92741B3C100322EA7 /* PeriodSummary.swift */; };
+		40E52DBB2741B3C100322EA7 /* PeriodSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E52DB92741B3C100322EA7 /* PeriodSummary.swift */; };
+		40EDD47F26EBFCC300CA53AC /* ReturnsChartBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EDD47E26EBFCC300CA53AC /* ReturnsChartBody.swift */; };
+		40EDD48026EBFCC300CA53AC /* ReturnsChartBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EDD47E26EBFCC300CA53AC /* ReturnsChartBody.swift */; };
+		40EDD48526EC19D300CA53AC /* ReturnsGroupingPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EDD48426EC19D300CA53AC /* ReturnsGroupingPicker.swift */; };
+		40EDD48626EC19D300CA53AC /* ReturnsGroupingPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EDD48426EC19D300CA53AC /* ReturnsGroupingPicker.swift */; };
+		40F90EC027A8C9A800A6D4A2 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 40F90EBF27A8C9A800A6D4A2 /* Charts */; };
+		40FC84E0271BDC8D005C900F /* AssetDeltaSummaryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FC84DF271BDC8D005C900F /* AssetDeltaSummaryTable.swift */; };
+		40FC84E1271BDC8D005C900F /* AssetDeltaSummaryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FC84DF271BDC8D005C900F /* AssetDeltaSummaryTable.swift */; };
+		40FC84E7271BE8D8005C900F /* AssetDietzSummaryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FC84E6271BE8D8005C900F /* AssetDietzSummaryTable.swift */; };
+		40FC84E8271BE8D8005C900F /* AssetDietzSummaryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FC84E6271BE8D8005C900F /* AssetDietzSummaryTable.swift */; };
+		40FC84EA271BEF37005C900F /* AccountDietzSummaryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FC84E9271BEF37005C900F /* AccountDietzSummaryTable.swift */; };
+		40FC84EB271BEF37005C900F /* AccountDietzSummaryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FC84E9271BEF37005C900F /* AccountDietzSummaryTable.swift */; };
+		40FC84ED271BF0B2005C900F /* AccountDeltaSummaryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FC84EC271BEF4D005C900F /* AccountDeltaSummaryTable.swift */; };
+		40FC84EE271BF0B3005C900F /* AccountDeltaSummaryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FC84EC271BEF4D005C900F /* AccountDeltaSummaryTable.swift */; };
+		40FD743626FED46800E5B446 /* SummarySnapshotPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD743526FED46800E5B446 /* SummarySnapshotPicker.swift */; };
+		40FD743726FED46800E5B446 /* SummarySnapshotPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD743526FED46800E5B446 /* SummarySnapshotPicker.swift */; };
+		40FD743926FEEB9100E5B446 /* SnapshotSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD743826FEEB9100E5B446 /* SnapshotSummary.swift */; };
+		40FD743A26FEEB9100E5B446 /* SnapshotSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD743826FEEB9100E5B446 /* SnapshotSummary.swift */; };
+		40FD743C26FEEED600E5B446 /* SummaryFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD743B26FEECB800E5B446 /* SummaryFooter.swift */; };
+		40FD743D26FEEED700E5B446 /* SummaryFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD743B26FEECB800E5B446 /* SummaryFooter.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4068F74E26BBA5B4001E5D2C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4068F73026BBA5B3001E5D2C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4068F73C26BBA5B4001E5D2C;
+			remoteInfo = "FlowWorth (iOS)";
+		};
+		4068F75926BBA5B4001E5D2C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4068F73026BBA5B3001E5D2C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4068F74426BBA5B4001E5D2C;
+			remoteInfo = "FlowWorth (macOS)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4004DAF02715D0B8003D0425 /* GeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralView.swift; sourceTree = "<group>"; };
+		4010656F26FE29A00039F2C8 /* BuilderHoldingsTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuilderHoldingsTable.swift; sourceTree = "<group>"; };
+		4010657526FE2D660039F2C8 /* BuilderTxnTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuilderTxnTable.swift; sourceTree = "<group>"; };
+		4010657A26FE67410039F2C8 /* BuilderPositionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuilderPositionsView.swift; sourceTree = "<group>"; };
+		401CBC482710CF7700942CE2 /* WorthDocument+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorthDocument+Equatable.swift"; sourceTree = "<group>"; };
+		402BD731277A305A00DF0292 /* StrategySummaryTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategySummaryTable.swift; sourceTree = "<group>"; };
+		402BD734277A309C00DF0292 /* StrategyDietzSummaryTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyDietzSummaryTable.swift; sourceTree = "<group>"; };
+		402BD735277A30AC00DF0292 /* StrategyDeltaSummaryTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyDeltaSummaryTable.swift; sourceTree = "<group>"; };
+		402BD736277A30C100DF0292 /* StrategyBasisSummaryTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyBasisSummaryTable.swift; sourceTree = "<group>"; };
+		402DB75526E8729D00596831 /* ReturnsFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnsFooter.swift; sourceTree = "<group>"; };
+		402EDA142765726700E89393 /* LegendBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendBar.swift; sourceTree = "<group>"; };
+		40323D8826F1B6170029F7B7 /* ForecastResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastResult.swift; sourceTree = "<group>"; };
+		40323D8B26F23EA40029F7B7 /* ForecastChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastChart.swift; sourceTree = "<group>"; };
+		40323D8E26F2439A0029F7B7 /* SnapshotChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotChart.swift; sourceTree = "<group>"; };
+		40323D9726F4F0B50029F7B7 /* ForecastSecondary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastSecondary.swift; sourceTree = "<group>"; };
+		40323D9A26F4FA140029F7B7 /* ForecastTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastTable.swift; sourceTree = "<group>"; };
+		40323D9D26F55A830029F7B7 /* DietzSecondary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietzSecondary.swift; sourceTree = "<group>"; };
+		40323DA026F55B170029F7B7 /* DeltaSecondary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeltaSecondary.swift; sourceTree = "<group>"; };
+		4032B56F26DAEDCF00B1FCA6 /* BuilderCashflowTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuilderCashflowTable.swift; sourceTree = "<group>"; };
+		4032B57526DB06DC00B1FCA6 /* BuilderPositionsTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuilderPositionsTable.swift; sourceTree = "<group>"; };
+		4037883D273EDA3F0033D830 /* ReturnsExtentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnsExtentPicker.swift; sourceTree = "<group>"; };
+		403CBFCB26FAFB9200FDDE0D /* BuilderFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuilderFooter.swift; sourceTree = "<group>"; };
+		403CBFD126FB05B500FDDE0D /* Notification-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification-extension.swift"; sourceTree = "<group>"; };
+		4045C0EC26EDB1460084933D /* BaseReturnsSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseReturnsSummary.swift; sourceTree = "<group>"; };
+		4055B1792715E5DE00E6705B /* WorthDocument+KeyWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorthDocument+KeyWindow.swift"; sourceTree = "<group>"; };
+		405A19B226BD004300FB5265 /* ImportCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportCommand.swift; sourceTree = "<group>"; };
+		405B29E626DC13B700A99303 /* PrimaryReturns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryReturns.swift; sourceTree = "<group>"; };
+		4068F73526BBA5B3001E5D2C /* WorthApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorthApp.swift; sourceTree = "<group>"; };
+		4068F73626BBA5B3001E5D2C /* WorthDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorthDocument.swift; sourceTree = "<group>"; };
+		4068F73726BBA5B3001E5D2C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4068F73826BBA5B4001E5D2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4068F73D26BBA5B4001E5D2C /* FlowWorthApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowWorthApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4068F74026BBA5B4001E5D2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4068F74526BBA5B4001E5D2C /* FlowWorthApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowWorthApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4068F74726BBA5B4001E5D2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4068F74826BBA5B4001E5D2C /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		4068F74D26BBA5B4001E5D2C /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4068F75126BBA5B4001E5D2C /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
+		4068F75326BBA5B4001E5D2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4068F75826BBA5B4001E5D2C /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4068F75C26BBA5B4001E5D2C /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
+		4068F75E26BBA5B4001E5D2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		406DE51D2700E8A100D60F5E /* BuilderCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuilderCommand.swift; sourceTree = "<group>"; };
+		407463962753631E00D6D0DB /* WorthDocument+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorthDocument+Colors.swift"; sourceTree = "<group>"; };
+		4074639C27541C3F00D6D0DB /* ReturnsColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnsColorPicker.swift; sourceTree = "<group>"; };
+		4077C87F272142FB008732A8 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
+		40938CD826F5786000D815BA /* DeltaSnapshotTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeltaSnapshotTable.swift; sourceTree = "<group>"; };
+		40938CDB26F6455800D815BA /* DietzSnapshotTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietzSnapshotTable.swift; sourceTree = "<group>"; };
+		409A0EFF26EEC34300E2EE51 /* ForecastChartBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastChartBody.swift; sourceTree = "<group>"; };
+		409FC32E2700C4DA00C7C7BD /* AccountCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCommand.swift; sourceTree = "<group>"; };
+		409FC3312700C51800C7C7BD /* SettingsMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsMenuItem.swift; sourceTree = "<group>"; };
+		409FC3342700C60900C7C7BD /* StrategyCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrategyCommand.swift; sourceTree = "<group>"; };
+		409FC3372700C6DC00C7C7BD /* ViewCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewCommand.swift; sourceTree = "<group>"; };
+		409FC33A2700C7D900C7C7BD /* WorthDocument+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorthDocument+Helpers.swift"; sourceTree = "<group>"; };
+		409FC33D2700D51800C7C7BD /* ReturnsCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnsCommand.swift; sourceTree = "<group>"; };
+		40AB8D6F26C5816B003FF1A9 /* GettingStarted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GettingStarted.swift; sourceTree = "<group>"; };
+		40AB8D7426C5C191003FF1A9 /* AccountSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummary.swift; sourceTree = "<group>"; };
+		40AB8D8426C62BE1003FF1A9 /* WorthSidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorthSidebar.swift; sourceTree = "<group>"; };
+		40ABC637271DD155000708F8 /* PeriodSummarySelectionPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodSummarySelectionPicker.swift; sourceTree = "<group>"; };
+		40ABC63A271E1D0E000708F8 /* AccountBasisSummaryTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountBasisSummaryTable.swift; sourceTree = "<group>"; };
+		40ABC63D271E23E0000708F8 /* AssetBasisSummaryTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetBasisSummaryTable.swift; sourceTree = "<group>"; };
+		40ABC640271E2AB9000708F8 /* AssetSummaryTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetSummaryTable.swift; sourceTree = "<group>"; };
+		40ABC643271E2AC1000708F8 /* AccountSummaryTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryTable.swift; sourceTree = "<group>"; };
+		40ABC647271E473F000708F8 /* BuilderSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuilderSummaryView.swift; sourceTree = "<group>"; };
+		40ABC64A271E4A0C000708F8 /* BaseBuilderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBuilderView.swift; sourceTree = "<group>"; };
+		40ABC64D271E5293000708F8 /* WorthDocument+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorthDocument+Constants.swift"; sourceTree = "<group>"; };
+		40ABC650271EA103000708F8 /* BuilderSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuilderSection.swift; sourceTree = "<group>"; };
+		40ABC653271EA20B000708F8 /* BirdsEyeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdsEyeSection.swift; sourceTree = "<group>"; };
+		40ABC657271EA347000708F8 /* SnapshotsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotsSection.swift; sourceTree = "<group>"; };
+		40C2762226C04D6A0055B1C0 /* WorthDocument+Refresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorthDocument+Refresh.swift"; sourceTree = "<group>"; };
+		40C462E426E4707000BC68F0 /* SecondaryReturns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryReturns.swift; sourceTree = "<group>"; };
+		40C462E726E5186500BC68F0 /* ReturnsChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnsChart.swift; sourceTree = "<group>"; };
+		40C462F026E6CB6B00BC68F0 /* MatrixResult+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MatrixResult+Utils.swift"; sourceTree = "<group>"; };
+		40C462F626E6F48300BC68F0 /* AssetsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsList.swift; sourceTree = "<group>"; };
+		40C462F926E6F48D00BC68F0 /* AccountsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsList.swift; sourceTree = "<group>"; };
+		40CC634F2713A7E700C92B53 /* BuilderCashflowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuilderCashflowView.swift; sourceTree = "<group>"; };
+		40D20E9726DDE26000B4D6BF /* SnapshotNavPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotNavPicker.swift; sourceTree = "<group>"; };
+		40D3C95127A44670005D6662 /* ValuationPositionTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValuationPositionTable.swift; sourceTree = "<group>"; };
+		40D3C95227A44670005D6662 /* ValuationCashflowTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValuationCashflowTable.swift; sourceTree = "<group>"; };
+		40D3C95327A44670005D6662 /* ValuationSnapshotTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValuationSnapshotTable.swift; sourceTree = "<group>"; };
+		40E52DB92741B3C100322EA7 /* PeriodSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodSummary.swift; sourceTree = "<group>"; };
+		40EDD47E26EBFCC300CA53AC /* ReturnsChartBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnsChartBody.swift; sourceTree = "<group>"; };
+		40EDD48426EC19D300CA53AC /* ReturnsGroupingPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnsGroupingPicker.swift; sourceTree = "<group>"; };
+		40FC84DF271BDC8D005C900F /* AssetDeltaSummaryTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDeltaSummaryTable.swift; sourceTree = "<group>"; };
+		40FC84E6271BE8D8005C900F /* AssetDietzSummaryTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDietzSummaryTable.swift; sourceTree = "<group>"; };
+		40FC84E9271BEF37005C900F /* AccountDietzSummaryTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDietzSummaryTable.swift; sourceTree = "<group>"; };
+		40FC84EC271BEF4D005C900F /* AccountDeltaSummaryTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDeltaSummaryTable.swift; sourceTree = "<group>"; };
+		40FD743526FED46800E5B446 /* SummarySnapshotPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummarySnapshotPicker.swift; sourceTree = "<group>"; };
+		40FD743826FEEB9100E5B446 /* SnapshotSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotSummary.swift; sourceTree = "<group>"; };
+		40FD743B26FEECB800E5B446 /* SummaryFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryFooter.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4068F73A26BBA5B4001E5D2C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40D99741288DF5E20075CD6C /* FlowUI in Frameworks */,
+				40D99743288DF5F60075CD6C /* Charts in Frameworks */,
+				405A199D26BC6DFB00FB5265 /* FlowWorthLib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4068F74226BBA5B4001E5D2C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40F90EC027A8C9A800A6D4A2 /* Charts in Frameworks */,
+				40178827288D76D300ACA723 /* FlowUI in Frameworks */,
+				404F0C46288DF0C900ACBE94 /* FlowWorthLib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4068F74A26BBA5B4001E5D2C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4068F75526BBA5B4001E5D2C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4004DAEF2715D07D003D0425 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				4004DAF02715D0B8003D0425 /* GeneralView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		402DB75126E7BF2100596831 /* Primary */ = {
+			isa = PBXGroup;
+			children = (
+				405B29E626DC13B700A99303 /* PrimaryReturns.swift */,
+				40C462E726E5186500BC68F0 /* ReturnsChart.swift */,
+				40323D8B26F23EA40029F7B7 /* ForecastChart.swift */,
+				402DB75526E8729D00596831 /* ReturnsFooter.swift */,
+			);
+			path = Primary;
+			sourceTree = "<group>";
+		};
+		4045C0F026EDB6820084933D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4037883D273EDA3F0033D830 /* ReturnsExtentPicker.swift */,
+				40ABC637271DD155000708F8 /* PeriodSummarySelectionPicker.swift */,
+				4074639C27541C3F00D6D0DB /* ReturnsColorPicker.swift */,
+				40EDD48426EC19D300CA53AC /* ReturnsGroupingPicker.swift */,
+				40D20E9726DDE26000B4D6BF /* SnapshotNavPicker.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		4045C0F226EDBA940084933D /* Secondary */ = {
+			isa = PBXGroup;
+			children = (
+				40C462E426E4707000BC68F0 /* SecondaryReturns.swift */,
+				40C462F926E6F48D00BC68F0 /* AccountsList.swift */,
+				40C462F626E6F48300BC68F0 /* AssetsList.swift */,
+				40323DA026F55B170029F7B7 /* DeltaSecondary.swift */,
+				40323D9D26F55A830029F7B7 /* DietzSecondary.swift */,
+				40323D9726F4F0B50029F7B7 /* ForecastSecondary.swift */,
+				40323D9A26F4FA140029F7B7 /* ForecastTable.swift */,
+				40938CD826F5786000D815BA /* DeltaSnapshotTable.swift */,
+				40938CDB26F6455800D815BA /* DietzSnapshotTable.swift */,
+			);
+			path = Secondary;
+			sourceTree = "<group>";
+		};
+		4045C0F426EDBB620084933D /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				40AB8D7426C5C191003FF1A9 /* AccountSummary.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		405A199326BC6C9300FB5265 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				40C462F026E6CB6B00BC68F0 /* MatrixResult+Utils.swift */,
+				40323D8826F1B6170029F7B7 /* ForecastResult.swift */,
+				403CBFD126FB05B500FDDE0D /* Notification-extension.swift */,
+				40E52DB92741B3C100322EA7 /* PeriodSummary.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		405A19A826BCFBD400FB5265 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4068F73726BBA5B3001E5D2C /* ContentView.swift */,
+				40D3C94527A4463B005D6662 /* Model */,
+				40EDD48726EC256300CA53AC /* Helpers */,
+				405B29E926DC13BB00A99303 /* Returns */,
+				40FD743126FEA71100E5B446 /* Snapshots */,
+				40AB8D8726C6B9FF003FF1A9 /* Builder */,
+				40AB8D8026C61E8D003FF1A9 /* Sidebar */,
+				40ABC636271DCB19000708F8 /* Tables */,
+				40AB8D6E26C5815F003FF1A9 /* Welcome */,
+				4004DAEF2715D07D003D0425 /* Settings */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		405A19A926BCFBEF00FB5265 /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				4068F73626BBA5B3001E5D2C /* WorthDocument.swift */,
+				40C2762226C04D6A0055B1C0 /* WorthDocument+Refresh.swift */,
+				409FC33A2700C7D900C7C7BD /* WorthDocument+Helpers.swift */,
+				401CBC482710CF7700942CE2 /* WorthDocument+Equatable.swift */,
+				4055B1792715E5DE00E6705B /* WorthDocument+KeyWindow.swift */,
+				40ABC64D271E5293000708F8 /* WorthDocument+Constants.swift */,
+				407463962753631E00D6D0DB /* WorthDocument+Colors.swift */,
+			);
+			path = Document;
+			sourceTree = "<group>";
+		};
+		405A19B026BD002A00FB5265 /* Commands */ = {
+			isa = PBXGroup;
+			children = (
+				409FC32E2700C4DA00C7C7BD /* AccountCommand.swift */,
+				405A19B226BD004300FB5265 /* ImportCommand.swift */,
+				409FC33D2700D51800C7C7BD /* ReturnsCommand.swift */,
+				409FC3312700C51800C7C7BD /* SettingsMenuItem.swift */,
+				409FC3342700C60900C7C7BD /* StrategyCommand.swift */,
+				409FC3372700C6DC00C7C7BD /* ViewCommand.swift */,
+				406DE51D2700E8A100D60F5E /* BuilderCommand.swift */,
+			);
+			path = Commands;
+			sourceTree = "<group>";
+		};
+		405B29E926DC13BB00A99303 /* Returns */ = {
+			isa = PBXGroup;
+			children = (
+				4045C0EC26EDB1460084933D /* BaseReturnsSummary.swift */,
+				4045C0F426EDBB620084933D /* Account */,
+				402DB75126E7BF2100596831 /* Primary */,
+				4045C0F226EDBA940084933D /* Secondary */,
+				4045C0F026EDB6820084933D /* Helpers */,
+			);
+			path = Returns;
+			sourceTree = "<group>";
+		};
+		4068F72F26BBA5B3001E5D2C = {
+			isa = PBXGroup;
+			children = (
+				4068F73426BBA5B3001E5D2C /* Shared */,
+				4068F73F26BBA5B4001E5D2C /* iOS */,
+				4068F74626BBA5B4001E5D2C /* macOS */,
+				4068F75026BBA5B4001E5D2C /* Tests iOS */,
+				4068F75B26BBA5B4001E5D2C /* Tests macOS */,
+				4068F73E26BBA5B4001E5D2C /* Products */,
+				40E09EB826BBA80D007CE6C7 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4068F73426BBA5B3001E5D2C /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				4068F73526BBA5B3001E5D2C /* WorthApp.swift */,
+				405A19B026BD002A00FB5265 /* Commands */,
+				405A19A926BCFBEF00FB5265 /* Document */,
+				405A199326BC6C9300FB5265 /* Helpers */,
+				405A19A826BCFBD400FB5265 /* Views */,
+				4068F73826BBA5B4001E5D2C /* Assets.xcassets */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		4068F73E26BBA5B4001E5D2C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4068F73D26BBA5B4001E5D2C /* FlowWorthApp.app */,
+				4068F74526BBA5B4001E5D2C /* FlowWorthApp.app */,
+				4068F74D26BBA5B4001E5D2C /* Tests iOS.xctest */,
+				4068F75826BBA5B4001E5D2C /* Tests macOS.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4068F73F26BBA5B4001E5D2C /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				4068F74026BBA5B4001E5D2C /* Info.plist */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		4068F74626BBA5B4001E5D2C /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				4068F74726BBA5B4001E5D2C /* Info.plist */,
+				4068F74826BBA5B4001E5D2C /* macOS.entitlements */,
+				4077C87F272142FB008732A8 /* Credits.rtf */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		4068F75026BBA5B4001E5D2C /* Tests iOS */ = {
+			isa = PBXGroup;
+			children = (
+				4068F75126BBA5B4001E5D2C /* Tests_iOS.swift */,
+				4068F75326BBA5B4001E5D2C /* Info.plist */,
+			);
+			path = "Tests iOS";
+			sourceTree = "<group>";
+		};
+		4068F75B26BBA5B4001E5D2C /* Tests macOS */ = {
+			isa = PBXGroup;
+			children = (
+				4068F75C26BBA5B4001E5D2C /* Tests_macOS.swift */,
+				4068F75E26BBA5B4001E5D2C /* Info.plist */,
+			);
+			path = "Tests macOS";
+			sourceTree = "<group>";
+		};
+		40AB8D6E26C5815F003FF1A9 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				40AB8D6F26C5816B003FF1A9 /* GettingStarted.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		40AB8D8026C61E8D003FF1A9 /* Sidebar */ = {
+			isa = PBXGroup;
+			children = (
+				40AB8D8426C62BE1003FF1A9 /* WorthSidebar.swift */,
+				40ABC650271EA103000708F8 /* BuilderSection.swift */,
+				40ABC653271EA20B000708F8 /* BirdsEyeSection.swift */,
+				40ABC657271EA347000708F8 /* SnapshotsSection.swift */,
+			);
+			path = Sidebar;
+			sourceTree = "<group>";
+		};
+		40AB8D8726C6B9FF003FF1A9 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				40ABC64A271E4A0C000708F8 /* BaseBuilderView.swift */,
+				40ABC646271E4735000708F8 /* Summary */,
+				40CC634E2713A7A800C92B53 /* Cashflow */,
+				40CC634D2713A7A200C92B53 /* Positions */,
+				403CBFCB26FAFB9200FDDE0D /* BuilderFooter.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		40ABC636271DCB19000708F8 /* Tables */ = {
+			isa = PBXGroup;
+			children = (
+				40FC84E9271BEF37005C900F /* AccountDietzSummaryTable.swift */,
+				402BD734277A309C00DF0292 /* StrategyDietzSummaryTable.swift */,
+				40FC84E6271BE8D8005C900F /* AssetDietzSummaryTable.swift */,
+				40FC84EC271BEF4D005C900F /* AccountDeltaSummaryTable.swift */,
+				402BD735277A30AC00DF0292 /* StrategyDeltaSummaryTable.swift */,
+				40FC84DF271BDC8D005C900F /* AssetDeltaSummaryTable.swift */,
+				40ABC63A271E1D0E000708F8 /* AccountBasisSummaryTable.swift */,
+				402BD736277A30C100DF0292 /* StrategyBasisSummaryTable.swift */,
+				40ABC63D271E23E0000708F8 /* AssetBasisSummaryTable.swift */,
+				40ABC640271E2AB9000708F8 /* AssetSummaryTable.swift */,
+				402BD731277A305A00DF0292 /* StrategySummaryTable.swift */,
+				40ABC643271E2AC1000708F8 /* AccountSummaryTable.swift */,
+			);
+			path = Tables;
+			sourceTree = "<group>";
+		};
+		40ABC646271E4735000708F8 /* Summary */ = {
+			isa = PBXGroup;
+			children = (
+				40ABC647271E473F000708F8 /* BuilderSummaryView.swift */,
+			);
+			path = Summary;
+			sourceTree = "<group>";
+		};
+		40CC634D2713A7A200C92B53 /* Positions */ = {
+			isa = PBXGroup;
+			children = (
+				4010657A26FE67410039F2C8 /* BuilderPositionsView.swift */,
+				4032B57526DB06DC00B1FCA6 /* BuilderPositionsTable.swift */,
+				4010656F26FE29A00039F2C8 /* BuilderHoldingsTable.swift */,
+			);
+			path = Positions;
+			sourceTree = "<group>";
+		};
+		40CC634E2713A7A800C92B53 /* Cashflow */ = {
+			isa = PBXGroup;
+			children = (
+				40CC634F2713A7E700C92B53 /* BuilderCashflowView.swift */,
+				4032B56F26DAEDCF00B1FCA6 /* BuilderCashflowTable.swift */,
+				4010657526FE2D660039F2C8 /* BuilderTxnTable.swift */,
+			);
+			path = Cashflow;
+			sourceTree = "<group>";
+		};
+		40D3C94527A4463B005D6662 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				40D3C95227A44670005D6662 /* ValuationCashflowTable.swift */,
+				40D3C95127A44670005D6662 /* ValuationPositionTable.swift */,
+				40D3C95327A44670005D6662 /* ValuationSnapshotTable.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		40E09EB826BBA80D007CE6C7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		40EDD48726EC256300CA53AC /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				40EDD47E26EBFCC300CA53AC /* ReturnsChartBody.swift */,
+				409A0EFF26EEC34300E2EE51 /* ForecastChartBody.swift */,
+				40323D8E26F2439A0029F7B7 /* SnapshotChart.swift */,
+				402EDA142765726700E89393 /* LegendBar.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		40FD743126FEA71100E5B446 /* Snapshots */ = {
+			isa = PBXGroup;
+			children = (
+				40FD743826FEEB9100E5B446 /* SnapshotSummary.swift */,
+				40FD743526FED46800E5B446 /* SummarySnapshotPicker.swift */,
+				40FD743B26FEECB800E5B446 /* SummaryFooter.swift */,
+			);
+			path = Snapshots;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4068F73C26BBA5B4001E5D2C /* FlowWorthApp (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4068F76926BBA5B4001E5D2C /* Build configuration list for PBXNativeTarget "FlowWorthApp (iOS)" */;
+			buildPhases = (
+				4068F73926BBA5B4001E5D2C /* Sources */,
+				4068F73A26BBA5B4001E5D2C /* Frameworks */,
+				4068F73B26BBA5B4001E5D2C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "FlowWorthApp (iOS)";
+			packageProductDependencies = (
+				405A199C26BC6DFB00FB5265 /* FlowWorthLib */,
+				40D99740288DF5E20075CD6C /* FlowUI */,
+				40D99742288DF5F60075CD6C /* Charts */,
+			);
+			productName = "FlowWorth (iOS)";
+			productReference = 4068F73D26BBA5B4001E5D2C /* FlowWorthApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4068F74426BBA5B4001E5D2C /* FlowWorthApp (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4068F76C26BBA5B4001E5D2C /* Build configuration list for PBXNativeTarget "FlowWorthApp (macOS)" */;
+			buildPhases = (
+				4068F74126BBA5B4001E5D2C /* Sources */,
+				4068F74226BBA5B4001E5D2C /* Frameworks */,
+				4068F74326BBA5B4001E5D2C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "FlowWorthApp (macOS)";
+			packageProductDependencies = (
+				40F90EBF27A8C9A800A6D4A2 /* Charts */,
+				40178826288D76D300ACA723 /* FlowUI */,
+				404F0C45288DF0C900ACBE94 /* FlowWorthLib */,
+			);
+			productName = "FlowWorth (macOS)";
+			productReference = 4068F74526BBA5B4001E5D2C /* FlowWorthApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4068F74C26BBA5B4001E5D2C /* Tests iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4068F76F26BBA5B4001E5D2C /* Build configuration list for PBXNativeTarget "Tests iOS" */;
+			buildPhases = (
+				4068F74926BBA5B4001E5D2C /* Sources */,
+				4068F74A26BBA5B4001E5D2C /* Frameworks */,
+				4068F74B26BBA5B4001E5D2C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4068F74F26BBA5B4001E5D2C /* PBXTargetDependency */,
+			);
+			name = "Tests iOS";
+			productName = "Tests iOS";
+			productReference = 4068F74D26BBA5B4001E5D2C /* Tests iOS.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		4068F75726BBA5B4001E5D2C /* Tests macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4068F77226BBA5B4001E5D2C /* Build configuration list for PBXNativeTarget "Tests macOS" */;
+			buildPhases = (
+				4068F75426BBA5B4001E5D2C /* Sources */,
+				4068F75526BBA5B4001E5D2C /* Frameworks */,
+				4068F75626BBA5B4001E5D2C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4068F75A26BBA5B4001E5D2C /* PBXTargetDependency */,
+			);
+			name = "Tests macOS";
+			productName = "Tests macOS";
+			productReference = 4068F75826BBA5B4001E5D2C /* Tests macOS.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4068F73026BBA5B3001E5D2C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1310;
+				TargetAttributes = {
+					4068F73C26BBA5B4001E5D2C = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					4068F74426BBA5B4001E5D2C = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					4068F74C26BBA5B4001E5D2C = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 4068F73C26BBA5B4001E5D2C;
+					};
+					4068F75726BBA5B4001E5D2C = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 4068F74426BBA5B4001E5D2C;
+					};
+				};
+			};
+			buildConfigurationList = 4068F73326BBA5B3001E5D2C /* Build configuration list for PBXProject "FlowWorthApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4068F72F26BBA5B3001E5D2C;
+			packageReferences = (
+				40F90EBE27A8C9A800A6D4A2 /* XCRemoteSwiftPackageReference "swiftui-charts" */,
+			);
+			productRefGroup = 4068F73E26BBA5B4001E5D2C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4068F73C26BBA5B4001E5D2C /* FlowWorthApp (iOS) */,
+				4068F74426BBA5B4001E5D2C /* FlowWorthApp (macOS) */,
+				4068F74C26BBA5B4001E5D2C /* Tests iOS */,
+				4068F75726BBA5B4001E5D2C /* Tests macOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4068F73B26BBA5B4001E5D2C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4068F76526BBA5B4001E5D2C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4068F74326BBA5B4001E5D2C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4077C87E272142AB008732A8 /* Assets.xcassets in Resources */,
+				4077C880272142FB008732A8 /* Credits.rtf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4068F74B26BBA5B4001E5D2C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4068F75626BBA5B4001E5D2C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4068F73926BBA5B4001E5D2C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40323DA126F55B170029F7B7 /* DeltaSecondary.swift in Sources */,
+				402BD732277A305A00DF0292 /* StrategySummaryTable.swift in Sources */,
+				40C462F126E6CB6B00BC68F0 /* MatrixResult+Utils.swift in Sources */,
+				40C462F726E6F48300BC68F0 /* AssetsList.swift in Sources */,
+				4032B57626DB06DC00B1FCA6 /* BuilderPositionsTable.swift in Sources */,
+				406DE51E2700E8A100D60F5E /* BuilderCommand.swift in Sources */,
+				4010657026FE29A00039F2C8 /* BuilderHoldingsTable.swift in Sources */,
+				40323D9B26F4FA140029F7B7 /* ForecastTable.swift in Sources */,
+				405B29E726DC13B700A99303 /* PrimaryReturns.swift in Sources */,
+				40ABC64B271E4A0C000708F8 /* BaseBuilderView.swift in Sources */,
+				40C462FA26E6F48D00BC68F0 /* AccountsList.swift in Sources */,
+				40323D8C26F23EA40029F7B7 /* ForecastChart.swift in Sources */,
+				405A19B526BD004300FB5265 /* ImportCommand.swift in Sources */,
+				4068F75F26BBA5B4001E5D2C /* WorthApp.swift in Sources */,
+				40C462E526E4707000BC68F0 /* SecondaryReturns.swift in Sources */,
+				403CBFD226FB05B500FDDE0D /* Notification-extension.swift in Sources */,
+				40ABC63E271E23E0000708F8 /* AssetBasisSummaryTable.swift in Sources */,
+				4004DAF12715D0B8003D0425 /* GeneralView.swift in Sources */,
+				40EDD48526EC19D300CA53AC /* ReturnsGroupingPicker.swift in Sources */,
+				407463972753631E00D6D0DB /* WorthDocument+Colors.swift in Sources */,
+				409FC33B2700C7D900C7C7BD /* WorthDocument+Helpers.swift in Sources */,
+				40FD743A26FEEB9100E5B446 /* SnapshotSummary.swift in Sources */,
+				40ABC644271E2AC1000708F8 /* AccountSummaryTable.swift in Sources */,
+				4010657B26FE67410039F2C8 /* BuilderPositionsView.swift in Sources */,
+				40ABC651271EA103000708F8 /* BuilderSection.swift in Sources */,
+				40938CDC26F6455800D815BA /* DietzSnapshotTable.swift in Sources */,
+				4037883E273EDA3F0033D830 /* ReturnsExtentPicker.swift in Sources */,
+				401CBC492710CF7700942CE2 /* WorthDocument+Equatable.swift in Sources */,
+				402DB75626E8729D00596831 /* ReturnsFooter.swift in Sources */,
+				40C462E826E5186500BC68F0 /* ReturnsChart.swift in Sources */,
+				403CBFCC26FAFB9200FDDE0D /* BuilderFooter.swift in Sources */,
+				40AB8D8526C62BE1003FF1A9 /* WorthSidebar.swift in Sources */,
+				40D3C95827A44670005D6662 /* ValuationSnapshotTable.swift in Sources */,
+				4074639D27541C3F00D6D0DB /* ReturnsColorPicker.swift in Sources */,
+				40323D9E26F55A830029F7B7 /* DietzSecondary.swift in Sources */,
+				40D3C95427A44670005D6662 /* ValuationPositionTable.swift in Sources */,
+				40ABC641271E2AB9000708F8 /* AssetSummaryTable.swift in Sources */,
+				402BD737277A36CE00DF0292 /* StrategyDietzSummaryTable.swift in Sources */,
+				40FC84EB271BEF37005C900F /* AccountDietzSummaryTable.swift in Sources */,
+				40FC84E7271BE8D8005C900F /* AssetDietzSummaryTable.swift in Sources */,
+				4068F76126BBA5B4001E5D2C /* WorthDocument.swift in Sources */,
+				409A0F0026EEC34300E2EE51 /* ForecastChartBody.swift in Sources */,
+				4055B17A2715E5DE00E6705B /* WorthDocument+KeyWindow.swift in Sources */,
+				40E52DBA2741B3C100322EA7 /* PeriodSummary.swift in Sources */,
+				40ABC638271DD155000708F8 /* PeriodSummarySelectionPicker.swift in Sources */,
+				4032B57026DAEDCF00B1FCA6 /* BuilderCashflowTable.swift in Sources */,
+				409FC3352700C60900C7C7BD /* StrategyCommand.swift in Sources */,
+				40ABC64E271E5293000708F8 /* WorthDocument+Constants.swift in Sources */,
+				402BD739277A36D300DF0292 /* StrategyDeltaSummaryTable.swift in Sources */,
+				40AB8D7526C5C191003FF1A9 /* AccountSummary.swift in Sources */,
+				4010657626FE2D660039F2C8 /* BuilderTxnTable.swift in Sources */,
+				40ABC654271EA20B000708F8 /* BirdsEyeSection.swift in Sources */,
+				40CC63502713A7E700C92B53 /* BuilderCashflowView.swift in Sources */,
+				409FC33E2700D51800C7C7BD /* ReturnsCommand.swift in Sources */,
+				40AB8D7026C5816B003FF1A9 /* GettingStarted.swift in Sources */,
+				40EDD47F26EBFCC300CA53AC /* ReturnsChartBody.swift in Sources */,
+				40938CD926F5786000D815BA /* DeltaSnapshotTable.swift in Sources */,
+				40FD743C26FEEED600E5B446 /* SummaryFooter.swift in Sources */,
+				40323D8F26F2439A0029F7B7 /* SnapshotChart.swift in Sources */,
+				409FC3382700C6DC00C7C7BD /* ViewCommand.swift in Sources */,
+				40323D8926F1B6170029F7B7 /* ForecastResult.swift in Sources */,
+				40ABC648271E473F000708F8 /* BuilderSummaryView.swift in Sources */,
+				4045C0ED26EDB1460084933D /* BaseReturnsSummary.swift in Sources */,
+				40D3C95627A44670005D6662 /* ValuationCashflowTable.swift in Sources */,
+				40FC84E0271BDC8D005C900F /* AssetDeltaSummaryTable.swift in Sources */,
+				40323D9826F4F0B50029F7B7 /* ForecastSecondary.swift in Sources */,
+				40ABC658271EA347000708F8 /* SnapshotsSection.swift in Sources */,
+				402BD73B277A36D900DF0292 /* StrategyBasisSummaryTable.swift in Sources */,
+				40FC84ED271BF0B2005C900F /* AccountDeltaSummaryTable.swift in Sources */,
+				40FD743626FED46800E5B446 /* SummarySnapshotPicker.swift in Sources */,
+				409FC32F2700C4DA00C7C7BD /* AccountCommand.swift in Sources */,
+				40ABC63B271E1D0E000708F8 /* AccountBasisSummaryTable.swift in Sources */,
+				4068F76326BBA5B4001E5D2C /* ContentView.swift in Sources */,
+				40D20E9826DDE26000B4D6BF /* SnapshotNavPicker.swift in Sources */,
+				409FC3322700C51800C7C7BD /* SettingsMenuItem.swift in Sources */,
+				402EDA152765726700E89393 /* LegendBar.swift in Sources */,
+				40C2762326C04D6A0055B1C0 /* WorthDocument+Refresh.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4068F74126BBA5B4001E5D2C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40323DA226F55B170029F7B7 /* DeltaSecondary.swift in Sources */,
+				402BD733277A305A00DF0292 /* StrategySummaryTable.swift in Sources */,
+				40C462F226E6CB6B00BC68F0 /* MatrixResult+Utils.swift in Sources */,
+				40C462F826E6F48300BC68F0 /* AssetsList.swift in Sources */,
+				4032B57726DB06DC00B1FCA6 /* BuilderPositionsTable.swift in Sources */,
+				406DE51F2700E8A100D60F5E /* BuilderCommand.swift in Sources */,
+				4010657126FE29A00039F2C8 /* BuilderHoldingsTable.swift in Sources */,
+				40323D9C26F4FA140029F7B7 /* ForecastTable.swift in Sources */,
+				405B29E826DC13B700A99303 /* PrimaryReturns.swift in Sources */,
+				40ABC64C271E4A0C000708F8 /* BaseBuilderView.swift in Sources */,
+				40C462FB26E6F48D00BC68F0 /* AccountsList.swift in Sources */,
+				40323D8D26F23EA40029F7B7 /* ForecastChart.swift in Sources */,
+				405A19B626BD004300FB5265 /* ImportCommand.swift in Sources */,
+				4068F76026BBA5B4001E5D2C /* WorthApp.swift in Sources */,
+				40C462E626E4707000BC68F0 /* SecondaryReturns.swift in Sources */,
+				403CBFD326FB05B500FDDE0D /* Notification-extension.swift in Sources */,
+				40ABC63F271E23E0000708F8 /* AssetBasisSummaryTable.swift in Sources */,
+				4004DAF22715D0B8003D0425 /* GeneralView.swift in Sources */,
+				40EDD48626EC19D300CA53AC /* ReturnsGroupingPicker.swift in Sources */,
+				407463982753631E00D6D0DB /* WorthDocument+Colors.swift in Sources */,
+				409FC33C2700C7D900C7C7BD /* WorthDocument+Helpers.swift in Sources */,
+				40FD743926FEEB9100E5B446 /* SnapshotSummary.swift in Sources */,
+				40ABC645271E2AC1000708F8 /* AccountSummaryTable.swift in Sources */,
+				4010657C26FE67410039F2C8 /* BuilderPositionsView.swift in Sources */,
+				40ABC652271EA103000708F8 /* BuilderSection.swift in Sources */,
+				40938CDD26F6455800D815BA /* DietzSnapshotTable.swift in Sources */,
+				4037883F273EDA3F0033D830 /* ReturnsExtentPicker.swift in Sources */,
+				401CBC4A2710CF7700942CE2 /* WorthDocument+Equatable.swift in Sources */,
+				402DB75726E8729D00596831 /* ReturnsFooter.swift in Sources */,
+				40C462E926E5186500BC68F0 /* ReturnsChart.swift in Sources */,
+				403CBFCD26FAFB9200FDDE0D /* BuilderFooter.swift in Sources */,
+				40AB8D8626C62BE1003FF1A9 /* WorthSidebar.swift in Sources */,
+				40D3C95927A44670005D6662 /* ValuationSnapshotTable.swift in Sources */,
+				4074639E27541C3F00D6D0DB /* ReturnsColorPicker.swift in Sources */,
+				40323D9F26F55A830029F7B7 /* DietzSecondary.swift in Sources */,
+				40D3C95527A44670005D6662 /* ValuationPositionTable.swift in Sources */,
+				40ABC642271E2AB9000708F8 /* AssetSummaryTable.swift in Sources */,
+				402BD738277A36CF00DF0292 /* StrategyDietzSummaryTable.swift in Sources */,
+				40FC84EA271BEF37005C900F /* AccountDietzSummaryTable.swift in Sources */,
+				4068F76226BBA5B4001E5D2C /* WorthDocument.swift in Sources */,
+				40FC84E8271BE8D8005C900F /* AssetDietzSummaryTable.swift in Sources */,
+				4068F76426BBA5B4001E5D2C /* ContentView.swift in Sources */,
+				4055B17B2715E5DE00E6705B /* WorthDocument+KeyWindow.swift in Sources */,
+				40E52DBB2741B3C100322EA7 /* PeriodSummary.swift in Sources */,
+				40ABC639271DD155000708F8 /* PeriodSummarySelectionPicker.swift in Sources */,
+				409A0F0126EEC34300E2EE51 /* ForecastChartBody.swift in Sources */,
+				4032B57126DAEDCF00B1FCA6 /* BuilderCashflowTable.swift in Sources */,
+				40ABC64F271E5293000708F8 /* WorthDocument+Constants.swift in Sources */,
+				402BD73A277A36D400DF0292 /* StrategyDeltaSummaryTable.swift in Sources */,
+				409FC3362700C60900C7C7BD /* StrategyCommand.swift in Sources */,
+				40AB8D7626C5C191003FF1A9 /* AccountSummary.swift in Sources */,
+				40ABC655271EA20B000708F8 /* BirdsEyeSection.swift in Sources */,
+				4010657726FE2D660039F2C8 /* BuilderTxnTable.swift in Sources */,
+				40CC63512713A7E700C92B53 /* BuilderCashflowView.swift in Sources */,
+				409FC33F2700D51800C7C7BD /* ReturnsCommand.swift in Sources */,
+				40AB8D7226C58260003FF1A9 /* GettingStarted.swift in Sources */,
+				40EDD48026EBFCC300CA53AC /* ReturnsChartBody.swift in Sources */,
+				40938CDA26F5786000D815BA /* DeltaSnapshotTable.swift in Sources */,
+				40FD743D26FEEED700E5B446 /* SummaryFooter.swift in Sources */,
+				40323D9026F2439A0029F7B7 /* SnapshotChart.swift in Sources */,
+				409FC3392700C6DC00C7C7BD /* ViewCommand.swift in Sources */,
+				40ABC649271E473F000708F8 /* BuilderSummaryView.swift in Sources */,
+				40323D8A26F1B6170029F7B7 /* ForecastResult.swift in Sources */,
+				40D3C95727A44670005D6662 /* ValuationCashflowTable.swift in Sources */,
+				40FC84E1271BDC8D005C900F /* AssetDeltaSummaryTable.swift in Sources */,
+				4045C0EE26EDB1460084933D /* BaseReturnsSummary.swift in Sources */,
+				40ABC659271EA347000708F8 /* SnapshotsSection.swift in Sources */,
+				402BD73C277A36D900DF0292 /* StrategyBasisSummaryTable.swift in Sources */,
+				40FC84EE271BF0B3005C900F /* AccountDeltaSummaryTable.swift in Sources */,
+				40323D9926F4F0B50029F7B7 /* ForecastSecondary.swift in Sources */,
+				40FD743726FED46800E5B446 /* SummarySnapshotPicker.swift in Sources */,
+				40ABC63C271E1D0E000708F8 /* AccountBasisSummaryTable.swift in Sources */,
+				409FC3302700C4DA00C7C7BD /* AccountCommand.swift in Sources */,
+				40D20E9926DDE26000B4D6BF /* SnapshotNavPicker.swift in Sources */,
+				409FC3332700C51800C7C7BD /* SettingsMenuItem.swift in Sources */,
+				402EDA162765726700E89393 /* LegendBar.swift in Sources */,
+				40C2762426C04D6A0055B1C0 /* WorthDocument+Refresh.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4068F74926BBA5B4001E5D2C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4068F75226BBA5B4001E5D2C /* Tests_iOS.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4068F75426BBA5B4001E5D2C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4068F75D26BBA5B4001E5D2C /* Tests_macOS.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4068F74F26BBA5B4001E5D2C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4068F73C26BBA5B4001E5D2C /* FlowWorthApp (iOS) */;
+			targetProxy = 4068F74E26BBA5B4001E5D2C /* PBXContainerItemProxy */;
+		};
+		4068F75A26BBA5B4001E5D2C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4068F74426BBA5B4001E5D2C /* FlowWorthApp (macOS) */;
+			targetProxy = 4068F75926BBA5B4001E5D2C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4068F76726BBA5B4001E5D2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4068F76826BBA5B4001E5D2C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		4068F76A26BBA5B4001E5D2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JJQ5CGDL8J;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.flowallocator.worth;
+				PRODUCT_NAME = FlowWorthApp;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4068F76B26BBA5B4001E5D2C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JJQ5CGDL8J;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.flowallocator.worth;
+				PRODUCT_NAME = FlowWorthApp;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4068F76D26BBA5B4001E5D2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 16;
+				DEVELOPMENT_TEAM = J735QC5U38;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.8;
+				PRODUCT_BUNDLE_IDENTIFIER = org.openalloc.flowworth;
+				PRODUCT_NAME = FlowWorthApp;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		4068F76E26BBA5B4001E5D2C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 16;
+				DEVELOPMENT_TEAM = J735QC5U38;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.8;
+				PRODUCT_BUNDLE_IDENTIFIER = org.openalloc.flowworth;
+				PRODUCT_NAME = FlowWorthApp;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		4068F77026BBA5B4001E5D2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JJQ5CGDL8J;
+				INFOPLIST_FILE = "Tests iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "app.flowallocator.Tests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "FlowWorth (iOS)";
+			};
+			name = Debug;
+		};
+		4068F77126BBA5B4001E5D2C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JJQ5CGDL8J;
+				INFOPLIST_FILE = "Tests iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "app.flowallocator.Tests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "FlowWorth (iOS)";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4068F77326BBA5B4001E5D2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = JJQ5CGDL8J;
+				INFOPLIST_FILE = "Tests macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				PRODUCT_BUNDLE_IDENTIFIER = "app.flowallocator.Tests-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "FlowWorth (macOS)";
+			};
+			name = Debug;
+		};
+		4068F77426BBA5B4001E5D2C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = JJQ5CGDL8J;
+				INFOPLIST_FILE = "Tests macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				PRODUCT_BUNDLE_IDENTIFIER = "app.flowallocator.Tests-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "FlowWorth (macOS)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4068F73326BBA5B3001E5D2C /* Build configuration list for PBXProject "FlowWorthApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4068F76726BBA5B4001E5D2C /* Debug */,
+				4068F76826BBA5B4001E5D2C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4068F76926BBA5B4001E5D2C /* Build configuration list for PBXNativeTarget "FlowWorthApp (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4068F76A26BBA5B4001E5D2C /* Debug */,
+				4068F76B26BBA5B4001E5D2C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4068F76C26BBA5B4001E5D2C /* Build configuration list for PBXNativeTarget "FlowWorthApp (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4068F76D26BBA5B4001E5D2C /* Debug */,
+				4068F76E26BBA5B4001E5D2C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4068F76F26BBA5B4001E5D2C /* Build configuration list for PBXNativeTarget "Tests iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4068F77026BBA5B4001E5D2C /* Debug */,
+				4068F77126BBA5B4001E5D2C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4068F77226BBA5B4001E5D2C /* Build configuration list for PBXNativeTarget "Tests macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4068F77326BBA5B4001E5D2C /* Debug */,
+				4068F77426BBA5B4001E5D2C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		40F90EBE27A8C9A800A6D4A2 /* XCRemoteSwiftPackageReference "swiftui-charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/reedes/swiftui-charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		40178826288D76D300ACA723 /* FlowUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FlowUI;
+		};
+		404F0C45288DF0C900ACBE94 /* FlowWorthLib */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FlowWorthLib;
+		};
+		405A199C26BC6DFB00FB5265 /* FlowWorthLib */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FlowWorthLib;
+		};
+		40D99740288DF5E20075CD6C /* FlowUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FlowUI;
+		};
+		40D99742288DF5F60075CD6C /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 40F90EBE27A8C9A800A6D4A2 /* XCRemoteSwiftPackageReference "swiftui-charts" */;
+			productName = Charts;
+		};
+		40F90EBF27A8C9A800A6D4A2 /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 40F90EBE27A8C9A800A6D4A2 /* XCRemoteSwiftPackageReference "swiftui-charts" */;
+			productName = Charts;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 4068F73026BBA5B3001E5D2C /* Project object */;
+}
