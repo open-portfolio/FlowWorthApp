@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4002DC6028BD9265005858A0 /* FlowUI in Frameworks */ = {isa = PBXBuildFile; productRef = 4002DC5F28BD9265005858A0 /* FlowUI */; };
+		4002DC6328BD9288005858A0 /* FlowWorthLib in Frameworks */ = {isa = PBXBuildFile; productRef = 4002DC6228BD9288005858A0 /* FlowWorthLib */; };
 		4004DAF12715D0B8003D0425 /* GeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4004DAF02715D0B8003D0425 /* GeneralView.swift */; };
 		4004DAF22715D0B8003D0425 /* GeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4004DAF02715D0B8003D0425 /* GeneralView.swift */; };
 		4010657026FE29A00039F2C8 /* BuilderHoldingsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4010656F26FE29A00039F2C8 /* BuilderHoldingsTable.swift */; };
@@ -299,6 +301,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4002DC6328BD9288005858A0 /* FlowWorthLib in Frameworks */,
+				4002DC6028BD9265005858A0 /* FlowUI in Frameworks */,
 				40F90EC027A8C9A800A6D4A2 /* Charts in Frameworks */,
 				40178827288D76D300ACA723 /* FlowUI in Frameworks */,
 				404F0C46288DF0C900ACBE94 /* FlowWorthLib in Frameworks */,
@@ -676,6 +680,8 @@
 				40F90EBF27A8C9A800A6D4A2 /* Charts */,
 				40178826288D76D300ACA723 /* FlowUI */,
 				404F0C45288DF0C900ACBE94 /* FlowWorthLib */,
+				4002DC5F28BD9265005858A0 /* FlowUI */,
+				4002DC6228BD9288005858A0 /* FlowWorthLib */,
 			);
 			productName = "FlowWorth (macOS)";
 			productReference = 4068F74526BBA5B4001E5D2C /* FlowWorthApp.app */;
@@ -753,6 +759,8 @@
 			mainGroup = 4068F72F26BBA5B3001E5D2C;
 			packageReferences = (
 				40F90EBE27A8C9A800A6D4A2 /* XCRemoteSwiftPackageReference "swiftui-charts" */,
+				4002DC5E28BD9265005858A0 /* XCRemoteSwiftPackageReference "FlowUI" */,
+				4002DC6128BD9288005858A0 /* XCRemoteSwiftPackageReference "FlowWorthLib" */,
 			);
 			productRefGroup = 4068F73E26BBA5B4001E5D2C /* Products */;
 			projectDirPath = "";
@@ -1353,6 +1361,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4002DC5E28BD9265005858A0 /* XCRemoteSwiftPackageReference "FlowUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/openalloc/FlowUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		4002DC6128BD9288005858A0 /* XCRemoteSwiftPackageReference "FlowWorthLib" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/openalloc/FlowWorthLib.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		40F90EBE27A8C9A800A6D4A2 /* XCRemoteSwiftPackageReference "swiftui-charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/reedes/swiftui-charts.git";
@@ -1364,6 +1388,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4002DC5F28BD9265005858A0 /* FlowUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4002DC5E28BD9265005858A0 /* XCRemoteSwiftPackageReference "FlowUI" */;
+			productName = FlowUI;
+		};
+		4002DC6228BD9288005858A0 /* FlowWorthLib */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4002DC6128BD9288005858A0 /* XCRemoteSwiftPackageReference "FlowWorthLib" */;
+			productName = FlowWorthLib;
+		};
 		40178826288D76D300ACA723 /* FlowUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FlowUI;
