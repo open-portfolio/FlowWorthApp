@@ -78,13 +78,19 @@ struct ReturnsFooter: View {
                               enabled: mr.periodSummary?.singlePeriodReturn != nil)
             }
             
-            StatsBoxView(title: "\(WorthDocument.deltaSymbol) (annualized)") {
+            StatsBoxView(title: "\(WorthDocument.deltaPercentSymbol) (CAGR)") {
                 StatusDisplay(title: nil,
-                              value: mr.periodSummary?.marketValueDeltaPerYear ?? 0,
-                              format: { "\(Double($0).toCurrency(style: .compact))/yr" })
+                              value: mr.periodSummary?.singlePeriodCAGR ?? 0,
+                              format: { "\(Double($0).toPercent1(leadingPlus: true))" },
+                              enabled: mr.periodSummary?.singlePeriodCAGR != nil)
             }
-        }
 
+//            StatsBoxView(title: "\(WorthDocument.deltaSymbol) (annualized)") {
+//                StatusDisplay(title: nil,
+//                              value: mr.periodSummary?.marketValueDeltaPerYear ?? 0,
+//                              format: { "\(Double($0).toCurrency(style: .compact))/yr" })
+//            }
+        }
     }
     
     @ViewBuilder

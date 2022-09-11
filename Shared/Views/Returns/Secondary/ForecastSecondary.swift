@@ -17,7 +17,7 @@ import FlowUI
 import FlowWorthLib
 
 struct ForecastSecondary: View {
-
+    
     @Binding var document: WorthDocument
     @ObservedObject var fr: ForecastResult
     
@@ -40,20 +40,25 @@ struct ForecastSecondary: View {
             StatsBoxView(title: "Performance (based on regression line)") {
                 HStack {
                     StatusDisplay(title: "\(WorthDocument.deltaPercentSymbol) (period)",
-                                  value: singlePeriodReturn,
+                                  value: singlePeriodReturn ?? 0,
                                   format: { "\(Double($0).toPercent1(leadingPlus: true))" },
-                                  textStyle: .title)
-                    StatusDisplay(title: "\(WorthDocument.deltaPercentSymbol) (annualized)",
-                                  value: annualizedReturn,
+                                  textStyle: .title,
+                                  enabled: singlePeriodReturn != nil)
+                    StatusDisplay(title: "\(WorthDocument.deltaPercentSymbol) (CAGR)",
+                                  value: singlePeriodCAGR ?? 0,
                                   format: { "\(Double($0).toPercent1(leadingPlus: true))" },
-                                  textStyle: .title)
+                                  enabled: singlePeriodCAGR != nil)
+                    //                    StatusDisplay(title: "\(WorthDocument.deltaPercentSymbol) (annualized)",
+                    //                                  value: annualizedReturn,
+                    //                                  format: { "\(Double($0).toPercent1(leadingPlus: true))" },
+                    //                                  textStyle: .title)
                 }
                 .frame(maxHeight: 55)
                 .padding(.bottom, 5)
                 
                 HStack {
                     StatusDisplay(title: "\(WorthDocument.deltaSymbol) (period)",
-                                  value: periodGain,
+                                  value: periodGain ?? 0,
                                   format: { "\(Double($0).toCurrency(style: .compact, leadingPlus: true))" })
                     StatusDisplay(title: "\(WorthDocument.deltaSymbol) (daily, averaged)",
                                   value: gainPerDay,
@@ -99,22 +104,45 @@ struct ForecastSecondary: View {
         return "marketvalue = d × \(m) + \(b)"
     }
     
-    private var periodGain: Double {
-        guard let lr = fr.lr else { return 0 }
+    private var periodGain: Double? {
+        guard let lr = fr.lr else { return nil }
         return lr.slope * fr.mainDuration
     }
     
-    private var singlePeriodReturn: Double {
-        guard let lr = fr.lr else { return 0 }
-        return periodGain / lr.intercept
+    private var begMarketValue: Double? {
+        guard let lr = fr.lr else { return nil }
+        return lr.intercept
     }
     
-    private var annualizedReturn: Double {
-        singlePeriodReturn / fr.yearsInMainPeriod
+    private var endMarketValue: Double? {
+        guard let beg = begMarketValue,
+              let gain = periodGain
+        else { return nil }
+        return beg + gain
     }
+    
+    private var singlePeriodReturn: Double? {
+        guard let beg = begMarketValue,
+              let gain = periodGain
+        else { return nil }
+        return gain / beg
+    }
+    
+    private var singlePeriodCAGR: Double? {
+        guard fr.yearsInMainPeriod > 0,
+              let beg = begMarketValue,
+              let end = endMarketValue
+        else { return nil }
+        return pow(end / beg, 1 / fr.yearsInMainPeriod) - 1
+    }
+    
+    //    private var annualizedReturn: Double {
+    //        singlePeriodReturn / fr.yearsInMainPeriod
+    //    }
     
     private var gainPerDay: Double {
-        periodGain / fr.daysInMainPeriod
+        guard let gain = periodGain else { return 0 }
+        return gain / fr.daysInMainPeriod
     }
     
     private var gainPerYear: Double {

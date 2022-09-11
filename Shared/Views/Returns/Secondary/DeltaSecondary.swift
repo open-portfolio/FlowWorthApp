@@ -42,11 +42,15 @@ struct DeltaSecondary: View {
                                   format: { "\(Double($0).toPercent1(leadingPlus: true))" },
                                   textStyle: .title,
                                   enabled: mr.periodSummary?.singlePeriodReturn != nil)
-                    StatusDisplay(title:  "\(WorthDocument.deltaPercentSymbol) (annualized)",
-                                  value: mr.periodSummary?.annualizedPeriodReturn ?? 0,
+                    StatusDisplay(title: "\(WorthDocument.deltaPercentSymbol) (CAGR)",
+                                  value: mr.periodSummary?.singlePeriodCAGR ?? 0,
                                   format: { "\(Double($0).toPercent1(leadingPlus: true))" },
-                                  textStyle: .title,
-                                  enabled: mr.periodSummary?.annualizedPeriodReturn != nil)
+                                  enabled: mr.periodSummary?.singlePeriodCAGR != nil)
+                    // StatusDisplay(title:  "\(WorthDocument.deltaPercentSymbol) (annualized)",
+                    // value: mr.periodSummary?.annualizedPeriodReturn ?? 0,
+                    // format: { "\(Double($0).toPercent1(leadingPlus: true))" },
+                    // textStyle: .title,
+                    // enabled: mr.periodSummary?.annualizedPeriodReturn != nil)
                 }
                 .frame(maxHeight: 55)
                 .padding(.bottom, 5)
