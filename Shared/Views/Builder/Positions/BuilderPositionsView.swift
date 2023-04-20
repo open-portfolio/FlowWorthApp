@@ -13,8 +13,8 @@ import SwiftUI
 import AllocData
 
 import FlowBase
-import FlowWorthLib
 import FlowUI
+import FlowWorthLib
 
 struct BuilderPositionsView: View {
     @Binding var document: WorthDocument
@@ -26,44 +26,44 @@ struct BuilderPositionsView: View {
                 BuilderHoldingsTable(document: $document) // NOTE: ps.holdings will be filtered by excludedHoldingMap
                     .tabItem { Text("\(hasImportedHoldings ? bullet : "")Imported Holdings") }
                     .tag(TabsPositionsBuilder.holdings)
-                
+
                 BuilderPositionsTable(document: $document, positions: document.pendingSnapshot.nuPositions)
                     .tabItem { Text("\(hasPendingPositions ? bullet : "")New Positions") }
                     .tag(TabsPositionsBuilder.positions)
-                
+
                 BuilderPositionsTable(document: $document, positions: document.pendingSnapshot.previousPositions)
                     .tabItem { Text("\(hasPreviousPositions ? bullet : "")Most Recent Snapshot") }
                     .tag(TabsPositionsBuilder.previousPositions)
             }
         }
     }
-    
+
     // MARK: - Properties
-    
+
     private var bullet: String {
         "•"
     }
-    
+
     private var hasImportedHoldings: Bool {
         document.model.holdings.count > 0
     }
-    
+
     private var hasPendingPositions: Bool {
         ps.nuPositions.count > 0
     }
-    
+
     private var hasPreviousPositions: Bool {
         ps.previousPositions.count > 0
     }
-    
+
     private var subTitle: String {
         "Positions to be included in the new Snapshot valuation."
     }
-    
+
     private var ps: PendingSnapshot {
         document.pendingSnapshot
     }
-        
+
     private var ax: WorthContext {
         document.context
     }

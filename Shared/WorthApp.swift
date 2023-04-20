@@ -23,11 +23,10 @@ let log = Logger(subsystem: "app.flowallocator.worth", category: "App")
 
 @main
 struct WorthApp: App {
-    
     @Environment(\.openURL) var openURL
-    
+
     @StateObject private var infoMessageStore = InfoMessageStore()
-    
+
     var body: some Scene {
         DocumentGroup(newDocument: WorthDocument()) { file in
             ContentView(document: file.$document)
@@ -53,15 +52,15 @@ struct WorthApp: App {
             CommandMenu("Strategy") {
                 StrategyCommand()
             }
-            
+
             CommandMenu("Account") {
                 AccountCommand()
             }
-            
+
             CommandGroup(before: CommandGroupPlacement.toolbar) {
                 ViewCommand()
             }
-            
+
             CommandGroup(replacing: CommandGroupPlacement.help) {
                 Button(action: {
                     openURL(URL(string: "https://openalloc.github.io/worth/contents/index.html")!)
@@ -74,11 +73,12 @@ struct WorthApp: App {
                 HelpCommand()
             }
         }
-        
+
         #if os(macOS)
             Settings {
                 SharedSettingsView(termsURL: URL(string: "https://openalloc.github.io/terms/")!,
-                                   privacyURL: URL(string: "https://openalloc.github.io/privacy/")!) {
+                                   privacyURL: URL(string: "https://openalloc.github.io/privacy/")!)
+                {
                     GeneralView()
                 }
                 .environmentObject(infoMessageStore)

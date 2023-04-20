@@ -19,24 +19,24 @@ import FlowWorthLib
 struct DietzSecondary: View {
     @Binding var document: WorthDocument
     @ObservedObject var mr: MatrixResult
-    
+
     let expositoryText = """
     The performance of your assets, independent of cash flows.
     """
-    
+
     var body: some View {
         VStack(spacing: 20) {
             HStack(alignment: .top) {
                 Text(expositoryText.replacingOccurrences(of: "\n", with: " "))
                     .font(.callout)
                     .foregroundColor(.secondary)
-                
+
                 HelpButton(appName: "worth", topicName: "inspectDietz")
             }
-            
+
             StatsBoxView(title: "Performance (based on ‘Modified Dietz’ method)") {
                 HStack {
-                    StatusDisplay(title:  "\(WorthDocument.rSymbol) (period)",
+                    StatusDisplay(title: "\(WorthDocument.rSymbol) (period)",
                                   value: periodPerformance,
                                   format: { "\(Double($0).toPercent1(leadingPlus: true))" },
                                   textStyle: .title,
@@ -67,7 +67,7 @@ struct DietzSecondary: View {
                 }
             }
             .frame(maxHeight: 80)
-            
+
             StatsBoxView(title: "Cash Flow") {
                 HStack {
                     StatusDisplay(title: "Net (period)",
@@ -97,45 +97,45 @@ struct DietzSecondary: View {
     private var hasCashflow: Bool {
         mr.hasCashflow
     }
-    
+
     private var periodPerformance: Double {
         mr.periodSummary?.dietz!.performance ?? 0
     }
-    
+
     private var annualizedPerformance: Double {
         (mr.periodSummary?.dietz!.performance ?? 0) / (mr.periodSummary?.yearsInPeriod ?? 0)
     }
-    
+
     private var periodNetCashflow: Double {
         guard let md = mr.periodSummary?.dietz else { return 0 }
         return md.netCashflowTotal
     }
-    
+
     private var daysInPeriod: Double {
         mr.periodDuration / 86400
     }
-    
+
     private var cashflowPerDay: Double {
         periodNetCashflow / daysInPeriod
     }
-    
+
     private var cashflowPerYear: Double {
         cashflowPerDay * 365.25
     }
-    
+
     private var marketValueDelta: Double {
         guard let md = mr.periodSummary?.dietz else { return 0 }
         return md.marketValue.end - md.marketValue.start
     }
-    
+
     private var periodGain: Double {
         marketValueDelta - periodNetCashflow
     }
-    
+
     private var gainPerDay: Double {
         periodGain / daysInPeriod
     }
-    
+
     private var gainPerYear: Double {
         gainPerDay * 365.25
     }

@@ -8,11 +8,10 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-import SwiftUI
 import KeyWindow
+import SwiftUI
 
 // for commands on document see https://lostmoa.com/blog/KeyWindowABetterWayOfExposingValuesFromTheKeyWindow/
 extension WorthDocument: KeyWindowValueKey {
     public typealias Value = Binding<Self>
 }
-

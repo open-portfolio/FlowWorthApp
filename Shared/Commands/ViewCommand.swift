@@ -13,8 +13,8 @@ import SwiftUI
 
 import KeyWindow
 
-import FlowWorthLib
 import AllocData
+import FlowWorthLib
 
 import FlowUI
 
@@ -25,17 +25,16 @@ struct ViewCommand: View {
     let defaultEventModifier: EventModifiers = [.control, .command]
 
     var body: some View {
-
         returnsItems
 
         Divider()
-        
+
         snapshotItems
-        
+
         Divider()
-        
+
         builderItems
-        
+
         Divider()
 
         DataModelCommands(baseTableViewCommands: getBaseDataModelViewCommand(baseModelEntities),
@@ -46,16 +45,16 @@ struct ViewCommand: View {
     private var auxTableViewCommands: [DataModelViewCommand] {
         [
             DataModelViewCommand(id: WorthSidebarMenuIDs.modelValuationSnapshots.rawValue,
-                              title: WorthSidebarMenuIDs.modelValuationSnapshots.title),
-            
+                                 title: WorthSidebarMenuIDs.modelValuationSnapshots.title),
+
             DataModelViewCommand(id: WorthSidebarMenuIDs.modelValuationPositions.rawValue,
-                              title: WorthSidebarMenuIDs.modelValuationPositions.title),
-            
+                                 title: WorthSidebarMenuIDs.modelValuationPositions.title),
+
             DataModelViewCommand(id: WorthSidebarMenuIDs.modelValuationCashflow.rawValue,
-                              title: WorthSidebarMenuIDs.modelValuationCashflow.title)
+                                 title: WorthSidebarMenuIDs.modelValuationCashflow.title),
         ]
     }
-    
+
     @ViewBuilder
     var snapshotItems: some View {
         Button(action: {
@@ -63,67 +62,65 @@ struct ViewCommand: View {
         }, label: {
             Text("Valuation Snapshots")
         })
-            .keyboardShortcut("v", modifiers: defaultEventModifier)
+        .keyboardShortcut("v", modifiers: defaultEventModifier)
     }
-    
+
     @ViewBuilder
     var returnsItems: some View {
         Text("Returns")
-        
+
         Button(action: {
             document?.displaySettings.activeSidebarMenuKey = WorthSidebarMenuIDs.birdsEyeChart.rawValue
         }, label: {
             Text("Portfolio")
         })
-            .keyboardShortcut("0", modifiers: defaultEventModifier)
+        .keyboardShortcut("0", modifiers: defaultEventModifier)
 
         Button(action: {
             document?.displaySettings.activeSidebarMenuKey = SidebarMenuIDs.activeStrategy.rawValue
         }, label: {
             Text("Active Strategy")
         })
-            .keyboardShortcut(.return, modifiers: defaultEventModifier)
-        
+        .keyboardShortcut(.return, modifiers: defaultEventModifier)
+
         Button(action: {
             document?.displaySettings.activeSidebarMenuKey = SidebarMenuIDs.tradingAccountsSummary.rawValue
         }, label: {
             Text("Trading Accounts")
         })
-            .keyboardShortcut("t", modifiers: defaultEventModifier)
+        .keyboardShortcut("t", modifiers: defaultEventModifier)
 
         Button(action: {
             document?.displaySettings.activeSidebarMenuKey = SidebarMenuIDs.nonTradingAccountsSummary.rawValue
         }, label: {
             Text("Non-Trading Accounts")
         })
-            .keyboardShortcut("n", modifiers: defaultEventModifier)
+        .keyboardShortcut("n", modifiers: defaultEventModifier)
     }
 
     @ViewBuilder
     var builderItems: some View {
         Text("Builder")
-        
+
         Button(action: {
             document?.displaySettings.activeSidebarMenuKey = WorthSidebarMenuIDs.builderSummary.rawValue
         }, label: {
             Text("Summary")
         })
-            .keyboardShortcut("b", modifiers: defaultEventModifier)
-        
+        .keyboardShortcut("b", modifiers: defaultEventModifier)
+
         Button(action: {
             document?.displaySettings.activeSidebarMenuKey = WorthSidebarMenuIDs.builderPositions.rawValue
         }, label: {
             Text("Positions")
         })
-            .keyboardShortcut("p", modifiers: defaultEventModifier)
+        .keyboardShortcut("p", modifiers: defaultEventModifier)
 
         Button(action: {
             document?.displaySettings.activeSidebarMenuKey = WorthSidebarMenuIDs.builderCashflow.rawValue
         }, label: {
             Text("Cash Flow")
         })
-            .keyboardShortcut("c", modifiers: defaultEventModifier)
+        .keyboardShortcut("c", modifiers: defaultEventModifier)
     }
-    
-   
 }

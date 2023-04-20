@@ -30,7 +30,7 @@ public struct StrategySummaryTable: View {
             StrategyDietzSummaryTable(document: $document, tableData: tableData2)
         }
     }
-    
+
     // convert matrix to the idiosyncratic data format required by this table
     private var tableData0: [StrategyDeltaSummaryTable.TableRow] {
         psum.strategyKeySet.sorted().reduce(into: []) { array, strategyKey in
@@ -52,7 +52,7 @@ public struct StrategySummaryTable: View {
             array.append(.init(strategyKey: strategyKey, begTB: begTB, endTB: endTB, deltaTB: deltaTB, deltaPercent: deltaPercent))
         }
     }
-    
+
     // convert matrix to the idiosyncratic data format required by this table
     private var tableData2: [StrategyDietzSummaryTable.TableRow] {
         psum.strategyKeySet.sorted().reduce(into: []) { array, strategyKey in

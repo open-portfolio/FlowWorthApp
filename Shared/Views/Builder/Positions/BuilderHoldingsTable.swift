@@ -8,11 +8,10 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-
 import SwiftUI
 
-import Tabler
 import AllocData
+import Tabler
 
 import FlowBase
 import FlowUI
@@ -24,9 +23,9 @@ extension MHolding {
 
 struct BuilderHoldingsTable: View {
     @Binding var document: WorthDocument
-    
+
     // MARK: - Locals
-    
+
     private let gridItems: [GridItem] = [
         GridItem(.flexible(minimum: 220), spacing: columnSpacing),
         GridItem(.flexible(minimum: 180), spacing: columnSpacing),
@@ -38,7 +37,7 @@ struct BuilderHoldingsTable: View {
     ]
 
     @State var hovered: DietzSnapshotInfo.ID? = nil
-    
+
     var body: some View {
         TablerStack(.init(rowSpacing: flowRowSpacing),
                     header: header,
@@ -50,7 +49,7 @@ struct BuilderHoldingsTable: View {
 
     typealias Context = TablerContext<MHolding>
     typealias Sort = TablerSort<MHolding>
-    
+
     private func header(_ ctx: Binding<Context>) -> some View {
         LazyVGrid(columns: gridItems, alignment: .leading, spacing: flowColumnSpacing) {
             Sort.columnTitle("Account (Number)", ctx, \.accountID)
@@ -112,24 +111,23 @@ struct BuilderHoldingsTable: View {
         }
         .foregroundColor(getColorCode(getAssetKey(item)).0)
     }
-    
+
     private func rowBackground(_ item: MHolding) -> some View {
         document.getBackgroundFill(getAssetKey(item))
     }
 
-
     // MARK: - Properties
-    
+
     private var ax: WorthContext {
         document.context
     }
-    
+
     private func getAssetKey(_ item: MHolding) -> AssetKey {
         ax.securityMap[item.securityKey]?.assetKey ?? MAsset.emptyKey
     }
 
     // MARK: - Actions
-    
+
     // MARK: - Helpers
 
     private func getColorCode(_ assetKey: AssetKey) -> ColorPair {

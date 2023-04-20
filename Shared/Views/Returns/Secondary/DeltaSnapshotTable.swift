@@ -8,11 +8,10 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-
 import SwiftUI
 
-import Tabler
 import AllocData
+import Tabler
 
 import FlowBase
 import FlowUI
@@ -21,10 +20,10 @@ import FlowWorthLib
 struct DeltaSnapshotTable: View {
     @Binding var document: WorthDocument
     @ObservedObject var mr: MatrixResult
-    
+
     private let futureValueMaxCount = 10
     private let futureValuesMultiplier = 1.5
-    
+
     // simple struct needed with ForEach
     struct DeltaSnapshotInfo: Hashable, Identifiable {
         let id: Double
@@ -32,31 +31,31 @@ struct DeltaSnapshotTable: View {
         var marketValue: Double
         var gainLoss: Double
         var accumGainLoss: Double
-        
+
         internal init(capturedAt: Date, marketValue: Double, gainLoss: Double, accumGainLoss: Double) {
-            self.id = capturedAt.timeIntervalSinceReferenceDate
+            id = capturedAt.timeIntervalSinceReferenceDate
             self.capturedAt = capturedAt
             self.marketValue = marketValue
             self.gainLoss = gainLoss
             self.accumGainLoss = accumGainLoss
         }
-        
+
         var accumSnapshotReturn: Double {
             (marketValue / (marketValue - accumGainLoss)) - 1
         }
-        
+
         func getDistance(mr: MatrixResult) -> Double? {
             guard let first = mr.capturedAts.first else { return nil }
             return first.distance(to: capturedAt)
         }
-        
+
         func getDaily(mr: MatrixResult) -> Double? {
             guard let distance = getDistance(mr: mr) else { return nil }
             let totalDays = distance / 24 / 60 / 60
             return accumGainLoss / totalDays
         }
     }
-    
+
     private let gridItems: [GridItem] = [
         GridItem(.flexible(minimum: 120), spacing: columnSpacing),
         GridItem(.flexible(minimum: 110), spacing: columnSpacing),
@@ -64,7 +63,7 @@ struct DeltaSnapshotTable: View {
         GridItem(.flexible(minimum: 80), spacing: columnSpacing),
         GridItem(.flexible(minimum: 80), spacing: columnSpacing),
     ]
-    
+
     @State var hovered: DeltaSnapshotInfo.ID? = nil
 
     var body: some View {
@@ -76,10 +75,10 @@ struct DeltaSnapshotTable: View {
             .sideways(minWidth: 500, showIndicators: true)
         HStack { Spacer(); Text("*period to date").font(.footnote) }
     }
-    
+
     typealias Context = TablerContext<DeltaSnapshotInfo>
-    
-    private func header(_ ctx: Binding<Context>) -> some View {
+
+    private func header(_: Binding<Context>) -> some View {
         LazyVGrid(columns: gridItems, alignment: .leading, spacing: flowColumnSpacing) {
             Text("Captured At")
                 .modifier(HeaderCell())
@@ -93,7 +92,7 @@ struct DeltaSnapshotTable: View {
                 .modifier(HeaderCell())
         }
     }
-    
+
     private func row(_ item: DeltaSnapshotInfo) -> some View {
         LazyVGrid(columns: gridItems, alignment: .leading, spacing: flowColumnSpacing) {
             DateLabel(item.capturedAt, withTime: false)
@@ -118,18 +117,18 @@ struct DeltaSnapshotTable: View {
             }
         }
     }
-    
+
     public func rowBackground(_ item: DeltaSnapshotInfo) -> some View {
         RoundedRectangle(cornerRadius: 5)
             .fill(Color.accentColor.opacity(hovered == item.id ? 0.2 : 0.0))
     }
 
     // MARK: - Properties
-    
+
     private var ax: WorthContext {
         document.context
     }
-    
+
     // generate a nice set of future values, skipping those that are less than current MV
     private func getDeltaSnapshots() -> [DeltaSnapshotInfo] {
         var lastMarketValue: Double = 0
@@ -148,11 +147,10 @@ struct DeltaSnapshotTable: View {
             lastMarketValue = mv
         }
     }
-    
+
     // MARK: - Actions
-    
+
     private func hoverAction(itemID: FutureValueInfo.ID, isHovered: Bool) {
         if isHovered { hovered = itemID } else { hovered = nil }
     }
 }
-

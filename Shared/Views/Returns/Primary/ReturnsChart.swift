@@ -13,16 +13,16 @@ import SwiftUI
 import AllocData
 import NiceScale
 
-import FlowUI
 import FlowBase
+import FlowUI
 import FlowWorthLib
 
 struct ReturnsChart: View {
     @Binding var document: WorthDocument
     @ObservedObject var mr: MatrixResult
-    
+
     let resampleCount = 160
-    
+
     var body: some View {
         if let scale = vertScale {
             GeometryReader { geo in
@@ -36,7 +36,7 @@ struct ReturnsChart: View {
                 .font(.title)
         }
     }
-    
+
     private func chartBody(_ scale: NiceScale<Double>) -> some View {
         ReturnsChartBody(document: $document,
                          mr: mr,
@@ -44,9 +44,9 @@ struct ReturnsChart: View {
                          vertScale: scale,
                          showLegend: true)
     }
-    
+
     // MARK: - Properties
-    
+
     private var ds: DisplaySettings {
         document.displaySettings
     }
@@ -54,7 +54,7 @@ struct ReturnsChart: View {
     private var isCompact: Bool {
         document.displaySettings.showSecondary
     }
-    
+
     /// return snapshot capturedAt, as ratio of range of snapshots
     private func getHorizontalTicks(width: CGFloat) -> [HorizontalTick] {
         let labelWidth: CGFloat = isCompact ? 40 : 70
@@ -63,10 +63,10 @@ struct ReturnsChart: View {
                                             width: width,
                                             labelWidth: labelWidth,
                                             minSpace: minSpace)
-        //print("\(ticks)")
+        // print("\(ticks)")
         return ticks
     }
-    
+
     private var vertScale: NiceScale<Double>? {
         switch ds.returnsGrouping {
         case .assets:
@@ -78,4 +78,3 @@ struct ReturnsChart: View {
         }
     }
 }
-

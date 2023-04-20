@@ -14,8 +14,8 @@ import SwiftUI
 import KeyWindow
 
 import AllocData
-import FlowWorthLib
 import FlowUI
+import FlowWorthLib
 
 extension TabsPositionsBuilder {
     var description: String {
@@ -28,7 +28,7 @@ extension TabsPositionsBuilder {
             return "Previous Positions"
         }
     }
-    
+
     var keyboardShortcut: KeyEquivalent {
         switch self {
         case .holdings:
@@ -52,7 +52,7 @@ extension TabsCashflowBuilder {
             return "Previous Cash Flow"
         }
     }
-    
+
     var keyboardShortcut: KeyEquivalent {
         switch self {
         case .transactions:
@@ -68,31 +68,30 @@ extension TabsCashflowBuilder {
 struct BuilderCommand: View {
     @KeyWindowValueBinding(WorthDocument.self)
     var document: WorthDocument?
-    
+
     let defaultEventModifier: EventModifiers = [.option, .command]
-    
+
     var body: some View {
-        
         builder
-        
+
         Divider()
-                
+
         Button(action: commitBuilderAction) {
             Text("Create")
         }
         .disabled(!canCommitBuilder)
         .keyboardShortcut("c", modifiers: defaultEventModifier)
-        
+
         Button(action: clearBuilderAction) {
             Text("Clear")
         }
         .keyboardShortcut("e", modifiers: defaultEventModifier)
     }
-    
+
     @ViewBuilder
     private var builder: some View {
         Text("Positions")
-        
+
         ForEach(TabsPositionsBuilder.allCases, id: \.self) { item in
             SettingsMenuItemKeyed(keyPath: \WorthDocument.displaySettings.builderPositionsTab,
                                   keyToMatch: item,
@@ -100,9 +99,9 @@ struct BuilderCommand: View {
                                   onSelect: { _ in self.setBuilderPositionView() })
                 .keyboardShortcut(item.keyboardShortcut, modifiers: defaultEventModifier)
         }
-        
+
         Text("Cash Flow")
-        
+
         ForEach(TabsCashflowBuilder.allCases, id: \.self) { item in
             SettingsMenuItemKeyed(keyPath: \WorthDocument.displaySettings.builderCashflowTab,
                                   keyToMatch: item,
@@ -111,17 +110,17 @@ struct BuilderCommand: View {
                 .keyboardShortcut(item.keyboardShortcut, modifiers: defaultEventModifier)
         }
     }
-    
+
     // MARK: - helpers
-    
+
     private func setBuilderPositionView() {
         document?.displaySettings.activeSidebarMenuKey = WorthSidebarMenuIDs.builderPositions.rawValue
     }
-    
+
     private func setBuilderCashflowView() {
         document?.displaySettings.activeSidebarMenuKey = WorthSidebarMenuIDs.builderCashflow.rawValue
     }
-    
+
     private func maybeSetView() {
         guard let currentMenuKey = document?.displaySettings.activeSidebarMenuKey else { return }
         let validMenuKeys = [WorthSidebarMenuIDs.builderPositions.rawValue, WorthSidebarMenuIDs.builderCashflow.rawValue]
@@ -129,21 +128,20 @@ struct BuilderCommand: View {
             setBuilderPositionView()
         }
     }
-    
+
     private var canCommitBuilder: Bool {
         document?.canCommitBuilder ?? false
     }
-    
+
     private func commitBuilderAction() {
         guard let d = document else { return }
         maybeSetView()
         NotificationCenter.default.post(name: .commitBuilder, object: d.model.id)
     }
-    
+
     private func clearBuilderAction() {
         guard let d = document else { return }
         maybeSetView()
         NotificationCenter.default.post(name: .clearBuilder, object: d.model.id)
     }
-    
 }

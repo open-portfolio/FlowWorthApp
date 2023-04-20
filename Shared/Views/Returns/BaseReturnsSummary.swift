@@ -17,19 +17,17 @@ import FlowUI
 import FlowWorthLib
 
 #if os(macOS)
-let toggleColor = Color(.controlTextColor)
+    let toggleColor = Color(.controlTextColor)
 #else
-let toggleColor = Color.primary
+    let toggleColor = Color.primary
 #endif
 
 struct BaseReturnsSummary: View {
-
-    
     @Binding var document: WorthDocument
     var title: String
     var mr: MatrixResult
     var account: MAccount?
-    
+
     var body: some View {
         VStack {
             if document.displaySettings.showSecondary {
@@ -50,15 +48,15 @@ struct BaseReturnsSummary: View {
         }
         .toolbar {
             ToolbarItemGroup(placement: .principal) { viewControls }
-            
+
             #if os(macOS)
-            ToolbarItemGroup(placement: .primaryAction) { barControls }
+                ToolbarItemGroup(placement: .primaryAction) { barControls }
             #else
-            ToolbarItemGroup(placement: .automatic) { }
+                ToolbarItemGroup(placement: .automatic) {}
             #endif
         }
     }
-    
+
     private var primary: some View {
         PrimaryReturns(document: $document,
                        mr: mr,
@@ -66,7 +64,7 @@ struct BaseReturnsSummary: View {
                        title: title)
             .frame(minWidth: 600, idealWidth: 800, maxWidth: .infinity, maxHeight: .infinity)
     }
-    
+
     private var secondary: some View {
         SecondaryReturns(document: $document,
                          mr: mr,
@@ -74,7 +72,7 @@ struct BaseReturnsSummary: View {
                          account: account)
             .frame(minWidth: 400, idealWidth: 500, maxWidth: .infinity, maxHeight: .infinity)
     }
-    
+
     @ViewBuilder
     private var viewControls: some View {
         ColoredSystemImageToggle(on: $document.displaySettings.showChartLegend,
@@ -93,16 +91,16 @@ struct BaseReturnsSummary: View {
         Spacer()
         PeriodSummarySelectionPicker(document: $document)
     }
-    
+
     @ViewBuilder
     private var barControls: some View {
         Spacer()
 
         InspectorToggle(on: $document.displaySettings.showSecondary)
     }
-    
+
     // MARK: - Properties
-    
+
     private var fr: ForecastResult {
         ForecastResult(snapshots: mr.orderedSnapshots,
                        marketvalueMap: mr.snapshotMarketValueMap)

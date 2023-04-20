@@ -33,7 +33,7 @@ struct ImportCommand: View {
     var body: some View {
         Button(action: {
             guard let model = document?.model else {
-                //print("\(#function) document not available") // TODO: log this
+                // print("\(#function) document not available") // TODO: log this
                 return
             }
 
@@ -42,7 +42,7 @@ struct ImportCommand: View {
             #if os(macOS)
                 NSOpenPanel.importURLs(completion: { result in
                     guard let urls = try? result.get() else {
-                        //print("\(#function) no urls available") // TODO: log this
+                        // print("\(#function) no urls available") // TODO: log this
                         return
                     }
 
@@ -53,6 +53,6 @@ struct ImportCommand: View {
         }, label: {
             Text("Import...")
         })
-            .keyboardShortcut("i", modifiers: defaultEventModifier)
+        .keyboardShortcut("i", modifiers: defaultEventModifier)
     }
 }

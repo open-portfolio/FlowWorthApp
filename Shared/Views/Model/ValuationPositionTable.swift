@@ -10,9 +10,9 @@
 
 import SwiftUI
 
+import AllocData
 import Detailer
 import DetailerMenu
-import AllocData
 import Tabler
 
 import FlowBase
@@ -20,23 +20,22 @@ import FlowUI
 import FlowWorthLib
 
 public struct ValuationPositionTable: View {
-    
     // MARK: - Parameters
-    
+
     @Binding private var model: BaseModel
     private let ax: BaseContext
     private let snapshot: MValuationSnapshot? // if nil, show positions for all snapshots
     private let account: MAccount? // if nil, show positions for all accounts
-    
+
     public init(model: Binding<BaseModel>, ax: BaseContext, snapshot: MValuationSnapshot?, account: MAccount?) {
         _model = model
         self.ax = ax
         self.snapshot = snapshot
         self.account = account
     }
-    
+
     // MARK: - Field Metadata
-    
+
     private var gridItems: [GridItem] = [
         GridItem(.flexible(minimum: 140), spacing: columnSpacing, alignment: .leading),
         GridItem(.flexible(minimum: 140), spacing: columnSpacing, alignment: .leading),
@@ -44,11 +43,11 @@ public struct ValuationPositionTable: View {
         GridItem(.flexible(minimum: 70), spacing: columnSpacing, alignment: .leading),
         GridItem(.flexible(minimum: 70), spacing: columnSpacing, alignment: .leading),
     ]
-    
+
     // MARK: - Views
-    
+
     typealias Context = TablerContext<MValuationPosition>
-    
+
     private func header(_ ctx: Binding<Context>) -> some View {
         LazyVGrid(columns: gridItems, alignment: .leading, spacing: flowColumnSpacing) {
             Sort.columnTitle("Snapshot ID", ctx, \.snapshotID)
@@ -68,7 +67,7 @@ public struct ValuationPositionTable: View {
                 .modifier(HeaderCell())
         }
     }
-    
+
     private func row(_ element: MValuationPosition) -> some View {
         LazyVGrid(columns: gridItems, alignment: .leading, spacing: flowColumnSpacing) {
             if let _snapshot = ax.snapshotMap[element.snapshotKey] {
@@ -89,7 +88,7 @@ public struct ValuationPositionTable: View {
         }
         .modifier(EditDetailerContextMenu(element, onDelete: deleteAction, onEdit: { toEdit = $0 }))
     }
-    
+
     private func editDetail(ctx: DetailerContext<MValuationPosition>, element: Binding<MValuationPosition>) -> some View {
         let disableKey = ctx.originalID != newElement.primaryKey
         return Form {
@@ -98,41 +97,42 @@ public struct ValuationPositionTable: View {
             }
             .disabled(disableKey)
             .validate(ctx, element, \.snapshotID) { $0.count > 0 }
-            
+
             AccountIDPicker(accounts: model.accounts.sorted(), accountID: element.accountID) {
                 Text("Account")
             }
             .disabled(disableKey)
             .validate(ctx, element, \.accountID) { $0.count > 0 }
-            
+
             AssetIDPicker(assets: model.assets.sorted(), assetID: element.assetID) {
                 Text("Asset Class")
             }
             .disabled(disableKey)
             .validate(ctx, element, \.assetID) { $0.count > 0 }
-            
+
             CurrencyField("Total Basis", value: element.totalBasis)
             CurrencyField("Market Value", value: element.marketValue)
         }
     }
-    
+
     // MARK: - Locals
-    
+
     private typealias Sort = TablerSort<MValuationPosition>
     private typealias DConfig = DetailerConfig<MValuationPosition>
     private typealias TConfig = TablerStackConfig<MValuationPosition>
-    
+
     private var dconfig: DConfig {
         DConfig(
             onDelete: deleteAction,
             onSave: saveAction,
-            titler: { _ in ("Position") })
+            titler: { _ in "Position" }
+        )
     }
-    
+
     @State var toEdit: MValuationPosition? = nil
     @State var selected: MValuationPosition.ID? = nil
     @State var hovered: MValuationPosition.ID? = nil
-    
+
     public var body: some View {
         BaseModelTable(
             selected: $selected,
@@ -141,52 +141,54 @@ public struct ValuationPositionTable: View {
             onEdit: editAction,
             onClear: clearAction,
             onExport: exportAction,
-            onDelete: dconfig.onDelete) {
-                TablerStack1(
-                    .init(onHover: { if $1 { hovered = $0 } else { hovered = nil } }),
-                    header: header,
-                    row: row,
-                    rowBackground: { MyRowBackground($0, hovered: hovered, selected: selected) },
-                    results: model.valuationPositions,
-                    selected: $selected)
-            }
-            .editDetailer(dconfig,
-                          toEdit: $toEdit,
-                          originalID: toEdit?.id,
-                          detailContent: editDetail)
+            onDelete: dconfig.onDelete
+        ) {
+            TablerStack1(
+                .init(onHover: { if $1 { hovered = $0 } else { hovered = nil } }),
+                header: header,
+                row: row,
+                rowBackground: { MyRowBackground($0, hovered: hovered, selected: selected) },
+                results: model.valuationPositions,
+                selected: $selected
+            )
+        }
+        .editDetailer(dconfig,
+                      toEdit: $toEdit,
+                      originalID: toEdit?.id,
+                      detailContent: editDetail)
     }
-    
+
     private var assetMap: AssetMap {
         if ax.assetMap.count > 0 {
             return ax.assetMap
         }
         return model.makeAssetMap()
     }
-    
+
     // MARK: - Action Handlers
-    
+
     private func deleteAction(element: MValuationPosition) {
         model.delete(element)
     }
-    
+
     private func editAction(_ id: MValuationPosition.ID?) -> MValuationPosition? {
         guard let _id = id else { return nil }
         return model.valuationPositions.first(where: { $0.id == _id })
     }
-    
+
     private func saveAction(ctx: DetailerContext<MValuationPosition>, element: MValuationPosition) {
         let isNew = ctx.originalID == newElement.primaryKey
         model.save(element,
                    to: \.valuationPositions,
                    originalID: isNew ? nil : ctx.originalID)
     }
-    
+
     private var newElement: MValuationPosition {
         let snapshotID = snapshot?.snapshotID ?? ""
         let accountID = account?.accountID ?? ""
         return MValuationPosition(snapshotID: snapshotID, accountID: accountID, assetID: "")
     }
-    
+
     private func clearAction() {
         var elements = model.valuationPositions
         if let accountKey = account?.primaryKey {
@@ -194,16 +196,16 @@ public struct ValuationPositionTable: View {
         }
         elements.forEach { model.delete($0) }
     }
-    
+
     private func exportAction() {
         let finFormat = AllocFormat.CSV
         if let data = try? exportData(model.valuationPositions, format: finFormat),
            let ext = finFormat.defaultFileExtension
         {
             let name = MValuationPosition.entityName.plural.replacingOccurrences(of: " ", with: "-")
-#if os(macOS)
-            NSSavePanel.saveData(data, name: name, ext: ext, completion: { _ in })
-#endif
+            #if os(macOS)
+                NSSavePanel.saveData(data, name: name, ext: ext, completion: { _ in })
+            #endif
         }
     }
 }

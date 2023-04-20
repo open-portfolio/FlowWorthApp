@@ -14,7 +14,7 @@ import FlowWorthLib
 
 struct PeriodSummarySelectionPicker: View {
     @Binding var document: WorthDocument
-    
+
     var body: some View {
         PeriodSummarySelection.picker(periodSummarySelection: $document.displaySettings.periodSummarySelection)
     }
@@ -31,11 +31,11 @@ extension PeriodSummarySelection {
             return "Performance (\(WorthDocument.rSymbol))"
         }
     }
-    
+
     var fullDescription: String {
         "\(description)"
     }
-    
+
     var systemImage: (String, String) {
         switch self {
         case .deltaMarketValue:
@@ -46,7 +46,7 @@ extension PeriodSummarySelection {
             return ("r.square", "r.square.fill")
         }
     }
-    
+
     var keyboardShortcut: KeyEquivalent {
         switch self {
         case .deltaMarketValue:
@@ -57,12 +57,12 @@ extension PeriodSummarySelection {
             return "r"
         }
     }
-    
+
     private static func myLabel(selection: Binding<PeriodSummarySelection>, en: PeriodSummarySelection) -> some View {
         let isSelected = selection.wrappedValue == en
         return Image(systemName: isSelected ? en.systemImage.1 : en.systemImage.0)
     }
-    
+
     static func picker(periodSummarySelection: Binding<PeriodSummarySelection>) -> some View {
         Picker(selection: periodSummarySelection, label: EmptyView()) {
             myLabel(selection: periodSummarySelection, en: PeriodSummarySelection.deltaMarketValue)

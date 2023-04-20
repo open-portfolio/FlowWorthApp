@@ -8,27 +8,25 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-
 import SwiftUI
 
 struct LegendBar: View {
-    
     struct LegendItem: Hashable {
         let title: String?
         let id: String?
         let fg: Color
         let bg: Color
     }
-    
+
     var collections: [LegendItem]
     @State private var scrollViewContentSize: CGSize = .zero
-    
+
     var body: some View {
         HStack {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
                     ForEach(collections, id: \.self) { collection in
-                        //Text(collection)
+                        // Text(collection)
                         legendBadge(collection)
                     }
                 }
@@ -46,7 +44,7 @@ struct LegendBar: View {
             )
         }
     }
-    
+
     private func legendBadge(_ item: LegendItem) -> some View {
         ZStack {
             RoundedRectangle(cornerRadius: 8)
@@ -69,5 +67,4 @@ struct LegendBar: View {
         .compositingGroup()
         .frame(maxHeight: 40)
     }
-    
 }

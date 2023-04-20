@@ -13,8 +13,8 @@ import SwiftUI
 import AllocData
 
 import FlowBase
-import FlowWorthLib
 import FlowUI
+import FlowWorthLib
 
 struct BaseBuilderView<Content>: View where Content: View {
     @Binding var document: WorthDocument
@@ -23,7 +23,7 @@ struct BaseBuilderView<Content>: View where Content: View {
     let subTitle: String
 
     @ViewBuilder let content: () -> Content
-        
+
     var body: some View {
         VStack {
             HStack {
@@ -33,9 +33,9 @@ struct BaseBuilderView<Content>: View where Content: View {
                     Text(subTitle)
                         .font(.subheadline)
                 }
-                
+
                 Spacer()
-                
+
                 Group {
                     if let msg = canCommitMessage {
                         Text(msg.0)
@@ -45,17 +45,17 @@ struct BaseBuilderView<Content>: View where Content: View {
                     }
                 }
                 .font(.title3)
-            
+
                 Spacer()
 
                 HelpButton(appName: "worth", topicName: "snapshotBuilder")
             }
             .padding()
-            
+
             content()
-            
+
             Spacer()
-            
+
             BuilderFooter(document: $document)
                 .frame(maxHeight: 50)
                 .padding()
@@ -67,32 +67,32 @@ struct BaseBuilderView<Content>: View where Content: View {
             }
         }
     }
-    
+
     @ViewBuilder
     private var builderControls: some View {
         PeriodSummarySelectionPicker(document: $document)
-        
+
         Spacer(minLength: 60)
-        
+
         MyDatePicker(date: $document.displaySettings.builderCapturedAt,
                      minimumDate: ps.minimumDate,
                      now: now,
                      onChange: dateChangeAction)
-        
+
         Spacer(minLength: 60)
-        
+
         Button(action: clearAction, label: {
             Text("Clear")
         })
-        
+
         Button(action: createSnapshotAction, label: {
             Text("Create Snapshot")
         })
-            .disabled(!canCommit)
+        .disabled(!canCommit)
     }
-    
+
     // MARK: - Properties
-    
+
     private var ax: WorthContext {
         document.context
     }
@@ -104,30 +104,29 @@ struct BaseBuilderView<Content>: View where Content: View {
     private var title: String {
         "Snapshot Builder (\(viewName))"
     }
-    
+
     private var canCommitMessage: (String, Bool)? {
         ps.canCommit(ax: ax, nuCapturedAt: document.displaySettings.builderCapturedAt)
     }
-    
+
     private var canCommit: Bool {
         canCommitMessage == nil
     }
-    
+
     // MARK: - Actions
-    
+
     private func createSnapshotAction() {
         NotificationCenter.default.post(name: .commitBuilder, object: document.model.id)
     }
-    
+
     private func clearAction() {
         NotificationCenter.default.post(name: .clearBuilder, object: document.model.id)
     }
-    
+
     // MARK: - Actions
-    
+
     private func dateChangeAction(_: Date) {
         // this should also reset document.pendingSnapshot
         NotificationCenter.default.post(name: .refreshWorthResult, object: ax.model.id)
     }
-
 }

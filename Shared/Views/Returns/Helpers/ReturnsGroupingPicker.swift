@@ -14,7 +14,7 @@ import FlowWorthLib
 
 struct ReturnsGroupingPicker: View {
     @Binding var document: WorthDocument
-    
+
     var body: some View {
         ReturnsGrouping.picker(returnsGrouping: $document.displaySettings.returnsGrouping)
     }
@@ -31,11 +31,11 @@ extension ReturnsGrouping {
             return "Strategy"
         }
     }
-    
+
     var fullDescription: String {
         "Group by \(description)"
     }
-    
+
     var systemImage: (String, String) {
         switch self {
         case .assets:
@@ -46,7 +46,7 @@ extension ReturnsGrouping {
             return ("s.square", "s.square.fill")
         }
     }
-    
+
     var keyboardShortcut: KeyEquivalent {
         switch self {
         case .assets:
@@ -57,12 +57,12 @@ extension ReturnsGrouping {
             return "3"
         }
     }
-    
+
     private static func myLabel(selection: Binding<ReturnsGrouping>, en: ReturnsGrouping) -> some View {
         let isSelected = selection.wrappedValue == en
         return Image(systemName: isSelected ? en.systemImage.1 : en.systemImage.0)
     }
-    
+
     static func picker(returnsGrouping: Binding<ReturnsGrouping>) -> some View {
         Picker(selection: returnsGrouping, label: EmptyView()) {
             myLabel(selection: returnsGrouping, en: ReturnsGrouping.assets)

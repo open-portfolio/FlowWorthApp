@@ -14,7 +14,7 @@ import FlowWorthLib
 
 struct ReturnsColorPicker: View {
     @Binding var document: WorthDocument
-    
+
     var body: some View {
         ReturnsColor.picker(returnsColor: $document.displaySettings.returnsColor)
     }
@@ -29,11 +29,11 @@ extension ReturnsColor {
             return "Monochrome"
         }
     }
-    
+
     var fullDescription: String {
         "Render in \(description)"
     }
-    
+
     var systemImage: (String, String) {
         switch self {
         case .color:
@@ -42,7 +42,7 @@ extension ReturnsColor {
             return ("m.square", "m.square.fill")
         }
     }
-    
+
     var keyboardShortcut: KeyEquivalent {
         switch self {
         case .color:
@@ -51,13 +51,13 @@ extension ReturnsColor {
             return "8"
         }
     }
-    
+
     private static func myLabel(selection: Binding<ReturnsColor>, en: ReturnsColor) -> some View {
         let isSelected = selection.wrappedValue == en
         return
             Image(systemName: isSelected ? en.systemImage.1 : en.systemImage.0)
     }
-    
+
     static func picker(returnsColor: Binding<ReturnsColor>) -> some View {
         Picker(selection: returnsColor, label: EmptyView()) {
             myLabel(selection: returnsColor, en: ReturnsColor.mono)

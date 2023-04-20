@@ -17,14 +17,13 @@ import FlowUI
 import FlowWorthLib
 
 struct SecondaryReturns: View {
-
     @Binding var document: WorthDocument
     @ObservedObject var mr: MatrixResult
     @ObservedObject var fr: ForecastResult
     var account: MAccount?
 
     // MARK: Views
-    
+
     var body: some View {
         TabView(selection: $document.displaySettings.secondaryReturnsTab) {
             AssetsList(document: $document, mr: mr)
@@ -47,4 +46,3 @@ struct SecondaryReturns: View {
         }
     }
 }
-

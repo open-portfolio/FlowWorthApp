@@ -17,7 +17,6 @@ import FlowUI
 import FlowWorthLib
 
 struct SnapshotNavPicker: View {
-    
     var model: BaseModel
     var ax: WorthContext
     @Binding var snapshotKey: SnapshotKey
@@ -27,23 +26,22 @@ struct SnapshotNavPicker: View {
         KeyedPicker(elements: filteredSnapshots, key: $snapshotKey, getTitle: getTitle) {}
             .modify {
                 #if os(macOS)
-                $0.pickerStyle(DefaultPickerStyle())
-                    .labelsHidden()
+                    $0.pickerStyle(DefaultPickerStyle())
+                        .labelsHidden()
                 #else
-                $0.pickerStyle(MenuPickerStyle())
-                    .foregroundColor(.primary) // to contrast with the background accent color when selected
+                    $0.pickerStyle(MenuPickerStyle())
+                        .foregroundColor(.primary) // to contrast with the background accent color when selected
                 #endif
             }
     }
-    
+
     func getTitle(_ snapshot: MValuationSnapshot) -> String {
         let index = ax.snapshotIndexes[snapshot.primaryKey] ?? -1
         return "#\(index + 1): \(snapshot.titleID)"
     }
-    
+
     /// filter INCLUSIVE of range
     var filteredSnapshots: [MValuationSnapshot] {
         ax.orderedSnapshots.filter { range.start <= $0.capturedAt && $0.capturedAt <= range.end }
     }
 }
-

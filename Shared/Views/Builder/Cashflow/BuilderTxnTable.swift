@@ -10,26 +10,25 @@
 
 import SwiftUI
 
-import Tabler
 import AllocData
+import Tabler
 
 import FlowBase
 import FlowUI
 import FlowWorthLib
 
 struct BuilderTxnTable: View {
-    
     @AppStorage(UserDefShared.timeZoneID.rawValue) var timeZoneID: String = ""
-    
+
     @Binding var document: WorthDocument
-    
+
     private static let dfShort: DateFormatter = {
         let df = DateFormatter()
         df.dateStyle = .short
         df.timeStyle = .short
         return df
     }()
-    
+
     private let gridItems: [GridItem] = [
         GridItem(.fixed(40), spacing: columnSpacing),
         GridItem(.flexible(minimum: 60), spacing: columnSpacing),
@@ -40,22 +39,23 @@ struct BuilderTxnTable: View {
         GridItem(.flexible(minimum: 70), spacing: columnSpacing),
         GridItem(.flexible(minimum: 70), spacing: columnSpacing),
     ]
-    
+
     var body: some View {
         VStack {
             TablerList(
                 header: header,
                 row: row,
                 rowBackground: rowBackground,
-                results: document.model.transactions)
+                results: document.model.transactions
+            )
             .sideways(minWidth: 1050, showIndicators: true)
             HStack { Spacer(); Text("*times may be approximate, depending on source data.").font(.footnote) }
         }
     }
-    
+
     typealias Context = TablerContext<MTransaction>
-    
-    private func header(_ ctx: Binding<Context>) -> some View {
+
+    private func header(_: Binding<Context>) -> some View {
         LazyVGrid(columns: gridItems, alignment: .leading, spacing: flowColumnSpacing) {
             Text("✓")
                 .modifier(HeaderCell())
@@ -76,14 +76,14 @@ struct BuilderTxnTable: View {
                 .modifier(HeaderCell())
         }
     }
-    
+
     private func row(_ item: MTransaction) -> some View {
         let assetKey = getAssetKey(item)
         return LazyVGrid(columns: gridItems, alignment: .leading, spacing: flowColumnSpacing) {
             if let _onCheck = checkAction, let _isChecked = isCheckedAction {
                 CheckControl(element: item, onCheck: _onCheck, isChecked: _isChecked)
             }
-            
+
             Text(item.action.displayDescription)
                 .mpadding()
             Text(formattedDate(item.transactedAt))
@@ -118,41 +118,40 @@ struct BuilderTxnTable: View {
         }
         .foregroundColor(getColorCode(assetKey).0)
     }
-    
+
     private func rowBackground(_ item: MTransaction) -> some View {
         let assetKey = getAssetKey(item)
         return document.getBackgroundFill(assetKey)
     }
-    
-    
+
     // MARK: - Properties
-    
+
     private var ax: WorthContext {
         document.context
     }
-    
+
     private var ds: DisplaySettings {
         document.displaySettings
     }
-    
+
     // MARK: - Actions
-    
+
     private func checkAction(_ txns: [MTransaction], _ nuValue: Bool) {
         txns.forEach { txn in
-            //let txn = orderedTxns[n]
+            // let txn = orderedTxns[n]
             let key = txn.primaryKey
             document.displaySettings.pendingExcludedTxnMap[key] = nuValue
         }
-        
+
         document.refreshWorthResult(timeZoneID: timeZoneID) // refresh PendingSnapshot
     }
-    
+
     private func isCheckedAction(_ txn: MTransaction) -> Bool {
-        //let txn = orderedTxns[n]
+        // let txn = orderedTxns[n]
         let key = txn.primaryKey
         return document.displaySettings.pendingExcludedTxnMap[key] ?? false
     }
-    
+
     private func headerCheckAction() {
         if document.displaySettings.pendingExcludedTxnMap.first(where: { $0.value }) != nil {
             document.displaySettings.pendingExcludedTxnMap.removeAll()
@@ -162,18 +161,18 @@ struct BuilderTxnTable: View {
             }
         }
     }
-    
+
     // MARK: - Helpers
-    
+
     private func formattedDate(_ date: Date?) -> String {
         guard let _date = date else { return "unknown" }
         return BuilderTxnTable.dfShort.string(from: _date)
     }
-    
+
     private func getAssetKey(_ item: MTransaction) -> AssetKey {
         item.getAssetKey(securityMap: ax.securityMap) ?? MAsset.cashAssetKey
     }
-    
+
     private func getColorCode(_ assetKey: AssetKey) -> ColorPair {
         document.assetColorMap[assetKey] ?? (Color.primary, Color.clear)
     }

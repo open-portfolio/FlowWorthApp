@@ -12,9 +12,9 @@ import SwiftUI
 
 import AllocData
 
+import FlowBase
 import FlowUI
 import FlowWorthLib
-import FlowBase
 import NiceScale
 
 struct BirdsEyeSection: View {
@@ -33,7 +33,7 @@ struct BirdsEyeSection: View {
             }
         )
     }
-    
+
     private func birdsEyeChart(_ scale: NiceScale<Double>) -> some View {
         ReturnsChartBody(document: $document,
                          mr: mrBirdsEye,
@@ -45,18 +45,18 @@ struct BirdsEyeSection: View {
                 VStack(spacing: 8) {
                     Text(birdsEndMarketValue.toCurrency(style: .compact))
                         .font(.system(.title, design: .monospaced))
-                    
+
                     birdsPerf
                         .font(.system(.title3, design: .monospaced))
                 }
-                    .lineLimit(1)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.black.opacity(0.5))
-                    .cornerRadius(5)
+                .lineLimit(1)
+                .foregroundColor(.white)
+                .padding()
+                .background(Color.black.opacity(0.5))
+                .cornerRadius(5)
             )
     }
-    
+
     private var portfolioSummary: some View {
         BaseReturnsSummary(document: $document,
                            title: "Portfolio Returns",
@@ -88,20 +88,20 @@ struct BirdsEyeSection: View {
                 }
             }
         }()
-     
+
         return Text("\(tuple.0) \(tuple.1)")
     }
 
     // MARK: - Properties
-    
+
     private var ds: DisplaySettings {
         document.displaySettings
     }
-    
+
     private var birdsEndMarketValue: Double {
         mrBirdsEye.periodSummary?.endMarketValue ?? 0
     }
-    
+
     private var vertScale: NiceScale<Double>? {
         if ds.returnsGrouping == .accounts {
             return mrBirdsEye.getAccountNiceScale(returnsExtent: ds.returnsExtent)
@@ -110,4 +110,3 @@ struct BirdsEyeSection: View {
         }
     }
 }
-

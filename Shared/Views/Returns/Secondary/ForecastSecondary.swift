@@ -17,26 +17,24 @@ import FlowUI
 import FlowWorthLib
 
 struct ForecastSecondary: View {
-    
     @Binding var document: WorthDocument
     @ObservedObject var fr: ForecastResult
-    
+
     let expositoryText = """
     Forecasting the future value of your assets, net of cash flows.
     """
-    
+
     var body: some View {
         VStack {
-            
             // it's net of cash flows, like delta
             HStack(alignment: .top) {
                 Text(expositoryText.replacingOccurrences(of: "\n", with: " "))
                     .font(.callout)
                     .foregroundColor(.secondary)
-                
+
                 HelpButton(appName: "worth", topicName: "inspectForecast")
             }
-            
+
             StatsBoxView(title: "Performance (based on regression line)") {
                 HStack {
                     StatusDisplay(title: "\(WorthDocument.deltaPercentSymbol) (period)",
@@ -55,7 +53,7 @@ struct ForecastSecondary: View {
                 }
                 .frame(maxHeight: 55)
                 .padding(.bottom, 5)
-                
+
                 HStack {
                     StatusDisplay(title: "\(WorthDocument.deltaSymbol) (period)",
                                   value: periodGain ?? 0,
@@ -69,16 +67,15 @@ struct ForecastSecondary: View {
                 }
                 .frame(maxHeight: 50)
             }
-            
+
             VStack {
                 StatsBoxView(title: "Forecasted Values*") {
                     ForecastTable(document: $document, fr: fr)
-                    //.frame(maxHeight: .infinity)
-                    
+                    // .frame(maxHeight: .infinity)
                 }
                 HStack { Spacer(); Text("*past performance is no guarantee of future results").font(.footnote) }
             }
-            
+
             StatsBoxView(title: "Regression Line") {
                 Text(formattedFormula)
                     .font(.system(.title3, design: .monospaced))
@@ -86,15 +83,15 @@ struct ForecastSecondary: View {
                 Text("…where ‘d’ is number of days since the first snapshot.")
                     .font(.footnote)
             }
-            
+
             Spacer(minLength: 0)
         }
         .padding(.vertical)
         .padding(.horizontal, 3)
     }
-    
+
     // MARK: - Properties
-    
+
     private var formattedFormula: String {
         guard let lr = fr.lr else { return "n/a" }
         let slopeInDays = lr.slope * 86400
@@ -103,31 +100,31 @@ struct ForecastSecondary: View {
         let b = String(format: "%.0f", lr.intercept)
         return "marketvalue = d × \(m) + \(b)"
     }
-    
+
     private var periodGain: Double? {
         guard let lr = fr.lr else { return nil }
         return lr.slope * fr.mainDuration
     }
-    
+
     private var begMarketValue: Double? {
         guard let lr = fr.lr else { return nil }
         return lr.intercept
     }
-    
+
     private var endMarketValue: Double? {
         guard let beg = begMarketValue,
               let gain = periodGain
         else { return nil }
         return beg + gain
     }
-    
+
     private var singlePeriodReturn: Double? {
         guard let beg = begMarketValue,
               let gain = periodGain
         else { return nil }
         return gain / beg
     }
-    
+
     private var singlePeriodCAGR: Double? {
         guard fr.yearsInMainPeriod > 0,
               let beg = begMarketValue,
@@ -135,16 +132,16 @@ struct ForecastSecondary: View {
         else { return nil }
         return pow(end / beg, 1 / fr.yearsInMainPeriod) - 1
     }
-    
+
     //    private var annualizedReturn: Double {
     //        singlePeriodReturn / fr.yearsInMainPeriod
     //    }
-    
+
     private var gainPerDay: Double {
         guard let gain = periodGain else { return 0 }
         return gain / fr.daysInMainPeriod
     }
-    
+
     private var gainPerYear: Double {
         365.25 * gainPerDay
     }

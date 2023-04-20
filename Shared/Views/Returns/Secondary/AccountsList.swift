@@ -10,8 +10,8 @@
 
 import SwiftUI
 
-import Tabler
 import AllocData
+import Tabler
 
 import FlowBase
 import FlowUI
@@ -20,7 +20,7 @@ import FlowWorthLib
 struct AccountsList: View {
     @Binding var document: WorthDocument
     @ObservedObject var mr: MatrixResult
-    
+
     init(document: Binding<WorthDocument>, mr: MatrixResult) {
         _document = document
         self.mr = mr
@@ -30,7 +30,7 @@ struct AccountsList: View {
         GridItem(.fixed(40), spacing: columnSpacing, alignment: .center),
         GridItem(.flexible(minimum: 100), spacing: columnSpacing),
     ]
-    
+
     @AppStorage(UserDefShared.timeZoneID.rawValue) var timeZoneID: String = ""
     @State var hovered: AccountKey.ID? = nil
 
@@ -40,7 +40,7 @@ struct AccountsList: View {
                 Text("Represented Accounts")
                     .font(.title2)
                 Spacer()
-                
+
                 HelpButton(appName: "worth", topicName: "inspectAccounts")
             }
             .padding()
@@ -51,13 +51,14 @@ struct AccountsList: View {
                 header: header,
                 row: row,
                 rowBackground: { MyRowBackground($0, hovered: hovered, selected: nil) },
-                results: availableAccountKeys)
+                results: availableAccountKeys
+            )
         }
     }
-    
+
     typealias Context = TablerContext<AccountKey>
-    
-    private func header(_ ctx: Binding<Context>) -> some View {
+
+    private func header(_: Binding<Context>) -> some View {
         LazyVGrid(columns: gridItems, alignment: .leading, spacing: flowColumnSpacing) {
             Text("✓")
                 .modifier(HeaderCell())
@@ -66,9 +67,8 @@ struct AccountsList: View {
                 .modifier(HeaderCell())
         }
     }
-    
+
     private func row(_ accountKey: AccountKey) -> some View {
-        
         LazyVGrid(columns: gridItems, alignment: .leading, spacing: flowColumnSpacing) {
             if let _onCheck = checkAction, let _isChecked = isCheckedAction {
                 CheckControl(element: accountKey, onCheck: _onCheck, isChecked: _isChecked)
@@ -80,25 +80,25 @@ struct AccountsList: View {
     }
 
     // MARK: - Properties
-    
+
     private var ax: WorthContext {
         document.context
     }
-    
+
     private var availableAccountKeys: [AccountKey] {
         mr.accountFilteredMap.map(\.key).sorted()
     }
-    
+
     // MARK: - Actions
-    
+
     private func checkAction(_ accountKeys: [AccountKey], _ nuValue: Bool) {
         accountKeys.forEach { key in
             document.displaySettings.excludedAccountMap[key] = nuValue
         }
-        
+
         document.refreshWorthResult(timeZoneID: timeZoneID) // refresh PendingSnapshot
     }
-    
+
     private func isCheckedAction(_ key: AccountKey) -> Bool {
         document.displaySettings.excludedAccountMap[key] ?? false
     }
@@ -112,9 +112,9 @@ struct AccountsList: View {
             }
         }
     }
-    
+
     // MARK: - Helpers
-    
+
     private func getTitle(_ accountKey: AccountKey) -> String {
         ax.accountMap[accountKey]?.titleID ?? accountKey.accountNormID.uppercased()
     }

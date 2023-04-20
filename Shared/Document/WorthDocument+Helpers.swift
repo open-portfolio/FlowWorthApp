@@ -14,11 +14,10 @@ import AllocData
 import FlowWorthLib
 
 extension WorthDocument {
-    
     var activeAccounts: [MAccount] {
         model.accounts
     }
-    
+
     var canCommitBuilder: Bool {
         pendingSnapshot.canCommit(ax: context, nuCapturedAt: displaySettings.builderCapturedAt) == nil
     }

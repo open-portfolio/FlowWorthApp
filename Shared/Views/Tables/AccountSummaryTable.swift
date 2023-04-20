@@ -30,7 +30,7 @@ public struct AccountSummaryTable: View {
             AccountDietzSummaryTable(document: $document, tableData: tableData2)
         }
     }
-    
+
     // convert matrix to the idiosyncratic data format required by this table
     private var tableData0: [AccountDeltaSummaryTable.TableRow] {
         psum.accountKeySet.sorted().reduce(into: []) { array, accountKey in
@@ -63,6 +63,4 @@ public struct AccountSummaryTable: View {
                                adjustedNetCashflow: md?.adjustedNetCashflow ?? 0))
         }
     }
-    
- 
 }

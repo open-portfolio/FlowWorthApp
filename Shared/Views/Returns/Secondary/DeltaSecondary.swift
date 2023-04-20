@@ -19,25 +19,24 @@ import FlowWorthLib
 struct DeltaSecondary: View {
     @Binding var document: WorthDocument
     @ObservedObject var mr: MatrixResult
-    
+
     let expositoryText = """
     The value of your assets over time, net of cash flows.
     """
 
     var body: some View {
         VStack(spacing: 20) {
-            
             HStack(alignment: .top) {
                 Text(expositoryText.replacingOccurrences(of: "\n", with: " "))
                     .font(.callout)
                     .foregroundColor(.secondary)
-                
+
                 HelpButton(appName: "worth", topicName: "inspectDelta")
             }
-            
+
             StatsBoxView(title: "Performance (based on period start and end)") {
                 HStack {
-                    StatusDisplay(title:  "\(WorthDocument.deltaPercentSymbol) (period)",
+                    StatusDisplay(title: "\(WorthDocument.deltaPercentSymbol) (period)",
                                   value: mr.periodSummary?.singlePeriodReturn ?? 0,
                                   format: { "\(Double($0).toPercent1(leadingPlus: true))" },
                                   textStyle: .title,
@@ -54,7 +53,7 @@ struct DeltaSecondary: View {
                 }
                 .frame(maxHeight: 55)
                 .padding(.bottom, 5)
-                
+
                 HStack {
                     StatusDisplay(title: "\(WorthDocument.deltaSymbol) (period)",
                                   value: mr.periodSummary?.deltaMarketValue ?? 0,
@@ -68,7 +67,7 @@ struct DeltaSecondary: View {
                 }
                 .frame(maxHeight: 50)
             }
-            
+
             StatsBoxView(title: "Snapshot Performance") {
                 DeltaSnapshotTable(document: $document, mr: mr)
             }

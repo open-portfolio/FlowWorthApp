@@ -14,9 +14,9 @@ import SwiftUI
 import KeyWindow
 
 import AllocData
-import FlowWorthLib
 import FlowBase
 import FlowUI
+import FlowWorthLib
 
 struct AccountCommand: View {
     @KeyWindowValueBinding(WorthDocument.self)
@@ -27,7 +27,7 @@ struct AccountCommand: View {
 
     var body: some View {
         Text("Returns")
-        
+
         if let accounts = document?.activeAccounts, accounts.count > 0 {
             ForEach(0 ..< accounts.count, id: \.self) { n in
                 SettingsMenuItemKeyed(keyPath: \WorthDocument.displaySettings.activeSidebarMenuKey,
@@ -39,12 +39,12 @@ struct AccountCommand: View {
         }
 
         Divider()
-        
+
         SettingsMenuItemBool(keyPath: \WorthDocument.displaySettings.showSecondary,
                              desc: "Inspector")
             .keyboardShortcut("0", modifiers: [.option, .command])
     }
-    
+
     private func setReturnsView(_ accountKey: AccountKey?) {
         guard let _accountKey = accountKey else { return }
         document?.modelSettings.activeStrategyKey = MStrategy.emptyKey

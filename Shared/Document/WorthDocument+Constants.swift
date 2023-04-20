@@ -11,7 +11,6 @@
 import Foundation
 
 extension WorthDocument {
-    
     static let deltaSymbol = "Δ"
     static let deltaPercentSymbol = "Δ%"
     static let deltaCurrencySymbol = "$Δ"

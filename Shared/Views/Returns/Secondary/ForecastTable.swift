@@ -8,42 +8,40 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-
 import SwiftUI
 
-import Tabler
 import AllocData
+import Tabler
 
 import FlowBase
 import FlowUI
 import FlowWorthLib
 
 struct ForecastTable: View {
-
     @Binding var document: WorthDocument
     @ObservedObject var fr: ForecastResult
-    
+
     let milestoneCount = 30
-    
+
     private let gridItems: [GridItem] = [
         GridItem(.flexible(minimum: 120), spacing: columnSpacing),
         GridItem(.flexible(minimum: 100), spacing: columnSpacing),
         GridItem(.flexible(minimum: 100), spacing: columnSpacing, alignment: .center),
     ]
-    
+
     @State var hovered: FutureValueInfo.ID? = nil
 
     var body: some View {
         TablerStack(.init(rowSpacing: flowRowSpacing, onHover: hoverAction),
-            header: header,
-            row: row,
-            rowBackground: rowBackground,
-            results: futureValues.sorted())
+                    header: header,
+                    row: row,
+                    rowBackground: rowBackground,
+                    results: futureValues.sorted())
     }
-    
+
     typealias Context = TablerContext<FutureValueInfo>
 
-    private func header(_ ctx: Binding<Context>) -> some View {
+    private func header(_: Binding<Context>) -> some View {
         LazyVGrid(columns: gridItems, alignment: .leading, spacing: flowColumnSpacing) {
             Text("Date")
                 .modifier(HeaderCell())
@@ -51,9 +49,9 @@ struct ForecastTable: View {
                 .modifier(HeaderCell())
             Text("From Now")
                 .modifier(HeaderCell())
-       }
+        }
     }
-    
+
     private func row(_ item: FutureValueInfo) -> some View {
         LazyVGrid(columns: gridItems, alignment: .leading, spacing: flowColumnSpacing) {
             DateLabel(item.estimatedDate, withTime: false)
@@ -64,18 +62,18 @@ struct ForecastTable: View {
                 .mpadding()
         }
     }
-    
+
     public func rowBackground(_ item: FutureValueInfo) -> some View {
         RoundedRectangle(cornerRadius: 5)
             .fill(Color.accentColor.opacity(hovered == item.id ? 0.2 : 0.0))
     }
 
     // MARK: - Properties
-    
+
     private var begInterval: TimeInterval? {
         fr.hm.begInterval
     }
-    
+
     private var milestoneValues: [Double] {
         guard let lr = fr.lr,
               let ns = FutureValueInfo.getNiceScale(lr: lr, multiplier: 2.5),
@@ -84,18 +82,17 @@ struct ForecastTable: View {
         let last = first + (Double(milestoneCount) * ns.tickInterval)
         return Array(stride(from: first, through: last, by: ns.tickInterval))
     }
-    
+
     private var futureValues: [FutureValueInfo] {
         guard let lr = fr.lr,
               let _begInterval = begInterval
         else { return [] }
         return FutureValueInfo.getFutureValues(milestoneValues, begInterval: _begInterval, lr: lr)
     }
-    
+
     // MARK: - Actions
-    
+
     private func hoverAction(itemID: FutureValueInfo.ID, isHovered: Bool) {
         if isHovered { hovered = itemID } else { hovered = nil }
     }
 }
-

@@ -8,16 +8,15 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-
-import SwiftUI
 import Accelerate
+import SwiftUI
 
 import Charts
 
 import AllocData
 
-import FlowUI
 import FlowBase
+import FlowUI
 import FlowWorthLib
 
 struct ForecastChartBody: View {
@@ -25,11 +24,10 @@ struct ForecastChartBody: View {
     var mvData: [CGFloat]
     var lrData: [CGFloat]
     var fr: ForecastResult
-    
+
     var body: some View {
         GeometryReader { geo in
             ZStack(alignment: .leading) {
-                
                 HStack(spacing: 0) {
                     Rectangle()
                         .frame(width: geo.size.width * useHorizontalFraction)
@@ -40,13 +38,13 @@ struct ForecastChartBody: View {
                         .foregroundColor(.clear)
                         .background(extendedGradient.opacity(0.3))
                 }
-                
+
                 Chart(data: mvData)
                     .chartStyle(
-                        LineChartStyle(.line, lineColor: .blue, lineWidth: 2) //quadCurve
+                        LineChartStyle(.line, lineColor: .blue, lineWidth: 2) // quadCurve
                     )
                     .frame(width: geo.size.width * useHorizontalFraction)
-                
+
                 Chart(data: lrData)
                     .chartStyle(
                         LineChartStyle(.line, lineColor: .green, lineWidth: 2)
@@ -54,15 +52,15 @@ struct ForecastChartBody: View {
             }
         }
     }
-    
+
     private var fm: ForecastMetrics {
         fr.hm
     }
-    
+
     private var useHorizontalFraction: CGFloat {
         fm.mainFraction ?? 1.0
     }
-    
+
     private var mainGradient: LinearGradient {
         LinearGradient(
             gradient: Gradient(colors: [.green, .blue]),
@@ -70,7 +68,7 @@ struct ForecastChartBody: View {
             endPoint: .bottomTrailing
         )
     }
-    
+
     private var extendedGradient: LinearGradient {
         LinearGradient(
             gradient: Gradient(colors: [.yellow, .blue]),

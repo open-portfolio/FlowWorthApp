@@ -15,8 +15,8 @@ import Charts
 import AllocData
 import NiceScale
 
-import FlowUI
 import FlowBase
+import FlowUI
 import FlowWorthLib
 
 struct ReturnsChartBody: View {
@@ -25,23 +25,23 @@ struct ReturnsChartBody: View {
     var timeSeriesIndiceCount: Int
     var vertScale: NiceScale<Double> // from negative to positive
     var showLegend: Bool
- 
+
     enum ChartValueDisplay {
         case positiveValues
         case negativeValues
     }
-    
+
     var body: some View {
         ZStack(alignment: .topLeading) {
             chartBody
             if showLegend && ds.showChartLegend {
                 LegendBar(collections: legendItems)
-                    //.animation(.easeInOut, value: ds.showChartLegend)  //TODO not working
+                    // .animation(.easeInOut, value: ds.showChartLegend)  //TODO not working
                     .padding()
             }
         }
     }
-    
+
     @ViewBuilder
     private var chartBody: some View {
         switch ds.returnsExtent {
@@ -72,9 +72,9 @@ struct ReturnsChartBody: View {
             }
         }
     }
-    
+
     // MARK: - View Helpers
-    
+
     private var fills: [AnyView] {
         switch returnsGrouping {
         case .assets:
@@ -85,7 +85,7 @@ struct ReturnsChartBody: View {
             return strategiesFill
         }
     }
-    
+
     private var assetsFill: [AnyView] {
         let pairMap = assetPairMap
         return netAssetKeys.reversed().map {
@@ -93,7 +93,7 @@ struct ReturnsChartBody: View {
             return gradient(for: pair.1)
         }
     }
-    
+
     private var accountsFill: [AnyView] {
         let pairMap = accountPairMap
         return mr.orderedAccountKeys.reversed().map {
@@ -101,7 +101,7 @@ struct ReturnsChartBody: View {
             return gradient(for: pair.1)
         }
     }
-    
+
     private var strategiesFill: [AnyView] {
         let pairMap = strategyPairMap
         return mr.orderedStrategyKeys.reversed().map {
@@ -109,25 +109,25 @@ struct ReturnsChartBody: View {
             return gradient(for: pair.1)
         }
     }
-    
+
     private func gradient(for color: Color) -> AnyView {
-        let lite = color.saturate(by: 0.25) //.lighten()
-        let dark = color.desaturate(by: 0.25) //.darken()
+        let lite = color.saturate(by: 0.25) // .lighten()
+        let dark = color.desaturate(by: 0.25) // .darken()
         return AnyView(
             LinearGradient(gradient: .init(colors: [lite, dark]), startPoint: .top, endPoint: .bottom)
         )
     }
-    
+
     // MARK: - Properties and Misc Helpers
-    
+
     private var ax: WorthContext {
         document.context
     }
-    
+
     private var ds: DisplaySettings {
         document.displaySettings
     }
-    
+
     private var legendItems: [LegendBar.LegendItem] {
         switch returnsGrouping {
         case .assets:
@@ -153,11 +153,11 @@ struct ReturnsChartBody: View {
             }
         }
     }
-    
+
     private var assetPairMap: [AssetKey: ColorPair] {
         let palette = ds.returnsColor == .color
-        ? mr.getColors(assetMap: ax.assetMap, assetKeyFilter: assetKeyFilter) //.reversed()
-        : monoPalette(count: netAssetKeys.count)
+            ? mr.getColors(assetMap: ax.assetMap, assetKeyFilter: assetKeyFilter) // .reversed()
+            : monoPalette(count: netAssetKeys.count)
         return netAssetKeys.enumerated().reduce(into: [:]) { map, entry in
             let (n, key) = entry
             map[key] = palette[n]
@@ -166,24 +166,24 @@ struct ReturnsChartBody: View {
 
     private var accountPairMap: [AccountKey: ColorPair] {
         let palette = ds.returnsColor == .color
-        ? [Color.blue, Color.purple, Color.red, Color.orange, Color.yellow, Color.green].map { ColorPair(.primary, Color.componentize($0)) }
-        : monoPalette(count: mr.orderedAccountKeys.count)
+            ? [Color.blue, Color.purple, Color.red, Color.orange, Color.yellow, Color.green].map { ColorPair(.primary, Color.componentize($0)) }
+            : monoPalette(count: mr.orderedAccountKeys.count)
         return mr.orderedAccountKeys.enumerated().reduce(into: [:]) { map, entry in
             let (n, key) = entry
             map[key] = palette[n % palette.count]
         }
     }
-    
+
     private var strategyPairMap: [StrategyKey: ColorPair] {
         let palette = ds.returnsColor == .color
-        ? [Color.blue, Color.purple, Color.red, Color.orange, Color.yellow, Color.green].map { ColorPair(.primary, Color.componentize($0)) }
-        : monoPalette(count: mr.orderedStrategyKeys.count)
+            ? [Color.blue, Color.purple, Color.red, Color.orange, Color.yellow, Color.green].map { ColorPair(.primary, Color.componentize($0)) }
+            : monoPalette(count: mr.orderedStrategyKeys.count)
         return mr.orderedStrategyKeys.enumerated().reduce(into: [:]) { map, entry in
             let (n, key) = entry
-            map[key] = palette[ n % palette.count ]
+            map[key] = palette[n % palette.count]
         }
     }
-    
+
     private func monoPalette(count: Int) -> [ColorPair] {
         guard count > 0 else { return [] } // avoid crash if no assets
         let color = document.accent
@@ -191,15 +191,15 @@ struct ReturnsChartBody: View {
         let dark = color.darken(by: 0.35)
         return Color.palette(start: lite, end: dark, steps: count).map { ColorPair(.primary, $0) }
     }
-    
+
     private var returnsGrouping: ReturnsGrouping {
         ds.returnsGrouping
     }
-    
+
     private var returnsColor: ReturnsColor {
         ds.returnsColor
     }
-    
+
     private func chartData(chartValueDisplay: ChartValueDisplay) -> [[CGFloat]] {
         switch returnsGrouping {
         case .assets:
@@ -222,7 +222,7 @@ struct ReturnsChartBody: View {
                                  chartValueDisplay: chartValueDisplay)
         }
     }
-    
+
     // convert matrix to the idiosyncratic data format required by this chart
     // convert from marketValues in [AssetKey: [Float]] to normalized (0...1) values in [[CGFloat]]
     // and flip horizontally
@@ -230,11 +230,11 @@ struct ReturnsChartBody: View {
                                               allocKeys: [T.Key],
                                               keyFilter: (T.Key) -> Bool,
                                               resampledData: AllocKeyValuesMap<T>,
-                                              chartValueDisplay: ChartValueDisplay) -> [[CGFloat]] {
-        
+                                              chartValueDisplay: ChartValueDisplay) -> [[CGFloat]]
+    {
         let _allocKeys = allocKeys.reversed()
-        
-        return (0..<timeSeriesIndiceCount).reduce(into: []) { array, n in
+
+        return (0 ..< timeSeriesIndiceCount).reduce(into: []) { array, n in
             let keyedSeries: [CGFloat] = _allocKeys
                 .filter(keyFilter)
                 .compactMap {
@@ -247,7 +247,7 @@ struct ReturnsChartBody: View {
                             return CGFloat(vertScale.scaleToUnitPositive(rawValue))
                         }
                         return 0
-                    } else  {
+                    } else {
                         if rawValue < 0 {
                             // to 0...1 in the 'nice' range
                             return CGFloat(vertScale.scaleToUnitNegative(rawValue))
@@ -258,37 +258,35 @@ struct ReturnsChartBody: View {
             array.append(keyedSeries)
         }
     }
-    
+
     private var assetResampledData: AssetValuesMap {
         MatrixResult.resample(MAsset.self,
                               timeSeriesIndiceCount: timeSeriesIndiceCount,
                               capturedAts: mr.capturedAts,
                               matrixValues: mr.matrixValuesByAsset)
     }
-    
+
     private var accountResampledData: AccountValuesMap {
         MatrixResult.resample(MAccount.self,
                               timeSeriesIndiceCount: timeSeriesIndiceCount,
                               capturedAts: mr.capturedAts,
                               matrixValues: mr.matrixValuesByAccount)
     }
-    
+
     private var strategyResampledData: StrategyValuesMap {
         MatrixResult.resample(MStrategy.self,
                               timeSeriesIndiceCount: timeSeriesIndiceCount,
                               capturedAts: mr.capturedAts,
                               matrixValues: mr.matrixValuesByStrategy)
     }
-    
+
     // MARK: - Helpers
-    
+
     private var netAssetKeys: [AssetKey] {
         mr.orderedAssetKeys.filter(assetKeyFilter)
     }
-    
+
     private func assetKeyFilter(_ assetKey: AssetKey) -> Bool {
         !ds.excludedAssetMap[assetKey, default: false]
     }
 }
-
-

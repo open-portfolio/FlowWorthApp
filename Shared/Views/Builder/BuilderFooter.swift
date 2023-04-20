@@ -13,12 +13,12 @@ import SwiftUI
 import AllocData
 
 import FlowBase
-import FlowWorthLib
 import FlowUI
+import FlowWorthLib
 
 struct BuilderFooter: View {
     @Binding var document: WorthDocument
-    
+
     private static let dfShort: DateFormatter = {
         let df = DateFormatter()
         df.dateStyle = .short
@@ -53,7 +53,7 @@ struct BuilderFooter: View {
                               format: { $0 })
                     .foregroundColor(ps.nuCashflows.count > 0 ? .primary : .secondary)
             }
-            
+
             if document.displaySettings.periodSummarySelection == .modifiedDietz {
                 StatsBoxView(title: "\(WorthDocument.rSymbol) (period)") {
                     StatusDisplay(title: nil,
@@ -63,9 +63,9 @@ struct BuilderFooter: View {
             }
         }
     }
-    
+
     // MARK: - Properties
-    
+
     private var ax: WorthContext {
         document.context
     }
@@ -73,11 +73,11 @@ struct BuilderFooter: View {
     private var ps: PendingSnapshot {
         document.pendingSnapshot
     }
-    
+
     private var psum: PeriodSummary? {
         document.pendingSnapshot.periodSummary
     }
-    
+
     private var previousSnapshotFormatted: String {
         if let capturedAt = ax.lastSnapshotCapturedAt {
             return BuilderFooter.dfShort.string(from: capturedAt)
@@ -85,15 +85,14 @@ struct BuilderFooter: View {
             return "None"
         }
     }
-    
+
     private var positionsFormatted: String {
         guard ps.nuPositions.count > 0 else { return "None" }
         return "\(ps.nuPositions.count) @ \(ps.nuMarketValue.toCurrency(style: .compact))"
     }
-    
+
     private var netCashflowFormatted: String {
         guard ps.nuCashflows.count > 0 else { return "None" }
         return "\(ps.nuCashflows.count) @ \(ps.netCashflowTotal.toCurrency(style: .compact))"
     }
 }
-

@@ -10,8 +10,7 @@
 
 import Foundation
 
-public extension Notification.Name
-{
+public extension Notification.Name {
     static let refreshWorthResult = Notification.Name("refreshWorthResult") // payload of model UUID
     static let commitBuilder = Notification.Name("commitBuilder") // payload of model UUID
     static let clearBuilder = Notification.Name("clearBuilder") // payload of model UUID

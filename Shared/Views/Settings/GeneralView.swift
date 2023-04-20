@@ -15,15 +15,14 @@ import KeyWindow
 import FlowUI
 
 struct GeneralView: View {
-    
     @KeyWindowValueBinding(WorthDocument.self)
     var document: WorthDocument?
-    
+
     @AppStorage(UserDefShared.timeZoneID.rawValue) var timeZoneID: String = ""
     @AppStorage(UserDefShared.defTimeOfDay.rawValue) var defTimeOfDay: TimeOfDayPicker.Vals = .useDefault
-    
+
     @State private var updateToggle = false
-    
+
     var body: some View {
         HStack(alignment: .top) {
             Group {
@@ -35,10 +34,9 @@ struct GeneralView: View {
         }
         .padding()
     }
-    
+
     private var otherView: some View {
         StatsBoxView(title: "Other") {
-            
             VStack(alignment: .leading) {
                 TimeZonePicker(timeZoneID: $timeZoneID)
                 Text("Used in parsing dates and times")
@@ -46,7 +44,7 @@ struct GeneralView: View {
                     .foregroundColor(.secondary)
             }
             .padding()
-            
+
             VStack(alignment: .leading) {
                 TimeOfDayPicker(title: "Default Time of Day", timeOfDay: $defTimeOfDay)
                 Text("Used in parsing dates and times")
@@ -54,12 +52,12 @@ struct GeneralView: View {
                     .foregroundColor(.secondary)
             }
             .padding()
-            
+
             Button("Restore Defaults", action: {
                 UserDefaults.clear()
             })
-                .padding()
-            
+            .padding()
+
             Spacer()
         }
     }

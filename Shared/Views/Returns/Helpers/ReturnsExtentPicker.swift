@@ -14,7 +14,7 @@ import FlowWorthLib
 
 struct ReturnsExtentPicker: View {
     @Binding var document: WorthDocument
-    
+
     var body: some View {
         ReturnsExtent.picker(returnsExtent: $document.displaySettings.returnsExtent)
     }
@@ -31,11 +31,11 @@ extension ReturnsExtent {
             return "Negative Only"
         }
     }
-    
+
     var fullDescription: String {
         "Chart extent: \(description)"
     }
-    
+
     var toolbarText: String {
         switch self {
         case .all:
@@ -46,7 +46,7 @@ extension ReturnsExtent {
             return "Negative"
         }
     }
-    
+
     var toolbarImage: String {
         switch self {
         case .all:
@@ -57,7 +57,7 @@ extension ReturnsExtent {
             return "minus"
         }
     }
-    
+
     var keyboardShortcut: KeyEquivalent {
         switch self {
         case .all:
@@ -68,11 +68,11 @@ extension ReturnsExtent {
             return "-"
         }
     }
-    
-    private static func myLabel(selection: Binding<ReturnsExtent>, en: ReturnsExtent) -> some View {
+
+    private static func myLabel(selection _: Binding<ReturnsExtent>, en: ReturnsExtent) -> some View {
         Label(title: { Text(en.toolbarText) }, icon: { Image(systemName: en.toolbarImage) })
     }
-    
+
     static func picker(returnsExtent: Binding<ReturnsExtent>) -> some View {
         Picker(selection: returnsExtent, label: EmptyView()) {
             myLabel(selection: returnsExtent, en: ReturnsExtent.all)

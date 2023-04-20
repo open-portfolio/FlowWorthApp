@@ -12,17 +12,16 @@ import SwiftUI
 
 import AllocData
 
-import FlowUI
 import FlowBase
+import FlowUI
 import FlowWorthLib
 
 struct PrimaryReturns: View {
-    
     @Binding var document: WorthDocument
     @ObservedObject var mr: MatrixResult
     @ObservedObject var fr: ForecastResult
     var title: String
-    
+
     var body: some View {
         VStack {
             HStack {
@@ -32,36 +31,36 @@ struct PrimaryReturns: View {
                 warningMessage
                 HelpButton(appName: "worth", topicName: helpTopicName)
             }
-            
+
             TabView(selection: $document.displaySettings.primaryReturnsTab) {
                 ReturnsChart(document: $document, mr: mr)
                     .tabItem { Text("Chart") }
                     .tag(TabsPrimaryReturns.chart)
-                
+
                 if let _psum = psum {
                     AssetSummaryTable(document: $document, psum: _psum)
-                    .tabItem { Text("Assets") }
-                    .tag(TabsPrimaryReturns.assets)
-                    
+                        .tabItem { Text("Assets") }
+                        .tag(TabsPrimaryReturns.assets)
+
                     AccountSummaryTable(document: $document, psum: _psum)
-                    .tabItem { Text("Accounts") }
-                    .tag(TabsPrimaryReturns.accounts)
-                    
+                        .tabItem { Text("Accounts") }
+                        .tag(TabsPrimaryReturns.accounts)
+
                     StrategySummaryTable(document: $document, psum: _psum)
-                    .tabItem { Text("Strategies") }
-                    .tag(TabsPrimaryReturns.strategies)
+                        .tabItem { Text("Strategies") }
+                        .tag(TabsPrimaryReturns.strategies)
                 }
-                
+
                 ForecastChart(document: $document, fr: fr)
                     .tabItem { Text("Forecast") }
                     .tag(TabsPrimaryReturns.forecast)
             }
-            
+
             ReturnsFooter(document: $document, mr: mr)
         }
         .padding()
     }
-    
+
     @ViewBuilder
     private var warningMessage: some View {
         if let msg = warningMessageStr {
@@ -75,13 +74,13 @@ struct PrimaryReturns: View {
                         .fill(document.accent.opacity(0.5)))
         }
     }
-    
+
     // MARK: - Properties
-    
+
     private var ds: DisplaySettings {
         document.displaySettings
     }
-    
+
     private var helpTopicName: String {
         switch document.displaySettings.primaryReturnsTab {
         case .chart:
@@ -96,12 +95,12 @@ struct PrimaryReturns: View {
             return "returnsForecast"
         }
     }
-    
+
     private var controlTextColor: Color {
         #if os(macOS)
-        Color(.controlTextColor)
+            Color(.controlTextColor)
         #else
-        Color.primary
+            Color.primary
         #endif
     }
 
@@ -120,35 +119,35 @@ struct PrimaryReturns: View {
             return nil
         }
     }
-    
+
     private var partialAssets: Bool {
         ds.excludedAssetMap.values.first(where: { $0 }) != nil
     }
-    
+
     private var partialAccounts: Bool {
         ds.excludedAccountMap.values.first(where: { $0 }) != nil
     }
-    
+
     private var ax: WorthContext {
         document.context
     }
-    
+
     private var psum: PeriodSummary? {
         mr.periodSummary
     }
-    
+
     private var returnsGrouping: ReturnsGrouping {
         document.displaySettings.returnsGrouping
     }
-    
+
     private var returnsColor: ReturnsColor {
         document.displaySettings.returnsColor
     }
-    
+
     private var colors: [ColorPair] {
         mr.getColors(assetMap: ax.assetMap, assetKeyFilter: { _ in true })
     }
-    
+
     private var titleWithGrouping: String {
         let suffix = ds.returnsGrouping.description
         return "\(title) - by \(suffix)"

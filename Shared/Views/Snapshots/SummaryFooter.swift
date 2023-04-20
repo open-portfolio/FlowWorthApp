@@ -13,14 +13,14 @@ import SwiftUI
 import AllocData
 
 import FlowBase
-import FlowWorthLib
 import FlowUI
+import FlowWorthLib
 
 struct SummaryFooter: View {
     @Binding var document: WorthDocument
     var positions: [MValuationPosition]
     var cashflows: [MValuationCashflow]
-    
+
     private static let dfShort: DateFormatter = {
         let df = DateFormatter()
         df.dateStyle = .short
@@ -30,7 +30,6 @@ struct SummaryFooter: View {
 
     var body: some View {
         HStack(spacing: 10) {
-            
             StatsBoxView(title: "Assets") {
                 StatusDisplay(title: nil,
                               value: assetCount,
@@ -38,7 +37,7 @@ struct SummaryFooter: View {
                     .foregroundColor(assetCount > 0 ? .primary : .secondary)
             }
             .frame(maxWidth: 90)
-            
+
             StatsBoxView(title: "Accounts") {
                 StatusDisplay(title: nil,
                               value: accountCount,
@@ -46,14 +45,14 @@ struct SummaryFooter: View {
                     .foregroundColor(accountCount > 0 ? .primary : .secondary)
             }
             .frame(maxWidth: 90)
-            
+
             StatsBoxView(title: "Positions (market value)") {
                 StatusDisplay(title: nil,
                               value: marketvalueFormatted,
                               format: { $0 })
                     .foregroundColor(positions.count > 0 ? .primary : .secondary)
             }
-            
+
             StatsBoxView(title: "Positions (basis)") {
                 StatusDisplay(title: nil,
                               value: basisFormatted,
@@ -69,19 +68,19 @@ struct SummaryFooter: View {
             }
         }
     }
-    
+
     // MARK: - Properties
-    
+
     private var ax: WorthContext {
         document.context
     }
-    
+
     private var marketvalueFormatted: String {
         guard positions.count > 0 else { return "None" }
         let sum = positions.reduce(0) { $0 + $1.marketValue }
         return "\(positions.count) @ \(sum.toCurrency(style: .compact))"
     }
-    
+
     private var basisFormatted: String {
         guard positions.count > 0 else { return "None" }
         let sum = positions.reduce(0) { $0 + $1.totalBasis }
@@ -92,16 +91,15 @@ struct SummaryFooter: View {
         let assetKeySet: Set<AssetKey> = positions.reduce(into: Set()) { $0.insert($1.assetKey) }
         return assetKeySet.count
     }
-    
+
     private var accountCount: Int {
         let accountKeySet: Set<AccountKey> = positions.reduce(into: Set()) { $0.insert($1.accountKey) }
         return accountKeySet.count
     }
-    
+
     private var netCashflowFormatted: String {
         guard cashflows.count > 0 else { return "None" }
         let sum = cashflows.reduce(0) { $0 + $1.amount }
         return "\(cashflows.count) @ \(sum.toCurrency(style: .compact))"
     }
 }
-

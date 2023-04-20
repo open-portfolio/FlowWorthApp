@@ -8,11 +8,10 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-
 import SwiftUI
 
-import Tabler
 import AllocData
+import Tabler
 
 import FlowBase
 import FlowUI
@@ -21,14 +20,14 @@ import FlowWorthLib
 public struct BuilderPositionsTable: View {
     @Binding var document: WorthDocument
     var positions: [MValuationPosition]
-    
+
     private let gridItems: [GridItem] = [
         GridItem(.flexible(minimum: 100), spacing: columnSpacing),
         GridItem(.flexible(minimum: 100), spacing: columnSpacing),
         GridItem(.flexible(minimum: 70), spacing: columnSpacing),
         GridItem(.flexible(minimum: 70), spacing: columnSpacing),
     ]
-    
+
     public var body: some View {
         TablerStack(.init(rowSpacing: flowRowSpacing),
                     header: header,
@@ -37,10 +36,10 @@ public struct BuilderPositionsTable: View {
                     results: positions)
             .sideways(minWidth: 500, showIndicators: true)
     }
-    
+
     typealias Context = TablerContext<MValuationPosition>
     typealias Sort = TablerSort<MValuationPosition>
-    
+
     private func header(_ ctx: Binding<Context>) -> some View {
         LazyVGrid(columns: gridItems, alignment: .leading, spacing: flowColumnSpacing) {
             Sort.columnTitle("Account (Number)", ctx, \.accountID)
@@ -53,10 +52,9 @@ public struct BuilderPositionsTable: View {
                 .modifier(HeaderCell())
         }
     }
-    
+
     private func row(_ item: MValuationPosition) -> some View {
         LazyVGrid(columns: gridItems, alignment: .leading, spacing: flowColumnSpacing) {
-            
             Text(MAccount.getTitleID(item.accountKey, ax.accountMap, withID: true) ?? "")
                 .lineLimit(1)
                 .mpadding()
@@ -70,19 +68,18 @@ public struct BuilderPositionsTable: View {
         }
         .foregroundColor(getColorCode(item.assetKey).0)
     }
-    
+
     private func rowBackground(_ item: MValuationPosition) -> some View {
         document.getBackgroundFill(item.assetKey)
     }
-    
+
     // MARK: - Helpers
-    
+
     private var ax: WorthContext {
         document.context
     }
-    
+
     private func getColorCode(_ assetKey: AssetKey) -> ColorPair {
         document.assetColorMap[assetKey] ?? (Color.primary, Color.clear)
     }
-    
 }

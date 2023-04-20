@@ -13,8 +13,8 @@ import SwiftUI
 import AllocData
 
 import FlowBase
-import FlowWorthLib
 import FlowUI
+import FlowWorthLib
 
 struct BuilderCashflowView: View {
     @Binding var document: WorthDocument
@@ -26,44 +26,44 @@ struct BuilderCashflowView: View {
                 BuilderTxnTable(document: $document) // NOTE: ps.history will be filtered by excludedTxnMap
                     .tabItem { Text("\(hasImportedTransactions ? bullet : "")Imported Transactions") }
                     .tag(TabsCashflowBuilder.transactions)
-                
-                BuilderCashflowTable(document: $document, cashflows: document.pendingSnapshot.nuCashflows) //, reconExcludeMode: false, showReconColumn: false)
+
+                BuilderCashflowTable(document: $document, cashflows: document.pendingSnapshot.nuCashflows) // , reconExcludeMode: false, showReconColumn: false)
                     .tabItem { Text("\(hasNuCashflows ? bullet : "")New Cash Flow") }
                     .tag(TabsCashflowBuilder.nuCashflow)
-                
-                BuilderCashflowTable(document: $document, cashflows: document.pendingSnapshot.previousCashflows) //, reconExcludeMode: false, showReconColumn: false)
+
+                BuilderCashflowTable(document: $document, cashflows: document.pendingSnapshot.previousCashflows) // , reconExcludeMode: false, showReconColumn: false)
                     .tabItem { Text("\(hasPrevCashflows ? bullet : "")Most Recent Snapshot") }
                     .tag(TabsCashflowBuilder.prevCashflow)
             }
         }
     }
-    
+
     // MARK: - Properties
-    
+
     private var bullet: String {
         "•"
     }
-    
+
     private var hasImportedTransactions: Bool {
         document.model.transactions.count > 0
     }
-    
+
     private var hasNuCashflows: Bool {
         ps.nuCashflows.count > 0
     }
-    
+
     private var hasPrevCashflows: Bool {
         ps.previousCashflows.count > 0
     }
-    
+
     private var subTitle: String {
         "Cash flows to be included in the new Snapshot valuation."
     }
-    
+
     private var ps: PendingSnapshot {
         document.pendingSnapshot
     }
-        
+
     private var ax: WorthContext {
         document.context
     }

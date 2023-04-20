@@ -12,9 +12,9 @@ import SwiftUI
 
 import AllocData
 
+import FlowBase
 import FlowUI
 import FlowWorthLib
-import FlowBase
 
 enum WorthSidebarMenuIDs: String {
     case snapshotSummary = "BB80F6B8-2A48-4910-8942-22338938D5BA"
@@ -28,7 +28,7 @@ enum WorthSidebarMenuIDs: String {
     case spacer0 = "BA95F986-16B9-4B31-BC8F-D8CB68ABB199"
     case spacer1 = "9E879693-E885-4344-A353-59E720842DC9"
     case spacer2 = "EEF15263-6C82-4159-9198-AD1019C5DA25"
-    
+
     public var title: String {
         switch self {
         case .snapshotSummary:
@@ -57,16 +57,15 @@ struct WorthSidebar: View {
     @Binding var document: WorthDocument
     @ObservedObject var mrBirdsEye: MatrixResult
     var isEmpty: Bool
-    
+
     private static let shortDF: DateFormatter = {
         let df = DateFormatter()
         df.dateStyle = .short
         df.timeStyle = .short
         return df
     }()
-    
-    var body: some View {
 
+    var body: some View {
         if !isEmpty {
             BirdsEyeSection(document: $document, mrBirdsEye: mrBirdsEye)
         } else {
@@ -74,30 +73,30 @@ struct WorthSidebar: View {
                 .scaleEffect(1.5)
                 .padding()
         }
-        
+
         spacer(.spacer0)
-        
+
         SnapshotsSection(document: $document, now: now)
-        
+
         spacer(.spacer1)
 
         BuilderSection(document: $document, now: now)
-        
+
         spacer(.spacer2)
     }
-   
+
     private func spacer(_ menuID: WorthSidebarMenuIDs) -> some View {
-        
         // NOTE because of possible SwiftUI bug, making the spacer navigable
-        NavigationLink(destination: WelcomeView() { GettingStarted(document: $document) },
+        NavigationLink(destination: WelcomeView { GettingStarted(document: $document) },
                        tag: menuID.rawValue,
-                       selection: $document.displaySettings.activeSidebarMenuKey) {
+                       selection: $document.displaySettings.activeSidebarMenuKey)
+        {
             Spacer()
         }
     }
-    
+
     // MARK: - Properties
-    
+
     private var now: Date {
         Date()
     }

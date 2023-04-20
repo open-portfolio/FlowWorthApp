@@ -8,24 +8,23 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-
 import SwiftUI
 
 import AllocData
 import Compactor
 
-import FlowUI
 import FlowBase
+import FlowUI
 import FlowWorthLib
 
-private let maxDateRange: ClosedRange<Date> = Date.init(timeIntervalSinceReferenceDate: 0)...Date.init(timeIntervalSinceReferenceDate: TimeInterval.greatestFiniteMagnitude)
+private let maxDateRange: ClosedRange<Date> = Date(timeIntervalSinceReferenceDate: 0) ... Date(timeIntervalSinceReferenceDate: TimeInterval.greatestFiniteMagnitude)
 
 struct ReturnsFooter: View {
     @AppStorage(UserDefShared.timeZoneID.rawValue) var timeZoneID: String = ""
 
     @Binding var document: WorthDocument
     @ObservedObject var mr: MatrixResult
-    
+
     var body: some View {
         VStack {
             upperControls
@@ -37,7 +36,7 @@ struct ReturnsFooter: View {
             }
         }
     }
-    
+
     // NOTE crash occurring if hiding upperTrailing based on showSecondary
     private var upperControls: some View {
         HStack(alignment: .center, spacing: 10) {
@@ -45,26 +44,26 @@ struct ReturnsFooter: View {
             upperTrailing
         }
     }
-    
+
     @ViewBuilder
     private var upperLeading: some View {
         MyToggleButton(value: $document.displaySettings.returnsExpandBottom, imageName: "slider.horizontal.below.rectangle")
             .foregroundColor(controlTextColor)
             .font(.largeTitle)
-        
+
         StatsBoxView(title: "Period") {
             StatusDisplay(title: nil,
                           value: formattedPeriodDuration,
                           format: { $0 })
         }
-        
+
         if document.displaySettings.periodSummarySelection.isDietz {
             StatsBoxView(title: "\(WorthDocument.rSymbol) (period)") {
                 StatusDisplay(title: nil,
                               value: mr.periodSummary?.dietz!.performance ?? 0,
                               format: { mr.hasCashflow ? "\($0.toPercent1(leadingPlus: true))" : "n/a" })
             }
-            
+
             StatsBoxView(title: "\(WorthDocument.rSymbol) (annualized)") {
                 StatusDisplay(title: nil,
                               value: (mr.periodSummary?.dietz!.performance ?? 0) / (mr.periodSummary?.yearsInPeriod ?? 0),
@@ -77,7 +76,7 @@ struct ReturnsFooter: View {
                               format: { "\(Double($0).toPercent1(leadingPlus: true))" },
                               enabled: mr.periodSummary?.singlePeriodReturn != nil)
             }
-            
+
             StatsBoxView(title: "\(WorthDocument.deltaPercentSymbol) (CAGR)") {
                 StatusDisplay(title: nil,
                               value: mr.periodSummary?.singlePeriodCAGR ?? 0,
@@ -92,11 +91,12 @@ struct ReturnsFooter: View {
 //            }
         }
     }
-    
+
     @ViewBuilder
     private var upperTrailing: some View {
         if document.displaySettings.periodSummarySelection.isDietz,
-           let md = mr.periodSummary?.dietz {
+           let md = mr.periodSummary?.dietz
+        {
             StatsBoxView(title: "Net Cash Flow") {
                 StatusDisplay(title: nil,
                               value: md.netCashflowTotal,
@@ -109,15 +109,15 @@ struct ReturnsFooter: View {
                               format: { "\(Double($0).toCurrency(style: .compact))/day" })
             }
         }
-        
+
         StatsBoxView(title: "Market Value") {
             StatusDisplay(title: nil,
-                          value: mr.marketValueRange ?? 0...0,
+                          value: mr.marketValueRange ?? 0 ... 0,
                           format: { "\(Double($0.lowerBound).toCurrency(style: .compact)) … \(Double($0.upperBound).toGeneral(style: .compact))" },
                           textStyle: .title3)
         }
     }
-    
+
     private var lowerControls: some View {
         HStack {
             StatsBoxView(title: "Start") {
@@ -128,7 +128,7 @@ struct ReturnsFooter: View {
                     .onChange(of: document.displaySettings.begSnapshotKey,
                               perform: refreshAction)
             }
-            
+
             Button(action: setMaxRangeAction, label: {
                 Image(systemName: "arrow.left.and.right")
                     .foregroundColor(controlTextColor)
@@ -147,14 +147,14 @@ struct ReturnsFooter: View {
             }
         }
     }
-    
+
     // MARK: - Properties
-        
+
     private var controlTextColor: Color {
         #if os(macOS)
-        Color(.controlTextColor)
+            Color(.controlTextColor)
         #else
-        Color.primary
+            Color.primary
         #endif
     }
 
@@ -163,45 +163,45 @@ struct ReturnsFooter: View {
     }
 
     private static var timeCompactor = TimeCompactor(ifZero: "", style: .full)
-    
+
     private var formattedPeriodDuration: String {
         ReturnsFooter.timeCompactor.string(from: mr.periodDuration as NSNumber) ?? ""
     }
-    
+
     private var ax: WorthContext {
         document.context
     }
-    
+
     private var ds: DisplaySettings {
         document.displaySettings
     }
-    
+
     private var earliestCapturedAt: Date {
-        ax.firstSnapshotCapturedAt ?? Date.init(timeIntervalSinceReferenceDate: 0)
+        ax.firstSnapshotCapturedAt ?? Date(timeIntervalSinceReferenceDate: 0)
     }
-    
+
     private var latestCapturedAt: Date {
-        ax.lastSnapshotCapturedAt ?? Date.init(timeIntervalSinceReferenceDate: TimeInterval.greatestFiniteMagnitude)
+        ax.lastSnapshotCapturedAt ?? Date(timeIntervalSinceReferenceDate: TimeInterval.greatestFiniteMagnitude)
     }
-    
+
     private var startRange: DateInterval {
-        let endCapturedAt = ax.snapshotMap[ ds.endSnapshotKey ]?.capturedAt ?? latestCapturedAt
-        //return earliestCapturedAt...endCapturedAt
+        let endCapturedAt = ax.snapshotMap[ds.endSnapshotKey]?.capturedAt ?? latestCapturedAt
+        // return earliestCapturedAt...endCapturedAt
         return DateInterval(start: earliestCapturedAt, end: endCapturedAt)
     }
-    
+
     private var endRange: DateInterval {
-        let startCapturedAt = ax.snapshotMap[ ds.begSnapshotKey ]?.capturedAt ?? earliestCapturedAt
-        //return startCapturedAt...latestCapturedAt
+        let startCapturedAt = ax.snapshotMap[ds.begSnapshotKey]?.capturedAt ?? earliestCapturedAt
+        // return startCapturedAt...latestCapturedAt
         return DateInterval(start: startCapturedAt, end: latestCapturedAt)
     }
-    
+
     // MARK: - Actions
-    
-    private func refreshAction(_ snapshotKey: SnapshotKey) {
+
+    private func refreshAction(_: SnapshotKey) {
         document.refreshWorthResult(timeZoneID: timeZoneID)
     }
-    
+
     private func setMaxRangeAction() {
         guard let earliestKey = ax.firstSnapshotKey,
               let latestKey = ax.lastSnapshotKey

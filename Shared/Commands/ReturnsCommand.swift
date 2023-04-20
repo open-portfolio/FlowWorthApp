@@ -13,8 +13,8 @@ import SwiftUI
 
 import KeyWindow
 
-import FlowWorthLib
 import AllocData
+import FlowWorthLib
 
 import FlowUI
 
@@ -82,7 +82,6 @@ extension TabsSecondaryReturns {
     }
 }
 
-
 struct ReturnsCommand: View {
     @KeyWindowValueBinding(WorthDocument.self)
     var document: WorthDocument?
@@ -91,11 +90,10 @@ struct ReturnsCommand: View {
     let altEventModifier: EventModifiers = [.shift, .command]
 
     var body: some View {
-
         primary
-        
+
         Divider()
-        
+
         SettingsMenuItemBool(keyPath: \WorthDocument.displaySettings.showSecondary,
                              desc: "Inspector")
             //            .keyboardShortcut("0", modifiers: defaultEventModifier)
@@ -104,20 +102,20 @@ struct ReturnsCommand: View {
         SettingsMenuItemBool(keyPath: \WorthDocument.displaySettings.returnsExpandBottom,
                              desc: "Period Range")
             .keyboardShortcut("y", modifiers: defaultEventModifier)
-        
+
         Divider()
-        
+
         secondary
 
         Divider()
-        
+
         chartItems
-        
+
         Divider()
-        
+
         periodSummary
     }
-    
+
     @ViewBuilder
     private var periodSummary: some View {
         Text("Period Summary")
@@ -128,30 +126,30 @@ struct ReturnsCommand: View {
                 .keyboardShortcut(item.keyboardShortcut, modifiers: defaultEventModifier)
         }
     }
-    
+
     @ViewBuilder
     private var chartItems: some View {
         chartGrouping
 
         Divider()
-        
+
         chartColor
-        
+
         Divider()
-        
+
         chartExtent
-        
+
         Divider()
-        
+
         SettingsMenuItemBool(keyPath: \WorthDocument.displaySettings.showChartLegend,
                              desc: "Chart Legend")
             .keyboardShortcut("g", modifiers: defaultEventModifier)
     }
-    
+
     @ViewBuilder
     private var chartGrouping: some View {
         Text("Chart Grouping")
-        
+
         ForEach(ReturnsGrouping.allCases, id: \.self) { item in
             SettingsMenuItemKeyed(keyPath: \WorthDocument.displaySettings.returnsGrouping,
                                   keyToMatch: item,
@@ -159,11 +157,11 @@ struct ReturnsCommand: View {
                 .keyboardShortcut(item.keyboardShortcut, modifiers: defaultEventModifier)
         }
     }
-    
+
     @ViewBuilder
     private var chartColor: some View {
         Text("Chart Color")
-        
+
         ForEach(ReturnsColor.allCases, id: \.self) { item in
             SettingsMenuItemKeyed(keyPath: \WorthDocument.displaySettings.returnsColor,
                                   keyToMatch: item,
@@ -171,11 +169,11 @@ struct ReturnsCommand: View {
                 .keyboardShortcut(item.keyboardShortcut, modifiers: defaultEventModifier)
         }
     }
-    
+
     @ViewBuilder
     private var chartExtent: some View {
         Text("Chart Extent")
-        
+
         ForEach(ReturnsExtent.allCases, id: \.self) { item in
             SettingsMenuItemKeyed(keyPath: \WorthDocument.displaySettings.returnsExtent,
                                   keyToMatch: item,
@@ -184,11 +182,10 @@ struct ReturnsCommand: View {
         }
     }
 
-    
     @ViewBuilder
     private var primary: some View {
-        //Text("Primary")
-        
+        // Text("Primary")
+
         ForEach(TabsPrimaryReturns.allCases, id: \.self) { item in
             SettingsMenuItemKeyed(keyPath: \WorthDocument.displaySettings.primaryReturnsTab,
                                   keyToMatch: item,
@@ -201,7 +198,7 @@ struct ReturnsCommand: View {
     @ViewBuilder
     private var secondary: some View {
         Text("Inspector")
-        
+
         ForEach(TabsSecondaryReturns.allCases, id: \.self) { item in
             SettingsMenuItemKeyed(keyPath: \WorthDocument.displaySettings.secondaryReturnsTab,
                                   keyToMatch: item,
@@ -210,7 +207,7 @@ struct ReturnsCommand: View {
                 .keyboardShortcut(item.keyboardShortcut, modifiers: altEventModifier)
         }
     }
-    
+
     private func maybeSetView() {
         guard let currentMenuKey = document?.displaySettings.activeSidebarMenuKey else { return }
         let validMenuKeys = [WorthSidebarMenuIDs.birdsEyeChart.rawValue,
@@ -221,21 +218,18 @@ struct ReturnsCommand: View {
             setBirdsEyeView()
         }
     }
-    
+
     private func isValidAccountKey(_ currentMenuKey: String?) -> Bool {
         guard let key = currentMenuKey else { return false }
         let maybeAccountKey = MAccount.Key(accountID: key)
         return document?.context.accountMap[maybeAccountKey] != nil
     }
-    
+
     private func setBirdsEyeView() {
         document?.displaySettings.activeSidebarMenuKey = WorthSidebarMenuIDs.birdsEyeChart.rawValue
     }
-    
+
     private func enableInspector() {
         document?.displaySettings.showSecondary = true
     }
 }
-
-
-

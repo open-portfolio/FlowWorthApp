@@ -10,10 +10,10 @@
 
 import SwiftUI
 
-import FlowUI
-import FlowBase
-import FlowWorthLib
 import AllocData
+import FlowBase
+import FlowUI
+import FlowWorthLib
 
 struct GettingStarted: View {
     @Binding var document: WorthDocument
@@ -24,23 +24,23 @@ struct GettingStarted: View {
                 VStack(alignment: .leading) {
                     Group {
                         Text("First steps to tracking your portfolio performance:")
-                        
+
                         myText(1, "Create (or import) your accounts")
-                        
+
                         myText(2, "Import holdings for those accounts (e.g, from brokerage positions export)")
-                        
+
                         myText(3, "Ensure each held security is priced and assigned to an asset class")
-                        
+
                         myText(4, "Create the initial valuation snapshot using the Snapshot Builder")
-                        
+
                         Text("At least one day later...")
-                        
+
                         myText(5, "Import updated holdings for your accounts")
-                        
+
                         myText(6, "(Optionally) import transactions (e.g, from brokerage transaction export)")
-                        
+
                         myText(7, "Create the second valuation snapshot using the Snapshot Builder")
-                        
+
                         myText(8, "Review how things changed!")
                     }
                     .font(.title2)
@@ -48,7 +48,7 @@ struct GettingStarted: View {
                     .padding(.vertical, 5)
                 }
             }
-            
+
             if document.model.accounts.count == 0 {
                 HStack {
                     Text("Or if you just want to explore with fake data...")
@@ -65,7 +65,7 @@ struct GettingStarted: View {
     private func myText(_ n: Int, _ suffix: String) -> some View {
         WelcomeNumberedLabel(n, fill: document.accentFill) { Text(suffix) }
     }
-    
+
     private func randomPortfolioAction() {
         do {
             var factory = BasePopulator(&document.model, includeLiabilities: true)

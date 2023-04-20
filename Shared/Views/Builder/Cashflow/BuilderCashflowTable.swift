@@ -10,8 +10,8 @@
 
 import SwiftUI
 
-import Tabler
 import AllocData
+import Tabler
 
 import FlowBase
 import FlowUI
@@ -20,23 +20,23 @@ import FlowWorthLib
 struct BuilderCashflowTable: View {
     @Binding var document: WorthDocument
     var cashflows: [MValuationCashflow]
-    
+
     private static let dfShort: DateFormatter = {
         let df = DateFormatter()
         df.dateStyle = .short
         df.timeStyle = .short
         return df
     }()
-    
+
     private let gridItems: [GridItem] = [
         GridItem(.flexible(minimum: 100), spacing: columnSpacing),
         GridItem(.flexible(minimum: 140), spacing: columnSpacing),
         GridItem(.flexible(minimum: 100), spacing: columnSpacing),
         GridItem(.flexible(minimum: 70), spacing: columnSpacing),
     ]
-    
+
     @State var hovered: DietzSnapshotInfo.ID? = nil
-    
+
     var body: some View {
         TablerStack(.init(rowSpacing: flowRowSpacing),
                     header: header,
@@ -45,25 +45,24 @@ struct BuilderCashflowTable: View {
                     results: cashflows)
             .sideways(minWidth: 500, showIndicators: true)
     }
-    
+
     typealias Context = TablerContext<MValuationCashflow>
-    
-    private func header(_ ctx: Binding<Context>) -> some View {
+
+    private func header(_: Binding<Context>) -> some View {
         LazyVGrid(columns: gridItems, alignment: .leading, spacing: flowColumnSpacing) {
-        Text("Transacted At")
+            Text("Transacted At")
                 .modifier(HeaderCell())
-        Text("Account (Number)")
+            Text("Account (Number)")
                 .modifier(HeaderCell())
-        Text("Asset Class")
+            Text("Asset Class")
                 .modifier(HeaderCell())
-        Text("Amount")
+            Text("Amount")
                 .modifier(HeaderCell())
         }
     }
-    
+
     private func row(_ item: MValuationCashflow) -> some View {
         LazyVGrid(columns: gridItems, alignment: .leading, spacing: flowColumnSpacing) {
-                
             Text(BuilderCashflowTable.dfShort.string(from: item.transactedAt))
                 .lineLimit(1)
                 .mpadding()
@@ -78,13 +77,13 @@ struct BuilderCashflowTable: View {
         }
         .foregroundColor(getColorCode(item.assetKey).0)
     }
-    
+
     private func rowBackground(_ item: MValuationCashflow) -> some View {
         document.getBackgroundFill(item.assetKey)
     }
 
     // MARK: - Helpers
-    
+
     private var ax: WorthContext {
         document.context
     }

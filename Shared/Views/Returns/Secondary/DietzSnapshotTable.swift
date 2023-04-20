@@ -8,11 +8,10 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-
 import SwiftUI
 
-import Tabler
 import AllocData
+import Tabler
 
 import FlowBase
 import FlowUI
@@ -22,7 +21,7 @@ import ModifiedDietz
 struct DietzSnapshotTable: View {
     @Binding var document: WorthDocument
     @ObservedObject var mr: MatrixResult
-    
+
     private let gridItems: [GridItem] = [
         GridItem(.flexible(minimum: 120), spacing: columnSpacing),
         GridItem(.flexible(minimum: 110), spacing: columnSpacing),
@@ -30,9 +29,9 @@ struct DietzSnapshotTable: View {
         GridItem(.flexible(minimum: 80), spacing: columnSpacing),
         GridItem(.flexible(minimum: 80), spacing: columnSpacing),
     ]
-    
+
     @State var hovered: DietzSnapshotInfo.ID? = nil
-    
+
     var body: some View {
         TablerStack(.init(rowSpacing: flowRowSpacing, onHover: hoverAction),
                     header: header,
@@ -42,10 +41,10 @@ struct DietzSnapshotTable: View {
             .sideways(minWidth: 500, showIndicators: true)
         HStack { Spacer(); Text("*period to date").font(.footnote) }
     }
-    
+
     typealias Context = TablerContext<DietzSnapshotInfo>
-    
-    private func header(_ ctx: Binding<Context>) -> some View {
+
+    private func header(_: Binding<Context>) -> some View {
         LazyVGrid(columns: gridItems, alignment: .leading, spacing: flowColumnSpacing) {
             Text("Captured At")
                 .modifier(HeaderCell())
@@ -59,7 +58,7 @@ struct DietzSnapshotTable: View {
                 .modifier(HeaderCell())
         }
     }
-    
+
     private func row(_ item: DietzSnapshotInfo) -> some View {
         LazyVGrid(columns: gridItems, alignment: .leading, spacing: flowColumnSpacing) {
             DateLabel(item.capturedAt, withTime: false)
@@ -74,26 +73,25 @@ struct DietzSnapshotTable: View {
                 .mpadding()
         }
     }
-    
+
     public func rowBackground(_ item: DietzSnapshotInfo) -> some View {
         RoundedRectangle(cornerRadius: 5)
             .fill(Color.accentColor.opacity(hovered == item.id ? 0.2 : 0.0))
     }
-    
+
     // MARK: - Properties
-    
+
     private var dietzItems: [DietzSnapshotInfo] {
         DietzSnapshotInfo.getDietzSnapshots(mr)
     }
-    
+
     private var hasCashflow: Bool {
         mr.hasCashflow
     }
-    
+
     // MARK: - Actions
-    
+
     private func hoverAction(itemID: DietzSnapshotInfo.ID, isHovered: Bool) {
         if isHovered { hovered = itemID } else { hovered = nil }
     }
 }
-

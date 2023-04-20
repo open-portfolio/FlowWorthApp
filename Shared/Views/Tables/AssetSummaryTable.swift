@@ -19,7 +19,7 @@ import FlowWorthLib
 public struct AssetSummaryTable: View {
     @Binding var document: WorthDocument
     @ObservedObject var psum: PeriodSummary
- 
+
     public var body: some View {
         switch document.displaySettings.periodSummarySelection {
         case .deltaMarketValue:
@@ -30,7 +30,7 @@ public struct AssetSummaryTable: View {
             AssetDietzSummaryTable(document: $document, tableData: tableData2)
         }
     }
-    
+
     // convert matrix to the idiosyncratic data format required by this table
     private var tableData0: [AssetDeltaSummaryTable.TableRow] {
         psum.assetKeySet.sorted().reduce(into: []) { array, assetKey in

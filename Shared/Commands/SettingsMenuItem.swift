@@ -26,7 +26,7 @@ struct SettingsMenuItemBool: View {
         }) {
             Text("\((document?[keyPath: keyPath] ?? false) ? "✓" : "   ") \(desc)")
         }
-            .disabled(!enabled)
+        .disabled(!enabled)
     }
 }
 
@@ -37,7 +37,7 @@ struct SettingsMenuItemKeyed<T: Equatable>: View {
     var keyToMatch: T
     var desc: String
     var onSelect: ((T) -> Void)? = nil
-    
+
     var body: some View {
         Button(action: {
             document?[keyPath: keyPath] = keyToMatch

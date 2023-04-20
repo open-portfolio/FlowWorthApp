@@ -13,10 +13,9 @@ import SwiftUI
 import AllocData
 import NiceScale
 
-import FlowUI
 import FlowBase
+import FlowUI
 import FlowWorthLib
-
 
 private let fullDF: DateFormatter = {
     let df = DateFormatter()
@@ -30,7 +29,7 @@ struct SnapshotChart<ChartBody: View>: View {
     let chartBody: (NiceScale<Double>) -> ChartBody
     let horizontalTicks: [HorizontalTick]
     let vertScale: NiceScale<Double>
-    
+
     var body: some View {
         HStack {
             VStack(spacing: 0) {
@@ -40,7 +39,7 @@ struct SnapshotChart<ChartBody: View>: View {
                     .frame(height: 20)
             }
             .frame(width: leadingAxisWidth)
-            
+
             VStack(spacing: 0) {
                 chartGridBody
                 bottomAxisLabels
@@ -50,7 +49,7 @@ struct SnapshotChart<ChartBody: View>: View {
         .padding(.vertical)
         .padding(.horizontal, 30)
     }
-    
+
     private var chartGridBody: some View {
         GeometryReader { geo in
             ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
@@ -63,7 +62,7 @@ struct SnapshotChart<ChartBody: View>: View {
                             .frame(width: 1, height: geo.size.height, alignment: .leading)
                             .offset(x: geo.size.width * tick.offset, y: 0)
                     }
-                    ForEach(0..<vertScale.ticks, id: \.self) { n in
+                    ForEach(0 ..< vertScale.ticks, id: \.self) { n in
                         Rectangle()
                             .frame(width: geo.size.width, height: 1, alignment: .leading)
                             .offset(x: 0, y: geo.size.height - (CGFloat(n) * intervalHeight(geo: geo)))
@@ -73,21 +72,22 @@ struct SnapshotChart<ChartBody: View>: View {
             }
         }
     }
-    
+
     // MARK: - Axis Labels
-    
+
     private var leadingAxisMargin: CGFloat {
         isCompact ? 10 : 20
     }
+
     private var leadingAxisWidth: CGFloat {
         isCompact ? 40 : 75
     }
-    
+
     private var leadingAxisLabels: some View {
         VStack {
             GeometryReader { geo in
                 ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top)) {
-                    ForEach(0..<vertScale.ticks, id: \.self) { n in
+                    ForEach(0 ..< vertScale.ticks, id: \.self) { n in
                         getLeadingAxisLabel(geo, n)
                     }
                 }
@@ -95,15 +95,15 @@ struct SnapshotChart<ChartBody: View>: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
-    
+
     private func getLeadingAxisLabel(_ geo: GeometryProxy, _ n: Int) -> some View {
         let value = vertScale.range.lowerBound + (Double(n) * vertScale.tickInterval)
         let style: CurrencyStyle = isCompact ? .compact : .whole
         return CurrencyLabel(value: value, style: style)
             .font(.caption2)
-            .position(x: leadingAxisMargin, y: geo.size.height - (CGFloat(n) * intervalHeight(geo: geo))) // TODO HARDCODED
+            .position(x: leadingAxisMargin, y: geo.size.height - (CGFloat(n) * intervalHeight(geo: geo))) // TODO: HARDCODED
     }
-    
+
     private var bottomAxisLabels: some View {
         VStack {
             GeometryReader { geo in
@@ -111,7 +111,7 @@ struct SnapshotChart<ChartBody: View>: View {
                     ForEach(horizontalTicks, id: \.self) { tick in
                         if tick.showLabel {
                             Text(getFormattedDate(tick.timestamp))
-                                .position(x: geo.size.width * tick.offset, y: 15) // TODO HARDCODED
+                                .position(x: geo.size.width * tick.offset, y: 15) // TODO: HARDCODED
                         }
                     }
                 }
@@ -119,25 +119,24 @@ struct SnapshotChart<ChartBody: View>: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
-    
+
     // MARK: - Properties
-    
+
     private var ax: WorthContext {
         document.context
     }
-    
+
     private var isCompact: Bool {
         document.displaySettings.showSecondary
     }
-    
+
     // MARK: - Helpers
-    
+
     private func getFormattedDate(_ date: Date) -> String {
         fullDF.string(from: date)
     }
-    
+
     private func intervalHeight(geo: GeometryProxy) -> CGFloat {
         geo.size.height / CGFloat(vertScale.ticks - 1)
     }
 }
-

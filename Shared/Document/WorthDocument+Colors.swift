@@ -8,14 +8,12 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-
 import SwiftUI
 
 import FlowBase
 import FlowUI
 
 extension WorthDocument {
-    
     func getBackgroundFill(_ assetKey: AssetKey) -> AnyView {
         let color = assetColorMap[assetKey]?.1 ?? Color.clear
         return MyColor.getBackgroundFill(color)
@@ -26,11 +24,11 @@ extension WorthDocument {
         let rawColor = Color("AccentColor") // NOTE Color.accentColor produces blue results for mysterious reasons
         return Color.componentize(rawColor)
     }()
-    
+
     var accent: Color {
         WorthDocument._accent
     }
-    
+
     var accentFill: LinearGradient {
         let color = accent
         let lite = color.saturate(by: 0.2)
