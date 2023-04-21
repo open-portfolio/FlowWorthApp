@@ -53,9 +53,7 @@ struct SnapshotChart<ChartBody: View>: View {
     private var chartGridBody: some View {
         GeometryReader { geo in
             ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
-                if let scale = vertScale {
-                    chartBody(scale)
-                }
+                chartBody(vertScale)
                 Group {
                     ForEach(horizontalTicks, id: \.self) { tick in
                         Rectangle()

@@ -80,9 +80,7 @@ struct BuilderTxnTable: View {
     private func row(_ item: MTransaction) -> some View {
         let assetKey = getAssetKey(item)
         return LazyVGrid(columns: gridItems, alignment: .leading, spacing: flowColumnSpacing) {
-            if let _onCheck = checkAction, let _isChecked = isCheckedAction {
-                CheckControl(element: item, onCheck: _onCheck, isChecked: _isChecked)
-            }
+            CheckControl(element: item, onCheck: checkAction, isChecked: isCheckedAction)
 
             Text(item.action.displayDescription)
                 .mpadding()

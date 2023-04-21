@@ -73,9 +73,7 @@ struct AssetsList: View {
 
     private func row(_ assetKey: AssetKey) -> some View {
         LazyVGrid(columns: gridItems, alignment: .leading, spacing: flowColumnSpacing) {
-            if let _onCheck = checkAction, let _isChecked = isCheckedAction {
-                CheckControl(element: assetKey, onCheck: _onCheck, isChecked: _isChecked)
-            }
+            CheckControl(element: assetKey, onCheck: checkAction, isChecked: isCheckedAction)
             Text(MAsset.getTitleID(assetKey, ax.assetMap, withID: true) ?? "")
                 .lineLimit(1)
                 .mpadding()

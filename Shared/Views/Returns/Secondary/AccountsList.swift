@@ -70,9 +70,8 @@ struct AccountsList: View {
 
     private func row(_ accountKey: AccountKey) -> some View {
         LazyVGrid(columns: gridItems, alignment: .leading, spacing: flowColumnSpacing) {
-            if let _onCheck = checkAction, let _isChecked = isCheckedAction {
-                CheckControl(element: accountKey, onCheck: _onCheck, isChecked: _isChecked)
-            }
+            CheckControl(element: accountKey, onCheck: checkAction, isChecked: isCheckedAction)
+
             Text(MAccount.getTitleID(accountKey, ax.accountMap, withID: true) ?? "")
                 .lineLimit(1)
                 .mpadding()
