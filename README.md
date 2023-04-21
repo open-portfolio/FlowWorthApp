@@ -14,16 +14,10 @@ There’s strong potential for supporting iPadOS/iOS, but would require further 
 
 ## See Also
 
-* [FlowAllocator](https://openalloc.github.io/FlowAllocator/index.html) - portfolio rebalancing tool for macOS
-* [FlowWorth](https://openalloc.github.io/FlowWorth/index.html) - portfolio valuation and tracking tool for macOS
-* [FlowUI](https://github.com/openalloc/FlowUI) - shared UI support for the _FlowAllocator_ and _FlowWorth_ apps
-* [FlowAllocHigh](https://github.com/openalloc/FlowAllocHigh) - high-level support for the _FlowAllocator_ app
-* [FlowAllocLow](https://github.com/openalloc/FlowAllocLow) - low-level support for the _FlowAllocator_ app
-* [FlowWorthLib](https://github.com/openalloc/FlowWorthLib) - support for the _FlowWorth_ app
-* [FlowBase](https://github.com/openalloc/FlowBase) - shared support for the _FlowAllocator_ and _FlowWorth_ apps
-* [FlowStats](https://github.com/openalloc/FlowStats) - shared stats support for the _FlowAllocator_ and _FlowWorth_ apps
-* [FlowViz](https://github.com/openalloc/FlowViz) - shared visualization components for the _FlowAllocator_ and _FlowWorth_ apps
-* [FlowXCT](https://github.com/openalloc/FlowXCT) - shared testing components for the _FlowAllocator_ and _FlowWorth_ apps
+This app is a member of the _OpenAlloc Project_.
+
+* [_OpenAlloc_](https://openalloc.github.io) - product website for all the _OpenAlloc_ apps and libraries
+* [_OpenAlloc Project_](https://github.com/openalloc) - Github site for the development project, including full source code
 
 ## License
 

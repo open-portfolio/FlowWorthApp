@@ -275,6 +275,7 @@
 		40D3C95227A44670005D6662 /* ValuationCashflowTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValuationCashflowTable.swift; sourceTree = "<group>"; };
 		40D3C95327A44670005D6662 /* ValuationSnapshotTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValuationSnapshotTable.swift; sourceTree = "<group>"; };
 		40E52DB92741B3C100322EA7 /* PeriodSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodSummary.swift; sourceTree = "<group>"; };
+		40E761F629F2324B00BA2BB5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		40EDD47E26EBFCC300CA53AC /* ReturnsChartBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnsChartBody.swift; sourceTree = "<group>"; };
 		40EDD48426EC19D300CA53AC /* ReturnsGroupingPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnsGroupingPicker.swift; sourceTree = "<group>"; };
 		40FC84DF271BDC8D005C900F /* AssetDeltaSummaryTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDeltaSummaryTable.swift; sourceTree = "<group>"; };
@@ -452,6 +453,7 @@
 		4068F72F26BBA5B3001E5D2C = {
 			isa = PBXGroup;
 			children = (
+				40E761F629F2324B00BA2BB5 /* README.md */,
 				4068F73426BBA5B3001E5D2C /* Shared */,
 				4068F73F26BBA5B4001E5D2C /* iOS */,
 				4068F74626BBA5B4001E5D2C /* macOS */,
