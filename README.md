@@ -14,10 +14,10 @@ There’s strong potential for supporting iPadOS/iOS, but would require further 
 
 ## See Also
 
-This app is a member of the _OpenAlloc Project_.
+This app is a member of the _Open Portfolio Project_.
 
-* [_OpenAlloc_](https://openalloc.github.io) - product website for all the _OpenAlloc_ apps and libraries
-* [_OpenAlloc Project_](https://github.com/openalloc) - Github site for the development project, including full source code
+* [_Open Portfolio_](https://open-portfolio.github.io/) - _Open Portfolio_ product website
+* [_Open Portfolio_ Project](https://github.com/open-portfolio/) - Github site for the development project, including full source code
 
 ## License
 

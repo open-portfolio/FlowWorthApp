@@ -60,7 +60,7 @@ struct WorthApp: App {
 
             CommandGroup(replacing: CommandGroupPlacement.help) {
                 Button(action: {
-                    openURL(URL(string: "https://openalloc.github.io/worth/contents/index.html")!)
+                    openURL(URL(string: "https://open-portfolio.github.io/worth/contents")!)
                 }, label: {
                     Text("FlowWorth Help")
                 })
@@ -73,8 +73,8 @@ struct WorthApp: App {
 
         #if os(macOS)
             Settings {
-                SharedSettingsView(termsURL: URL(string: "https://openalloc.github.io/terms/")!,
-                                   privacyURL: URL(string: "https://openalloc.github.io/privacy/")!)
+                SharedSettingsView(termsURL: URL(string: "https://open-portfolio.github.io/terms")!,
+                                   privacyURL: URL(string: "https://open-portfolio.github.io/privacy")!)
                 {
                     GeneralView()
                 }
