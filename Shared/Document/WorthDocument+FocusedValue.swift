@@ -1,5 +1,5 @@
 //
-//  WorthDocument+KeyWindow.swift
+//  WorthDocument+FocusedValue.swift
 //
 // Copyright 2021, 2022  OpenAlloc LLC
 //
