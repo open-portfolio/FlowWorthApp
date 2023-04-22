@@ -10,13 +10,10 @@
 
 import SwiftUI
 
-import KeyWindow
-
 import FlowUI
 
 struct GeneralView: View {
-    @KeyWindowValueBinding(WorthDocument.self)
-    var document: WorthDocument?
+    @FocusedBinding(\.document) private var document: WorthDocument?
 
     @AppStorage(UserDefShared.timeZoneID.rawValue) var timeZoneID: String = ""
     @AppStorage(UserDefShared.defTimeOfDay.rawValue) var defTimeOfDay: TimeOfDayPicker.Vals = .useDefault

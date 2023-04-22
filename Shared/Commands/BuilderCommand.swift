@@ -11,8 +11,6 @@
 import Combine
 import SwiftUI
 
-import KeyWindow
-
 import AllocData
 import FlowUI
 import FlowWorthLib
@@ -66,8 +64,7 @@ extension TabsCashflowBuilder {
 }
 
 struct BuilderCommand: View {
-    @KeyWindowValueBinding(WorthDocument.self)
-    var document: WorthDocument?
+    @FocusedBinding(\.document) private var document: WorthDocument?
 
     let defaultEventModifier: EventModifiers = [.option, .command]
 

@@ -8,10 +8,15 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-import KeyWindow
 import SwiftUI
 
-// for commands on document see https://lostmoa.com/blog/KeyWindowABetterWayOfExposingValuesFromTheKeyWindow/
-extension WorthDocument: KeyWindowValueKey {
+extension WorthDocument: FocusedValueKey {
     public typealias Value = Binding<Self>
+}
+
+extension FocusedValues {
+    var document: WorthDocument.Value? {
+        get { self[WorthDocument.self] }
+        set { self[WorthDocument.self] = newValue }
+    }
 }

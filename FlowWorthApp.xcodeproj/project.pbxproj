@@ -59,8 +59,8 @@
 		4045C0ED26EDB1460084933D /* BaseReturnsSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4045C0EC26EDB1460084933D /* BaseReturnsSummary.swift */; };
 		4045C0EE26EDB1460084933D /* BaseReturnsSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4045C0EC26EDB1460084933D /* BaseReturnsSummary.swift */; };
 		404F0C46288DF0C900ACBE94 /* FlowWorthLib in Frameworks */ = {isa = PBXBuildFile; productRef = 404F0C45288DF0C900ACBE94 /* FlowWorthLib */; };
-		4055B17A2715E5DE00E6705B /* WorthDocument+KeyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4055B1792715E5DE00E6705B /* WorthDocument+KeyWindow.swift */; };
-		4055B17B2715E5DE00E6705B /* WorthDocument+KeyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4055B1792715E5DE00E6705B /* WorthDocument+KeyWindow.swift */; };
+		4055B17A2715E5DE00E6705B /* WorthDocument+FocusedValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4055B1792715E5DE00E6705B /* WorthDocument+FocusedValue.swift */; };
+		4055B17B2715E5DE00E6705B /* WorthDocument+FocusedValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4055B1792715E5DE00E6705B /* WorthDocument+FocusedValue.swift */; };
 		405A199D26BC6DFB00FB5265 /* FlowWorthLib in Frameworks */ = {isa = PBXBuildFile; productRef = 405A199C26BC6DFB00FB5265 /* FlowWorthLib */; };
 		405A19B526BD004300FB5265 /* ImportCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405A19B226BD004300FB5265 /* ImportCommand.swift */; };
 		405A19B626BD004300FB5265 /* ImportCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405A19B226BD004300FB5265 /* ImportCommand.swift */; };
@@ -218,7 +218,7 @@
 		403CBFCB26FAFB9200FDDE0D /* BuilderFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuilderFooter.swift; sourceTree = "<group>"; };
 		403CBFD126FB05B500FDDE0D /* Notification-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification-extension.swift"; sourceTree = "<group>"; };
 		4045C0EC26EDB1460084933D /* BaseReturnsSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseReturnsSummary.swift; sourceTree = "<group>"; };
-		4055B1792715E5DE00E6705B /* WorthDocument+KeyWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorthDocument+KeyWindow.swift"; sourceTree = "<group>"; };
+		4055B1792715E5DE00E6705B /* WorthDocument+FocusedValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorthDocument+FocusedValue.swift"; sourceTree = "<group>"; };
 		405A19B226BD004300FB5265 /* ImportCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportCommand.swift; sourceTree = "<group>"; };
 		405B29E626DC13B700A99303 /* PrimaryReturns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryReturns.swift; sourceTree = "<group>"; };
 		4068F73526BBA5B3001E5D2C /* WorthApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorthApp.swift; sourceTree = "<group>"; };
@@ -417,7 +417,7 @@
 				40C2762226C04D6A0055B1C0 /* WorthDocument+Refresh.swift */,
 				409FC33A2700C7D900C7C7BD /* WorthDocument+Helpers.swift */,
 				401CBC482710CF7700942CE2 /* WorthDocument+Equatable.swift */,
-				4055B1792715E5DE00E6705B /* WorthDocument+KeyWindow.swift */,
+				4055B1792715E5DE00E6705B /* WorthDocument+FocusedValue.swift */,
 				40ABC64D271E5293000708F8 /* WorthDocument+Constants.swift */,
 				407463962753631E00D6D0DB /* WorthDocument+Colors.swift */,
 			);
@@ -857,7 +857,7 @@
 				40FC84E7271BE8D8005C900F /* AssetDietzSummaryTable.swift in Sources */,
 				4068F76126BBA5B4001E5D2C /* WorthDocument.swift in Sources */,
 				409A0F0026EEC34300E2EE51 /* ForecastChartBody.swift in Sources */,
-				4055B17A2715E5DE00E6705B /* WorthDocument+KeyWindow.swift in Sources */,
+				4055B17A2715E5DE00E6705B /* WorthDocument+FocusedValue.swift in Sources */,
 				40E52DBA2741B3C100322EA7 /* PeriodSummary.swift in Sources */,
 				40ABC638271DD155000708F8 /* PeriodSummarySelectionPicker.swift in Sources */,
 				4032B57026DAEDCF00B1FCA6 /* BuilderCashflowTable.swift in Sources */,
@@ -941,7 +941,7 @@
 				4068F76226BBA5B4001E5D2C /* WorthDocument.swift in Sources */,
 				40FC84E8271BE8D8005C900F /* AssetDietzSummaryTable.swift in Sources */,
 				4068F76426BBA5B4001E5D2C /* ContentView.swift in Sources */,
-				4055B17B2715E5DE00E6705B /* WorthDocument+KeyWindow.swift in Sources */,
+				4055B17B2715E5DE00E6705B /* WorthDocument+FocusedValue.swift in Sources */,
 				40E52DBB2741B3C100322EA7 /* PeriodSummary.swift in Sources */,
 				40ABC639271DD155000708F8 /* PeriodSummarySelectionPicker.swift in Sources */,
 				409A0F0126EEC34300E2EE51 /* ForecastChartBody.swift in Sources */,

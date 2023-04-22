@@ -12,8 +12,6 @@ import Combine
 import os
 import SwiftUI
 
-import KeyWindow
-
 import AllocData
 
 import FlowBase
@@ -31,7 +29,6 @@ struct WorthApp: App {
         DocumentGroup(newDocument: WorthDocument()) { file in
             ContentView(document: file.$document)
                 .environmentObject(infoMessageStore)
-                .observeWindow()
         }
         .commands {
             SidebarCommands() // adds a toggle sidebar to View menu

@@ -11,8 +11,6 @@
 import Combine
 import SwiftUI
 
-import KeyWindow
-
 import AllocData
 import FlowWorthLib
 
@@ -22,8 +20,7 @@ import FlowUI
 struct StrategyCommand: View {
     @AppStorage(UserDefShared.timeZoneID.rawValue) var timeZoneID: String = ""
 
-    @KeyWindowValueBinding(WorthDocument.self)
-    var document: WorthDocument?
+    @FocusedBinding(\.document) private var document: WorthDocument?
 
     let defaultEventModifier: EventModifiers = [.option, .command]
 

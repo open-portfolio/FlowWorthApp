@@ -11,8 +11,6 @@
 import Combine
 import SwiftUI
 
-import KeyWindow
-
 import AllocData
 import FlowWorthLib
 
@@ -83,8 +81,7 @@ extension TabsSecondaryReturns {
 }
 
 struct ReturnsCommand: View {
-    @KeyWindowValueBinding(WorthDocument.self)
-    var document: WorthDocument?
+    @FocusedBinding(\.document) private var document: WorthDocument?
 
     let defaultEventModifier: EventModifiers = [.command]
     let altEventModifier: EventModifiers = [.shift, .command]

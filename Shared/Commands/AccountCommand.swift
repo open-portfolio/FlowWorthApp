@@ -11,16 +11,13 @@
 import Combine
 import SwiftUI
 
-import KeyWindow
-
 import AllocData
 import FlowBase
 import FlowUI
 import FlowWorthLib
 
 struct AccountCommand: View {
-    @KeyWindowValueBinding(WorthDocument.self)
-    var document: WorthDocument?
+    @FocusedBinding(\.document) private var document: WorthDocument?
 
     let defaultEventModifier: EventModifiers = [.control, .option]
     let altEventModifier: EventModifiers = [.option, .command]
