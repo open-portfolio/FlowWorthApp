@@ -225,9 +225,9 @@
 		4068F73626BBA5B3001E5D2C /* WorthDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorthDocument.swift; sourceTree = "<group>"; };
 		4068F73726BBA5B3001E5D2C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4068F73826BBA5B4001E5D2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4068F73D26BBA5B4001E5D2C /* FlowWorthApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowWorthApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4068F73D26BBA5B4001E5D2C /* Flow Worth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flow Worth.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4068F74026BBA5B4001E5D2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4068F74526BBA5B4001E5D2C /* FlowWorthApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowWorthApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4068F74526BBA5B4001E5D2C /* Flow Worth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flow Worth.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4068F74726BBA5B4001E5D2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4068F74826BBA5B4001E5D2C /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		4068F74D26BBA5B4001E5D2C /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -480,8 +480,8 @@
 		4068F73E26BBA5B4001E5D2C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4068F73D26BBA5B4001E5D2C /* FlowWorthApp.app */,
-				4068F74526BBA5B4001E5D2C /* FlowWorthApp.app */,
+				4068F73D26BBA5B4001E5D2C /* Flow Worth.app */,
+				4068F74526BBA5B4001E5D2C /* Flow Worth.app */,
 				4068F74D26BBA5B4001E5D2C /* Tests iOS.xctest */,
 				4068F75826BBA5B4001E5D2C /* Tests macOS.xctest */,
 			);
@@ -643,9 +643,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4068F73C26BBA5B4001E5D2C /* FlowWorthApp (iOS) */ = {
+		4068F73C26BBA5B4001E5D2C /* Flow Worth (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4068F76926BBA5B4001E5D2C /* Build configuration list for PBXNativeTarget "FlowWorthApp (iOS)" */;
+			buildConfigurationList = 4068F76926BBA5B4001E5D2C /* Build configuration list for PBXNativeTarget "Flow Worth (iOS)" */;
 			buildPhases = (
 				4068F73926BBA5B4001E5D2C /* Sources */,
 				4068F73A26BBA5B4001E5D2C /* Frameworks */,
@@ -655,19 +655,19 @@
 			);
 			dependencies = (
 			);
-			name = "FlowWorthApp (iOS)";
+			name = "Flow Worth (iOS)";
 			packageProductDependencies = (
 				405A199C26BC6DFB00FB5265 /* FlowWorthLib */,
 				40D99740288DF5E20075CD6C /* FlowUI */,
 				40D99742288DF5F60075CD6C /* Charts */,
 			);
 			productName = "FlowWorth (iOS)";
-			productReference = 4068F73D26BBA5B4001E5D2C /* FlowWorthApp.app */;
+			productReference = 4068F73D26BBA5B4001E5D2C /* Flow Worth.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4068F74426BBA5B4001E5D2C /* FlowWorthApp (macOS) */ = {
+		4068F74426BBA5B4001E5D2C /* Flow Worth (macOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4068F76C26BBA5B4001E5D2C /* Build configuration list for PBXNativeTarget "FlowWorthApp (macOS)" */;
+			buildConfigurationList = 4068F76C26BBA5B4001E5D2C /* Build configuration list for PBXNativeTarget "Flow Worth (macOS)" */;
 			buildPhases = (
 				4068F74126BBA5B4001E5D2C /* Sources */,
 				4068F74226BBA5B4001E5D2C /* Frameworks */,
@@ -677,7 +677,7 @@
 			);
 			dependencies = (
 			);
-			name = "FlowWorthApp (macOS)";
+			name = "Flow Worth (macOS)";
 			packageProductDependencies = (
 				40F90EBF27A8C9A800A6D4A2 /* Charts */,
 				40178826288D76D300ACA723 /* FlowUI */,
@@ -686,7 +686,7 @@
 				4002DC6228BD9288005858A0 /* FlowWorthLib */,
 			);
 			productName = "FlowWorth (macOS)";
-			productReference = 4068F74526BBA5B4001E5D2C /* FlowWorthApp.app */;
+			productReference = 4068F74526BBA5B4001E5D2C /* Flow Worth.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4068F74C26BBA5B4001E5D2C /* Tests iOS */ = {
@@ -750,7 +750,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4068F73326BBA5B3001E5D2C /* Build configuration list for PBXProject "FlowWorthApp" */;
+			buildConfigurationList = 4068F73326BBA5B3001E5D2C /* Build configuration list for PBXProject "Flow Worth" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -768,8 +768,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4068F73C26BBA5B4001E5D2C /* FlowWorthApp (iOS) */,
-				4068F74426BBA5B4001E5D2C /* FlowWorthApp (macOS) */,
+				4068F73C26BBA5B4001E5D2C /* Flow Worth (iOS) */,
+				4068F74426BBA5B4001E5D2C /* Flow Worth (macOS) */,
 				4068F74C26BBA5B4001E5D2C /* Tests iOS */,
 				4068F75726BBA5B4001E5D2C /* Tests macOS */,
 			);
@@ -1000,12 +1000,12 @@
 /* Begin PBXTargetDependency section */
 		4068F74F26BBA5B4001E5D2C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4068F73C26BBA5B4001E5D2C /* FlowWorthApp (iOS) */;
+			target = 4068F73C26BBA5B4001E5D2C /* Flow Worth (iOS) */;
 			targetProxy = 4068F74E26BBA5B4001E5D2C /* PBXContainerItemProxy */;
 		};
 		4068F75A26BBA5B4001E5D2C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4068F74426BBA5B4001E5D2C /* FlowWorthApp (macOS) */;
+			target = 4068F74426BBA5B4001E5D2C /* Flow Worth (macOS) */;
 			targetProxy = 4068F75926BBA5B4001E5D2C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1140,7 +1140,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = app.flowallocator.worth;
-				PRODUCT_NAME = FlowWorthApp;
+				PRODUCT_NAME = "Flow Worth";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1163,7 +1163,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = app.flowallocator.worth;
-				PRODUCT_NAME = FlowWorthApp;
+				PRODUCT_NAME = "Flow Worth";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1194,7 +1194,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.10;
 				PRODUCT_BUNDLE_IDENTIFIER = org.openalloc.flowworth;
-				PRODUCT_NAME = FlowWorthApp;
+				PRODUCT_NAME = "Flow Worth";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
@@ -1223,7 +1223,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.10;
 				PRODUCT_BUNDLE_IDENTIFIER = org.openalloc.flowworth;
-				PRODUCT_NAME = FlowWorthApp;
+				PRODUCT_NAME = "Flow Worth";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
@@ -1247,7 +1247,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "FlowWorth (iOS)";
+				TEST_TARGET_NAME = "Flow Worth (iOS)";
 			};
 			name = Debug;
 		};
@@ -1269,7 +1269,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "FlowWorth (iOS)";
+				TEST_TARGET_NAME = "Flow Worth (iOS)";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1292,7 +1292,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = "FlowWorth (macOS)";
+				TEST_TARGET_NAME = "Flow Worth (macOS)";
 			};
 			name = Debug;
 		};
@@ -1314,14 +1314,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = "FlowWorth (macOS)";
+				TEST_TARGET_NAME = "Flow Worth (macOS)";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4068F73326BBA5B3001E5D2C /* Build configuration list for PBXProject "FlowWorthApp" */ = {
+		4068F73326BBA5B3001E5D2C /* Build configuration list for PBXProject "Flow Worth" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4068F76726BBA5B4001E5D2C /* Debug */,
@@ -1330,7 +1330,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4068F76926BBA5B4001E5D2C /* Build configuration list for PBXNativeTarget "FlowWorthApp (iOS)" */ = {
+		4068F76926BBA5B4001E5D2C /* Build configuration list for PBXNativeTarget "Flow Worth (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4068F76A26BBA5B4001E5D2C /* Debug */,
@@ -1339,7 +1339,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4068F76C26BBA5B4001E5D2C /* Build configuration list for PBXNativeTarget "FlowWorthApp (macOS)" */ = {
+		4068F76C26BBA5B4001E5D2C /* Build configuration list for PBXNativeTarget "Flow Worth (macOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4068F76D26BBA5B4001E5D2C /* Debug */,

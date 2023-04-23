@@ -62,7 +62,7 @@ struct WorthApp: App {
                 Button(action: {
                     openURL(URL(string: "https://open-portfolio.github.io/worth/contents")!)
                 }, label: {
-                    Text("FlowWorth Help")
+                    Text("Flow Worth Help")
                 })
             }
 

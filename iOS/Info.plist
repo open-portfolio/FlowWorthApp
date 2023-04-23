@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>FlowWorth</string>
+	<string>Flow Worth</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
@@ -74,7 +74,7 @@
 				<string>public.content</string>
 			</array>
 			<key>UTTypeDescription</key>
-			<string>FlowAllocator Worth</string>
+			<string>Flow Worth</string>
 			<key>UTTypeIconFiles</key>
 			<array/>
 			<key>UTTypeIdentifier</key>

@@ -1,4 +1,4 @@
-# FlowWorth App
+# Flow Worth App
 
 _Portfolio valuation and tracking tool for the Do-It-Yourself Investor_
 
